@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.questionP {
+	width: 500px;
+	border: 1px solid red;
+}
+
+.inputS {
+	width: 50px;
+	border: 1px solid red;
+}
+
+.questionP .inputS {
+	display: block;
+	vertical-align: top;
+}
