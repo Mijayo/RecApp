@@ -41,6 +41,7 @@ public class Usuario implements Serializable {
 	}
 	
 	
+
 	public Usuario(int idUsuario, String email, Date fechaAlta, String nombre, String password, String tipoEneagrama,
 			Eneagrama eneagrama) {
 		super();

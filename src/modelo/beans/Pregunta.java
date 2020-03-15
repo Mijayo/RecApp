@@ -13,11 +13,16 @@ import javax.persistence.*;
 public class Pregunta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private PreguntaPK id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID_AUX")
+	private int idAux;
 
 	@Column(name="ID_PREGUNTA")
 	private int idPregunta;
+
+	@Column(name="NUM_PREGUNTA")
+	private int numPregunta;
 
 	private String pregunta;
 
@@ -27,12 +32,12 @@ public class Pregunta implements Serializable {
 	public Pregunta() {
 	}
 
-	public PreguntaPK getId() {
-		return this.id;
+	public int getIdAux() {
+		return this.idAux;
 	}
 
-	public void setId(PreguntaPK id) {
-		this.id = id;
+	public void setIdAux(int idAux) {
+		this.idAux = idAux;
 	}
 
 	public int getIdPregunta() {
@@ -41,6 +46,14 @@ public class Pregunta implements Serializable {
 
 	public void setIdPregunta(int idPregunta) {
 		this.idPregunta = idPregunta;
+	}
+
+	public int getNumPregunta() {
+		return this.numPregunta;
+	}
+
+	public void setNumPregunta(int numPregunta) {
+		this.numPregunta = numPregunta;
 	}
 
 	public String getPregunta() {

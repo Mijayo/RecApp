@@ -5,7 +5,6 @@
 		<class>modelo.beans.Auxiliar</class>
 		<class>modelo.beans.Eneagrama</class>
 		<class>modelo.beans.Pregunta</class>
-		<class>modelo.beans.PreguntaPK</class>
 		<class>modelo.beans.Profesion</class>
 		<class>modelo.beans.Usuario</class>
 		<properties>

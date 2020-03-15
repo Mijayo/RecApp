@@ -65,14 +65,14 @@ public class GestionPreguntas extends HttpServlet {
 				tipoEneagrama = 1;
 				idEneag = 1;
 			
-				System.out.println("Tipo eneagrama = 1 " + request.getParameter("valor"));
+				System.out.println("Tipo eneagrama = 1 " + request.getParameter("cantidad"));
 
 			} else {
 
 				tipoEneagrama++;
 				idEneag++;
 				
-				System.out.println("Tipo eneagrama ++ " + request.getParameter("valor"));
+				System.out.println("Tipo eneagrama ++ " + request.getParameter("cantidad"));
 
 			}
 
@@ -90,7 +90,9 @@ public class GestionPreguntas extends HttpServlet {
 			if (tipoEneagrama > 9) {
 				sesionQuestion.invalidate();
 				idQuestion.invalidate();
+				
 				request.getRequestDispatcher("resultado.jsp").forward(request, response);
+				
 			} else {
 				request.getRequestDispatcher("question.jsp").forward(request, response);
 			}
