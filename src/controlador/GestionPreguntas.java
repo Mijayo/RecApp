@@ -78,17 +78,18 @@ public class GestionPreguntas extends HttpServlet {
 
 			List<Pregunta> lista = pdao.findByTipoEneg(tipoEneagrama);
 			
-			
-
 			System.out.println(lista);
 			System.out.println(tipoEneagrama);
+			
 			request.setAttribute("preguntas", lista);
 			idQuestion.setAttribute("tipoEne", pdao.findByID(idEneag));
+			
 			System.out.println("aquiiiiiii " + idQuestion.getAttribute("tipoEne"));
 			sesionQuestion.setAttribute("id", tipoEneagrama);
 
 			if (tipoEneagrama > 9) {
 				sesionQuestion.invalidate();
+				idQuestion.invalidate();
 				request.getRequestDispatcher("resultado.jsp").forward(request, response);
 			} else {
 				request.getRequestDispatcher("question.jsp").forward(request, response);
