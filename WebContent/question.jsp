@@ -99,23 +99,25 @@
 
 						<form class="" action="GestionPreguntas?option=question"
 							method="POST">
-							<div style="position:relative;">
-				
+							<div style="position: relative;">
+
 								<h2 class="mb-4" style="color: white;">
 									<span>${sessionScope.tipoEne} -</span>
 								</h2>
-				
+
 							</div>
-							<div style="max-width: 450px; position:absolute; z-index:99;">
+							<div style="max-width: 450px; position: absolute; z-index: 99;">
 								<c:forEach items="${requestScope.preguntas}" var="pregunta">
 									<div style="display: flex;">
 										<table>
 											<tr>
-												<td>
-													<p class="mb-4" style="color: white;">${pregunta.pregunta }</p>
+												<td><input class="mgLibro" type="checkbox" name="isbn"
+													value="${pregunta.idPregunta}">
+													<p class="mb-4" style="color: white;">${pregunta }</p>
 												</td>
 												<!-- <input class="inputS" type="text" name="valor" required ></input> -->
-												<td><select required>
+												<td><select required
+													name="cantidad${pregunta.idPregunta }">
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
