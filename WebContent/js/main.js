@@ -1,3 +1,11 @@
+spinner();
+
+var spin = setInterval(spinner, 1000);
+
+function spinner() {
+	alert('hola');
+    document.querySelector(".lds-ring").style.display = "block";
+}
 
 
 // When the user clicks anywhere outside of the modal, close it

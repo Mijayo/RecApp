@@ -52,7 +52,8 @@ public class GestionPreguntas extends HttpServlet {
 		HttpSession idQuestion = request.getSession();
 
 		Integer tipoEneagrama = (Integer) sesionQuestion.getAttribute("id");
-		Integer idEneag =  (Integer) idQuestion.getAttribute("tipoEne");
+		// Integer idEneag =  (Integer) idQuestion.getAttribute("tipoEne");
+		
 
 		switch (request.getParameter("option")) {
 
@@ -60,36 +61,45 @@ public class GestionPreguntas extends HttpServlet {
 
 			System.out.println(tipoEneagrama);
 
-			if (tipoEneagrama == null) {
+			if (tipoEneagrama == null ) {
 
 				tipoEneagrama = 1;
-				idEneag = 1;
-			
+				//idEneag = 1;
+				// i = pdao.findByID(idEneag);
+				// idQuestion.setAttribute("tipoEne", i);
 				System.out.println("Tipo eneagrama = 1 " + request.getParameter("cantidad"));
 
 			} else {
 
 				tipoEneagrama++;
-				idEneag++;
-				
+				//idEneag++;
+				// i = pdao.findByID(idEneag);
+				// idQuestion.setAttribute("tipoEne", i);
 				System.out.println("Tipo eneagrama ++ " + request.getParameter("cantidad"));
 
 			}
 
 			List<Pregunta> lista = pdao.findByTipoEneg(tipoEneagrama);
+			//List<Pregunta> i = pdao.findByID(idEneag);
 			
 			System.out.println(lista);
 			System.out.println(tipoEneagrama);
 			
+			//System.out.println(i);
+			//System.out.println(idEneag);
+			
 			request.setAttribute("preguntas", lista);
-			idQuestion.setAttribute("tipoEne", pdao.findByID(idEneag));
+			
+			//idQuestion.setAttribute("tipoEne", i);
 			
 			System.out.println("aquiiiiiii " + idQuestion.getAttribute("tipoEne"));
+			
 			sesionQuestion.setAttribute("id", tipoEneagrama);
 
 			if (tipoEneagrama > 9) {
+				
 				sesionQuestion.invalidate();
-				idQuestion.invalidate();
+				// idQuestion.invalidate();
 				
 				request.getRequestDispatcher("resultado.jsp").forward(request, response);
 				
@@ -97,6 +107,15 @@ public class GestionPreguntas extends HttpServlet {
 				request.getRequestDispatcher("question.jsp").forward(request, response);
 			}
 
+			break;
+			
+		case "preguntas":
+			
+			List<Pregunta> list = pdao.findAll();
+			
+			request.setAttribute("preguntas", list);
+			request.getRequestDispatcher("question.jsp").forward(request, response);
+			
 			break;
 
 		}
