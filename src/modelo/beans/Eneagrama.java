@@ -3,18 +3,17 @@ package modelo.beans;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the ENEAGRAMA database table.
  * 
  */
 @Entity
-@NamedQuery(name="Eneagrama.findAll", query="SELECT e FROM Eneagrama e")
+@NamedQuery(name = "Eneagrama.findAll", query = "SELECT e FROM Eneagrama e")
 public class Eneagrama implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="ID_ENEAGRAMA")
+	@Column(name = "ID_ENEAGRAMA")
 	private int idEneagrama;
 
 	private String descripcion;
@@ -24,6 +23,14 @@ public class Eneagrama implements Serializable {
 	private String tipo;
 
 	public Eneagrama() {
+	}
+
+	public Eneagrama(int idEneagrama, String descripcion, int sum, String tipo) {
+		super();
+		this.idEneagrama = idEneagrama;
+		this.descripcion = descripcion;
+		this.sum = sum;
+		this.tipo = tipo;
 	}
 
 	public int getIdEneagrama() {

@@ -12,7 +12,7 @@
 	
 <link rel="stylesheet" href="style.css"> 
 
-<title>ReCapp</title>
+<title>RecApp</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">

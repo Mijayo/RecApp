@@ -94,7 +94,7 @@
 			<div class="container">
 				<div class="row align-items-center ">
 
-					<div class="mr-auto" style="max-width: 400px;">
+					<div class="mr-auto" style="max-width: 400px; position: relative; left: 80px;">
 						<h2 class="mb-4" style="color: white;">¿Cómo realizar el
 							test?</h2>
 						<p class="mb-4" style="color: white;">Hay nueve tipos de
@@ -113,7 +113,7 @@
 					</div>
 
 					<div
-						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 650px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
+						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 720px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
 						<h4 class="mb-4" style="color: grey;">sistema de puntos</h4>
 						<ul style="list-style-type: none; margin-left: -35px;">
 							<li style="text-align: center;"><span
@@ -143,7 +143,7 @@
 					</div>
 
 				</div>
-				<p style="margin-left: -15px; margin-top: 15px;">
+				<p style="margin-left: 65px; margin-top: 15px;">
 					<a class="registro btn btn-outline-white"
 						href="GestionPreguntas?option=question">test</a>
 				</p>

@@ -100,30 +100,35 @@
 						<form class="" action="GestionPreguntas?option=question"
 							method="POST">
 							<div style="position: relative;">
-
-								<h2 class="mb-4" style="color: white;">
-									<span>${sessionScope.tipoEne} -</span>
-								</h2>
-
+							
+									<h2 class="mb-4" style="color: white;">
+										<span>${requestScope.tipoEne.idEneagrama } </span><span>- ${requestScope.tipoEne.tipo } </span>
+									</h2>
+							
 							</div>
 							<div style="max-width: 450px; position: absolute; z-index: 99;">
-								<c:forEach items="${requestScope.preguntas}" var="pregunta">
+								<c:forEach items="${requestScope.preguntas}" var="pregunta" begin="0" end="4">
 									<div style="display: flex;">
 										<table>
 											<tr>
-												<td><input class="mgLibro" type="checkbox" name="isbn"
-													value="${pregunta.idPregunta}">
-													<p class="mb-4" style="color: white;">${pregunta }</p>
+												<td>
+													<%-- <input class="mgLibro" type="checkbox" name="isbn"
+													value="${pregunta.idAux}"> --%>
+													<p class="mb-4" style="color: white;">
+														<span style="color: white;">${pregunta.idAux } -</span>
+														${pregunta.pregunta }
+													</p>
 												</td>
 												<!-- <input class="inputS" type="text" name="valor" required ></input> -->
-												<td><select required
-													name="cantidad${pregunta.idPregunta }">
+												<td><select required name="cantidad${pregunta.idAux }">
+														<option >-</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
 														<option value="4">4</option>
 														<option value="4">5</option>
-												</select></td>
+												</select>
+												</td>
 											</tr>
 										</table>
 									</div>
@@ -136,7 +141,7 @@
 					</div>
 
 					<div
-						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 820px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
+						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 780px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
 						<h4 class="mb-4" style="color: grey;">sistema de puntos</h4>
 						<ul style="list-style-type: none; margin-left: -35px;">
 							<li style="text-align: center;"><span
