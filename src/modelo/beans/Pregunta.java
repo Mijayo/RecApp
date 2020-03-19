@@ -3,33 +3,41 @@ package modelo.beans;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
 /**
  * The persistent class for the PREGUNTA database table.
  * 
  */
 @Entity
-@NamedQuery(name="Pregunta.findAll", query="SELECT p FROM Pregunta p")
+@NamedQuery(name = "Pregunta.findAll", query = "SELECT p FROM Pregunta p")
 public class Pregunta implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID_AUX")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_AUX")
 	private int idAux;
 
-	@Column(name="ID_PREGUNTA")
+	@Column(name = "ID_PREGUNTA")
 	private int idPregunta;
 
-	@Column(name="NUM_PREGUNTA")
+	@Column(name = "NUM_PREGUNTA")
 	private int numPregunta;
 
 	private String pregunta;
 
-	@Column(name="TIPO_ENEAG")
+	@Column(name = "TIPO_ENEAG")
 	private String tipoEneag;
 
 	public Pregunta() {
+	}
+
+	public Pregunta(int idAux, int idPregunta, int numPregunta, String pregunta, String tipoEneag) {
+		super();
+		this.idAux = idAux;
+		this.idPregunta = idPregunta;
+		this.numPregunta = numPregunta;
+		this.pregunta = pregunta;
+		this.tipoEneag = tipoEneag;
 	}
 
 	public int getIdAux() {

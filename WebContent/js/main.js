@@ -1,9 +1,9 @@
-spinner();
+// spinner();
 
 var spin = setInterval(spinner, 1000);
 
 function spinner() {
-	alert('hola');
+	// alert('hola');
     document.querySelector(".lds-ring").style.display = "block";
 }
 

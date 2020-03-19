@@ -55,7 +55,7 @@ public class PreguntaDAOImpl implements PreguntaDAO {
 
 		System.out.println("Aqui tipoID " + tipoID);
 
-		sql = "select p from Pregunta p where p.idPregunta = :nid and p.numPregunta = '1'";
+		sql = "select p from Pregunta p where p.idPregunta = :nid and p.numPregunta = 1";
 
 		try {
 			query = em.createQuery(sql);

@@ -145,7 +145,7 @@
 				</div>
 				<p style="margin-left: 65px; margin-top: 15px;">
 					<a class="registro btn btn-outline-white"
-						href="GestionPreguntas?option=preguntas">test</a>
+						href="GestionPreguntas?option=question">test</a>
 				</p>
 			</div>
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import modelo.DAOS.EneagramaDAOImpl;
 import modelo.DAOS.PreguntaDAOImpl;
 import modelo.beans.Pregunta;
 
@@ -46,14 +47,16 @@ public class GestionPreguntas extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		EneagramaDAOImpl edao = new EneagramaDAOImpl();
+
 		PreguntaDAOImpl pdao = new PreguntaDAOImpl();
 
 		HttpSession sesionQuestion = request.getSession();
-		HttpSession idQuestion = request.getSession();
-
 		Integer tipoEneagrama = (Integer) sesionQuestion.getAttribute("id");
-		// Integer idEneag =  (Integer) idQuestion.getAttribute("tipoEne");
-		
+
+		HttpSession sesionEneagrama = request.getSession();
+		Integer idEneagrama = (Integer) sesionEneagrama.getAttribute("idEneag");
+
 
 		switch (request.getParameter("option")) {
 
@@ -61,61 +64,54 @@ public class GestionPreguntas extends HttpServlet {
 
 			System.out.println(tipoEneagrama);
 
-			if (tipoEneagrama == null ) {
+			if (tipoEneagrama == null || idEneagrama == null) {
 
 				tipoEneagrama = 1;
-				//idEneag = 1;
-				// i = pdao.findByID(idEneag);
-				// idQuestion.setAttribute("tipoEne", i);
-				System.out.println("Tipo eneagrama = 1 " + request.getParameter("cantidad"));
+
+				idEneagrama = 1;
+
+			
 
 			} else {
 
 				tipoEneagrama++;
-				//idEneag++;
-				// i = pdao.findByID(idEneag);
-				// idQuestion.setAttribute("tipoEne", i);
-				System.out.println("Tipo eneagrama ++ " + request.getParameter("cantidad"));
+
+				idEneagrama++;
+
+				
 
 			}
-
+			
+			request.setAttribute("tipoEne", edao.findEneagrama(idEneagrama));
+			
 			List<Pregunta> lista = pdao.findByTipoEneg(tipoEneagrama);
-			//List<Pregunta> i = pdao.findByID(idEneag);
+
 			
 			System.out.println(lista);
 			System.out.println(tipoEneagrama);
+
 			
-			//System.out.println(i);
-			//System.out.println(idEneag);
-			
+
 			request.setAttribute("preguntas", lista);
 			
-			//idQuestion.setAttribute("tipoEne", i);
+
 			
-			System.out.println("aquiiiiiii " + idQuestion.getAttribute("tipoEne"));
-			
+			sesionEneagrama.setAttribute("idEneag", idEneagrama);
+
 			sesionQuestion.setAttribute("id", tipoEneagrama);
 
 			if (tipoEneagrama > 9) {
-				
+
 				sesionQuestion.invalidate();
-				// idQuestion.invalidate();
+				sesionEneagrama.invalidate();
 				
+
 				request.getRequestDispatcher("resultado.jsp").forward(request, response);
-				
+
 			} else {
 				request.getRequestDispatcher("question.jsp").forward(request, response);
 			}
 
-			break;
-			
-		case "preguntas":
-			
-			List<Pregunta> list = pdao.findAll();
-			
-			request.setAttribute("preguntas", list);
-			request.getRequestDispatcher("question.jsp").forward(request, response);
-			
 			break;
 
 		}
