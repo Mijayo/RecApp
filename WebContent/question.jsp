@@ -100,35 +100,31 @@
 						<form class="" action="GestionPreguntas?option=question"
 							method="POST">
 							<div style="position: relative;">
-							
-									<h2 class="mb-4" style="color: white;">
-										<span>${requestScope.tipoEne.idEneagrama } </span><span>- ${requestScope.tipoEne.tipo } </span>
-									</h2>
-							
+
+								<h2 class="mb-4" style="color: white;">
+									<span>${requestScope.tipoEne.idEneagrama } </span><span>-
+										${requestScope.tipoEne.tipo } </span>
+								</h2>
+
 							</div>
 							<div style="max-width: 450px; position: absolute; z-index: 99;">
-								<c:forEach items="${requestScope.preguntas}" var="pregunta" begin="0" end="4">
+								<c:forEach items="${requestScope.preguntas}" var="pregunta"
+									begin="0" end="4">
 									<div style="display: flex;">
 										<table>
 											<tr>
-												<td>
-													<%-- <input class="mgLibro" type="checkbox" name="isbn"
-													value="${pregunta.idAux}"> --%>
+												<td><input type="checkbox" name="isbn"
+													value="${pregunta.idAux}" required>
 													<p class="mb-4" style="color: white;">
-														<span style="color: white;">${pregunta.idAux } -</span>
-														${pregunta.pregunta }
-													</p>
-												</td>
-												<!-- <input class="inputS" type="text" name="valor" required ></input> -->
-												<td><select required name="cantidad${pregunta.idAux }">
-														<option >-</option>
+
+														${pregunta.pregunta }</p></td>
+												<td><select name="cantidad${pregunta.idAux }">
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
 														<option value="4">4</option>
-														<option value="4">5</option>
-												</select>
-												</td>
+														<option value="5">5</option>
+												</select></td>
 											</tr>
 										</table>
 									</div>
@@ -173,21 +169,4 @@
 		</main>
 	</div>
 </body>
-<script>
-	var x = 0;
-
-	function cambioTitulo() {
-
-		var numero = document.getElementById('idNumero').value;
-		var titulo = document.getElementById('idPregunta').value;
-
-		if (x == 0) {
-			x += 1;
-		} else {
-			x += 1;
-		}
-		alert(x);
-
-	}
-</script>
 </html>

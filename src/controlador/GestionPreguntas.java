@@ -1,6 +1,7 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -57,6 +58,7 @@ public class GestionPreguntas extends HttpServlet {
 		HttpSession sesionEneagrama = request.getSession();
 		Integer idEneagrama = (Integer) sesionEneagrama.getAttribute("idEneag");
 
+		List<Integer> arrayResultadoPreguntas = null;
 
 		switch (request.getParameter("option")) {
 
@@ -64,13 +66,34 @@ public class GestionPreguntas extends HttpServlet {
 
 			System.out.println(tipoEneagrama);
 
+			// arrayResultadoPreguntas = new ArrayList<Integer>();
+
 			if (tipoEneagrama == null || idEneagrama == null) {
 
 				tipoEneagrama = 1;
 
 				idEneagrama = 1;
 
-			
+				System.out.println("dentro del nulo");
+
+				if (request.getParameterValues("isbn") != null) {
+
+					System.out.println("dentro del nulo 2");
+
+					// arrayResultadoPreguntas.add((Integer) request.getAttribute("cantidad"));
+
+					// arrayResultadoPreguntas.add(Integer.valueOf(request.getParameter("cantidad")));
+
+					if (arrayResultadoPreguntas == null) {
+						arrayResultadoPreguntas = new ArrayList<Integer>();
+					}
+
+					for (String ele : request.getParameterValues("isbn")) {
+						arrayResultadoPreguntas.add(Integer.valueOf(request.getParameter("cantidad" + ele)));
+					}
+
+					System.out.println("cosas dentro del array pregunta 1: " + arrayResultadoPreguntas);
+				}
 
 			} else {
 
@@ -78,24 +101,53 @@ public class GestionPreguntas extends HttpServlet {
 
 				idEneagrama++;
 
+				System.out.println("fuera del nulo");
+
+				System.out.println("fuera del nulo 2");
+
+				if (arrayResultadoPreguntas == null) {
+					arrayResultadoPreguntas = new ArrayList<Integer>();
+				}
+
+				for (String ele : request.getParameterValues("isbn")) {
+					arrayResultadoPreguntas.add(Integer.valueOf(request.getParameter("cantidad" + ele)));
+				}
+
+				// arrayResultadoPreguntas.add(Integer.valueOf(request.getParameter("cantidad")));
+
+				System.out.println("cosas dentro del array pregunta tonta: " + arrayResultadoPreguntas);
+
+				int num = 0;
+				int arrayNum[] = {};
+
+				for (Integer l : arrayResultadoPreguntas) {
+					num += l;
+					// arrayNum num;
+					
+					/*for (int i = 0; i < arrayNum.length; i++) {
+						// int i = arrayNum.length;
+						arrayNum[i] = num;
+					}*/
+
+				}
 				
+				
+				// arrayNum.clone(arrayResultadoPreguntas);
+
+				System.out.println("valores del array " + num);
+				System.out.println("suma del array " + arrayNum);
 
 			}
-			
+
 			request.setAttribute("tipoEne", edao.findEneagrama(idEneagrama));
-			
+
 			List<Pregunta> lista = pdao.findByTipoEneg(tipoEneagrama);
 
-			
-			System.out.println(lista);
-			System.out.println(tipoEneagrama);
-
-			
+			// System.out.println(lista);
+			// System.out.println(tipoEneagrama);
 
 			request.setAttribute("preguntas", lista);
-			
 
-			
 			sesionEneagrama.setAttribute("idEneag", idEneagrama);
 
 			sesionQuestion.setAttribute("id", tipoEneagrama);
@@ -104,7 +156,6 @@ public class GestionPreguntas extends HttpServlet {
 
 				sesionQuestion.invalidate();
 				sesionEneagrama.invalidate();
-				
 
 				request.getRequestDispatcher("resultado.jsp").forward(request, response);
 

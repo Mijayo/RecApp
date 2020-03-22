@@ -28,6 +28,19 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 	color: #000;
 }
 
+input[type=checkbox] {
+	border-radius: 100px !important;
+	border: 2px solid #00EA90 !important;
+}
+
+select {
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	-ms-appearance: none;
+}
+
 #viewPort {
 	background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%,
 		rgba(61, 179, 197, 0.8) 100%) !important;
@@ -107,57 +120,73 @@ figure figcaption {
 }
 
 /* Spiner */
-
 .contSpiner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
 }
 
 .lds-ring {
-    display: none;
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
+	display: none;
+	display: inline-block;
+	position: relative;
+	width: 64px;
+	height: 64px;
 }
 
 .lds-ring div {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 51px;
-    height: 51px;
-    margin: 6px;
-    border: 6px solid rgb(253, 145, 22);
-    border-radius: 50%;
-    animation: lds-ring 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: rgb(253, 145, 22) transparent transparent transparent;
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 51px;
+	height: 51px;
+	margin: 6px;
+	border: 6px solid rgb(253, 145, 22);
+	border-radius: 50%;
+	animation: lds-ring 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: rgb(253, 145, 22) transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
-    animation-delay: -0.45s;
+	animation-delay: -0.45s;
 }
 
 .lds-ring div:nth-child(2) {
-    animation-delay: -0.3s;
+	animation-delay: -0.3s;
 }
 
 .lds-ring div:nth-child(3) {
-    animation-delay: -0.15s;
+	animation-delay: -0.15s;
 }
 
-@keyframes lds-ring {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+@
+keyframes lds-ring { 0% {
+	transform: rotate(0deg);
 }
 
+100%
+{
+transform
+
+
+:
+
+ 
+
+rotate
+
+
+(360
+deg
+);
+
+
+    
+
+}
+}
 
 /* Back to top button */
 .back-to-top {
@@ -560,11 +589,19 @@ figure figcaption {
 
 
 
+
+
+
+
 :
 
 
 
+
+
  
+
+
 
 
 
@@ -575,8 +612,16 @@ rotate
 
 
 
+
+
+
+
 (360
 deg
+
+
+
+
 
 
 
@@ -589,11 +634,19 @@ transform
 
 
 
+
+
+
+
 :
 
 
 
+
+
  
+
+
 
 
 
@@ -604,8 +657,16 @@ rotate
 
 
 
+
+
+
+
 (360
 deg
+
+
+
+
 
 
 
@@ -628,11 +689,19 @@ keyframes animate-loading { 0% {
 
 
 
+
+
+
+
 :
 
 
 
+
+
  
+
+
 
 
 
@@ -643,8 +712,16 @@ rotate
 
 
 
+
+
+
+
 (360
 deg
+
+
+
+
 
 
 
@@ -657,11 +734,19 @@ transform
 
 
 
+
+
+
+
 :
 
 
 
+
+
  
+
+
 
 
 
@@ -672,8 +757,16 @@ rotate
 
 
 
+
+
+
+
 (360
 deg
+
+
+
+
 
 
 
