@@ -113,18 +113,23 @@
 									<div style="display: flex;">
 										<table>
 											<tr>
-												<td><input type="checkbox" name="isbn"
-													value="${pregunta.idAux}" required>
-													<p class="mb-4" style="color: white;">
-
+											
+												<td><input
+													style="position: relative; top: -22px; border: 1px solid red;"
+													type="checkbox" name="isbn" value="${pregunta.idAux}"
+													required></td>
+												<td><p 
+														style="color: white; padding: 0px 10px 0px 10px; min-width: 450px;">
 														${pregunta.pregunta }</p></td>
-												<td><select name="cantidad${pregunta.idAux }">
+												<td><select style="border: 1px solid red;"
+													name="cantidad${pregunta.idAux }">
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
 														<option value="4">4</option>
 														<option value="5">5</option>
 												</select></td>
+									
 											</tr>
 										</table>
 									</div>

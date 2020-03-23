@@ -60,13 +60,12 @@ public class GestionPreguntas extends HttpServlet {
 
 		List<Integer> arrayResultadoPreguntas = null;
 
+		
 		switch (request.getParameter("option")) {
 
 		case "question":
 
 			System.out.println(tipoEneagrama);
-
-			// arrayResultadoPreguntas = new ArrayList<Integer>();
 
 			if (tipoEneagrama == null || idEneagrama == null) {
 
@@ -79,10 +78,6 @@ public class GestionPreguntas extends HttpServlet {
 				if (request.getParameterValues("isbn") != null) {
 
 					System.out.println("dentro del nulo 2");
-
-					// arrayResultadoPreguntas.add((Integer) request.getAttribute("cantidad"));
-
-					// arrayResultadoPreguntas.add(Integer.valueOf(request.getParameter("cantidad")));
 
 					if (arrayResultadoPreguntas == null) {
 						arrayResultadoPreguntas = new ArrayList<Integer>();
@@ -113,38 +108,32 @@ public class GestionPreguntas extends HttpServlet {
 					arrayResultadoPreguntas.add(Integer.valueOf(request.getParameter("cantidad" + ele)));
 				}
 
-				// arrayResultadoPreguntas.add(Integer.valueOf(request.getParameter("cantidad")));
-
-				System.out.println("cosas dentro del array pregunta tonta: " + arrayResultadoPreguntas);
+				System.out.println("cosas dentro del array preguntas: " + arrayResultadoPreguntas);
 
 				int num = 0;
-				int arrayNum[] = {};
+				int arrayNum[] = new int[1]; // new int[9]
 
 				for (Integer l : arrayResultadoPreguntas) {
 					num += l;
-					// arrayNum num;
-					
-					/*for (int i = 0; i < arrayNum.length; i++) {
-						// int i = arrayNum.length;
+
+					for (int i = 0; i < arrayNum.length; i++) {
 						arrayNum[i] = num;
-					}*/
+					}
 
 				}
-				
-				
-				// arrayNum.clone(arrayResultadoPreguntas);
 
 				System.out.println("valores del array " + num);
-				System.out.println("suma del array " + arrayNum);
+				/*
+				 * System.out.println("suma del array " + arrayNum[0] + " " + arrayNum[1] + " "
+				 * + arrayNum[2] + " " + arrayNum[3] + " " + arrayNum[4] + " " + arrayNum[5] +
+				 * " " + arrayNum[6] + " " + arrayNum[7] + " " + arrayNum[8] + " " );
+				 */
 
 			}
 
 			request.setAttribute("tipoEne", edao.findEneagrama(idEneagrama));
 
 			List<Pregunta> lista = pdao.findByTipoEneg(tipoEneagrama);
-
-			// System.out.println(lista);
-			// System.out.println(tipoEneagrama);
 
 			request.setAttribute("preguntas", lista);
 

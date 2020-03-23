@@ -33,13 +33,6 @@ input[type=checkbox] {
 	border: 2px solid #00EA90 !important;
 }
 
-select {
-	border: none;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	-ms-appearance: none;
-}
 
 #viewPort {
 	background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%,
