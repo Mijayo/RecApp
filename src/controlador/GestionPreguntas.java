@@ -2,6 +2,7 @@ package controlador;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -37,7 +38,7 @@ public class GestionPreguntas extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
 		doPost(request, response);
 	}
 
@@ -55,12 +56,17 @@ public class GestionPreguntas extends HttpServlet {
 		HttpSession sesionQuestion = request.getSession();
 		Integer tipoEneagrama = (Integer) sesionQuestion.getAttribute("id");
 
-		HttpSession sesionEneagrama = request.getSession();
-		Integer idEneagrama = (Integer) sesionEneagrama.getAttribute("idEneag");
+		// HttpSession sesionEneagrama = request.getSession();
+		Integer idEneagrama = (Integer) sesionQuestion.getAttribute("idEneag");
 
 		List<Integer> arrayResultadoPreguntas = null;
 
-		
+		HashMap<Integer, Integer> cantidadPreguntas = (HashMap<Integer, Integer>) sesionQuestion.getAttribute("mapa");
+
+		if (cantidadPreguntas == null) {
+			cantidadPreguntas = new HashMap<Integer, Integer>();
+		}
+
 		switch (request.getParameter("option")) {
 
 		case "question":
@@ -116,11 +122,14 @@ public class GestionPreguntas extends HttpServlet {
 				for (Integer l : arrayResultadoPreguntas) {
 					num += l;
 
-					for (int i = 0; i < arrayNum.length; i++) {
-						arrayNum[i] = num;
-					}
-
+					/*
+					 * for (int i = 0; i < arrayNum.length; i++) { arrayNum[i] = num; }
+					 */
 				}
+
+				cantidadPreguntas.put(idEneagrama, num);
+
+				sesionQuestion.setAttribute("mapa", cantidadPreguntas);
 
 				System.out.println("valores del array " + num);
 				/*
@@ -137,16 +146,21 @@ public class GestionPreguntas extends HttpServlet {
 
 			request.setAttribute("preguntas", lista);
 
-			sesionEneagrama.setAttribute("idEneag", idEneagrama);
+			sesionQuestion.setAttribute("idEneag", idEneagrama);
 
 			sesionQuestion.setAttribute("id", tipoEneagrama);
 
 			if (tipoEneagrama > 9) {
 
 				sesionQuestion.invalidate();
-				sesionEneagrama.invalidate();
-
+				// sesionEneagrama.invalidate();
+				
+				/*for(Integer r : cantidadPreguntas ) {
+			
+				}*/
+				
 				request.getRequestDispatcher("resultado.jsp").forward(request, response);
+				
 
 			} else {
 				request.getRequestDispatcher("question.jsp").forward(request, response);
