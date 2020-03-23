@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 
 		Usuario usu = null;
-		
+
 		request.getSession().setAttribute("usuario", usu);
 
 		switch (request.getParameter("option")) {
@@ -120,32 +120,32 @@ public class Login extends HttpServlet {
 			 */
 
 			break;
-			
+
 		case "registro":
-			
+
 			int autoIncrement = 0;
 
 			int eneagramaComun = 99;
 
-			usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(),
-					request.getParameter("nombre"), request.getParameter("pwd"), null, null);
-			
+			usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(), 
+					request.getParameter("nombre"),
+					request.getParameter("pwd"), 0, null, null);
+
 			request.getSession().setAttribute("usuario", usu);
 			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			
+
 			break;
 
 		case "logout":
-			
+
 			request.getSession().getAttribute("usuario");
 			request.getSession().removeAttribute("usuario");
 
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			break;
-			
+
 		case "usuario":
-			
-			
+
 			usu = (Usuario) request.getSession().getAttribute("usuario");
 
 			if (usu == null) {
@@ -153,8 +153,7 @@ public class Login extends HttpServlet {
 			} else {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
-			
-			
+
 			break;
 		}
 
