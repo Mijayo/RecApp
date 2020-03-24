@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -56,7 +57,6 @@ public class GestionPreguntas extends HttpServlet {
 		HttpSession sesionQuestion = request.getSession();
 		Integer tipoEneagrama = (Integer) sesionQuestion.getAttribute("id");
 
-		// HttpSession sesionEneagrama = request.getSession();
 		Integer idEneagrama = (Integer) sesionQuestion.getAttribute("idEneag");
 
 		List<Integer> arrayResultadoPreguntas = null;
@@ -117,14 +117,9 @@ public class GestionPreguntas extends HttpServlet {
 				System.out.println("cosas dentro del array preguntas: " + arrayResultadoPreguntas);
 
 				int num = 0;
-				int arrayNum[] = new int[1]; // new int[9]
 
 				for (Integer l : arrayResultadoPreguntas) {
 					num += l;
-
-					/*
-					 * for (int i = 0; i < arrayNum.length; i++) { arrayNum[i] = num; }
-					 */
 				}
 
 				cantidadPreguntas.put(idEneagrama, num);
@@ -132,11 +127,6 @@ public class GestionPreguntas extends HttpServlet {
 				sesionQuestion.setAttribute("mapa", cantidadPreguntas);
 
 				System.out.println("valores del array " + num);
-				/*
-				 * System.out.println("suma del array " + arrayNum[0] + " " + arrayNum[1] + " "
-				 * + arrayNum[2] + " " + arrayNum[3] + " " + arrayNum[4] + " " + arrayNum[5] +
-				 * " " + arrayNum[6] + " " + arrayNum[7] + " " + arrayNum[8] + " " );
-				 */
 
 			}
 
@@ -152,15 +142,40 @@ public class GestionPreguntas extends HttpServlet {
 
 			if (tipoEneagrama > 9) {
 
+				// sesionQuestion.invalidate();
+
+				for (Integer en : cantidadPreguntas.keySet()) {
+
+					if (cantidadPreguntas.get(en) >= 20 || cantidadPreguntas.get(en) == 25) {
+
+						System.out.println((en - 1) + " " + cantidadPreguntas.get(en));
+
+						List<Integer> t = new ArrayList<>();
+						t.add(cantidadPreguntas.get(en));
+
+						int max = 20;
+						for (int i = 0; i < t.size(); i++) {
+							if (t.get(i) > max) {
+								max = t.get(i);
+								System.out.println("Valor maximo dentro del array " + max + " id del tipo " + (en - 1));
+
+								sesionQuestion.setAttribute("descTipo", edao.findEneagrama((en - 1)));
+								System.out.println(sesionQuestion.getAttribute("descTipo"));
+
+								request.getRequestDispatcher("resultado.jsp").forward(request, response);
+							}
+						}
+
+					}
+
+				}
+				
 				sesionQuestion.invalidate();
-				// sesionEneagrama.invalidate();
-				
-				/*for(Integer r : cantidadPreguntas ) {
-			
-				}*/
-				
-				request.getRequestDispatcher("resultado.jsp").forward(request, response);
-				
+
+				/*
+				 * HAY QUE MIRAR COMO LO HACEMOS PARA QUE SI DESPUES DE HACER EL TEST EL SUM NO
+				 * LLEGA A 20 LE DIGAMOS QUE VUELVA A HACERLO
+				 */
 
 			} else {
 				request.getRequestDispatcher("question.jsp").forward(request, response);

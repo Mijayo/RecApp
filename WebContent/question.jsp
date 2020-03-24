@@ -121,7 +121,7 @@
 												<td><p 
 														style="color: white; padding: 0px 10px 0px 10px; min-width: 450px;">
 														${pregunta.pregunta }</p></td>
-												<td><select style="border: 1px solid red;"
+												<td><select 
 													name="cantidad${pregunta.idAux }">
 														<option value="1">1</option>
 														<option value="2">2</option>

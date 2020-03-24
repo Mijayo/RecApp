@@ -1,12 +1,9 @@
 // spinner();
-
 var spin = setInterval(spinner, 1000);
 
 function spinner() {
-	// alert('hola');
-    document.querySelector(".lds-ring").style.display = "block";
+	document.querySelector(".lds-ring").style.display = "block";
 }
-
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -20,10 +17,10 @@ function usuario() {
 }
 
 function registro() {
-	document.getElementById('id01').style.display='block';
+	document.getElementById('id01').style.display = 'block';
 	/*
-	 * Template Name: SoftLand
-	 * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
+	 * Template Name: SoftLand Template URL:
+	 * https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
 	 * License: https://bootstrapmade.com/license/
 	 */
 
