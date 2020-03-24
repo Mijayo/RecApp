@@ -50,18 +50,17 @@
 			<div class="site-mobile-menu-body"></div>
 		</div>
 
-		<main id="viewPort"> 
-		
-		<header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+		<main id="viewPort"> <header
+			class="site-navbar js-sticky-header site-navbar-target" role="banner">
 			<div class="container">
 				<div class="row align-items-center">
-	
+
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
 							<a href="Login?option=validar" class="mb-0">RecApp</a>
 						</h1>
 					</div>
-					
+
 					<div class="col-12 col-md-10 d-none d-lg-block">
 						<nav class="site-navigation position-relative text-right"
 							role="navigation">
@@ -84,7 +83,7 @@
 							data-toggle="collapse" data-target="#main-navbar"> <span></span>
 						</a>
 					</div>
-					
+
 				</div>
 			</div>
 		</header>
@@ -94,7 +93,8 @@
 			<div class="container">
 				<div class="row align-items-center ">
 
-					<div class="mr-auto" style="max-width: 400px; position: relative; left: 80px;">
+					<div class="mr-auto"
+						style="max-width: 400px; position: relative; left: 80px;">
 						<h2 class="mb-4" style="color: white;">¿Cómo realizar el
 							test?</h2>
 						<p class="mb-4" style="color: white;">Hay nueve tipos de
