@@ -169,7 +169,7 @@ public class GestionPreguntas extends HttpServlet {
 					}
 
 				}
-				
+
 				sesionQuestion.invalidate();
 
 				/*
