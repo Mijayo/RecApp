@@ -38,10 +38,13 @@
 	rel="stylesheet">
 
 </head>
-<body onload="spinner()">
+<body>
+
+	<h1 id="inicio">El tipo de Eneagrama que eres es ${requestScope.descTipo.tipo }</h1>
+	<p>Breve descripcion del tipo: ${requestScope.descTipo.descripcion }</p>
 
 	<!-- Spinner -->
-	<div class="contSpiner">
+	<!-- <div class="contSpiner">
 		<h1 id="inicio">Calculando resultado</h1>
 		<div class="lds-ring">
 			<div></div>
@@ -49,7 +52,7 @@
 			<div></div>
 			<div></div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Template Main JS File -->
 	<script src="js/main.js"></script>
