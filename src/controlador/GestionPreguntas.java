@@ -151,6 +151,7 @@ public class GestionPreguntas extends HttpServlet {
 						System.out.println((en - 1) + " " + cantidadPreguntas.get(en));
 
 						List<Integer> t = new ArrayList<>();
+						
 						t.add(cantidadPreguntas.get(en));
 
 						int max = 20;
@@ -167,18 +168,18 @@ public class GestionPreguntas extends HttpServlet {
 							}
 						}
 
-					}
+					} if (cantidadPreguntas.get(en) < 20) {
 
-					else if (cantidadPreguntas.get(en) < 20) {
 						
-						sesionQuestion.invalidate();
-						
+
 						request.getRequestDispatcher("testIncorrecto.jsp").forward(request, response);
 					}
+					
+					sesionQuestion.invalidate();
 
 				}
 
-				// sesionQuestion.invalidate();
+			
 
 				/*
 				 * HAY QUE MIRAR COMO LO HACEMOS PARA QUE SI DESPUES DE HACER EL TEST EL SUM NO
@@ -186,8 +187,12 @@ public class GestionPreguntas extends HttpServlet {
 				 */
 
 			} else {
+				
+				
+				
 				request.getRequestDispatcher("question.jsp").forward(request, response);
 			}
+			
 
 			break;
 

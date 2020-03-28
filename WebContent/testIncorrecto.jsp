@@ -94,7 +94,7 @@
 				<div class="row align-items-center ">
 
 					<div class="mr-auto"
-						style="max-width: 400px; position: relative; left: 80px;">
+						style="max-width: 400px; position: relative; left: 15px;">
 						<h2 class="mb-4" style="color: white;">El resultado del test
 							no es correcto. <br>Por favor, realizalo de nuevo.</h2>
 						<p class="mb-4" style="color: white;">Hay nueve tipos de
@@ -142,7 +142,7 @@
 					</div>
 
 				</div>
-				<p style="margin-left: 65px; margin-top: 15px;">
+				<p style="margin-left: 15px; margin-top: 15px;">
 					<a class="registro btn btn-outline-white"
 						href="GestionPreguntas?option=question">test</a>
 				</p>
