@@ -4,15 +4,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <!-- <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous"> -->
 <link rel="stylesheet" href="style.css">
 
-<title>Preguntas</title>
-
+<title>Resultado test</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
@@ -40,8 +39,6 @@
 
 </head>
 <body>
-
-
 	<div class="site-wrap">
 
 		<div class="site-mobile-menu site-navbar-target">
@@ -91,64 +88,37 @@
 			</div>
 		</header>
 
+
 		<div class="site-section pb-0">
 			<div class="container">
 				<div class="row align-items-center ">
 
-					<div class="mr-auto" style="max-width: 600px; margin-top: -20px;">
-
-						<form class="" action="GestionPreguntas?option=question"
-							method="POST">
-							<div style="position: relative;">
-
-								<h2 class="mb-4" style="color: white;">
-									<span>${requestScope.tipoEne.idEneagrama } </span><span>-
-										${requestScope.tipoEne.tipo } </span>
-								</h2>
-
-							</div>
-							<div style="max-width: 450px; position: absolute; z-index: 99;">
-								<c:forEach items="${requestScope.preguntas}" var="pregunta"
-									begin="0" end="4">
-									<div style="display: flex;">
-										<table>
-											<tr>
-											
-												<td><input
-													style="position: relative; top: -22px; border: 1px solid red;"
-													type="checkbox" name="isbn" value="${pregunta.idAux}"
-													required></td>
-												<td><p 
-														style="color: white; padding: 0px 10px 0px 10px; min-width: 450px;">
-														${pregunta.pregunta }</p></td>
-												<td><select 
-													name="cantidad${pregunta.idAux }">
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-														<option value="4">4</option>
-														<option value="5">5</option>
-												</select></td>
-									
-											</tr>
-										</table>
-									</div>
-								</c:forEach>
-
-								<button type="submit" class="registro btn btn-outline-white">siguiente</button>
-							</div>
-						</form>
+					<div class="mr-auto"
+						style="max-width: 400px; position: relative; left: 15px;">
+						<h2 class="mb-4" style="color: white;">El resultado del test
+							no es correcto. <br>Por favor, realizalo de nuevo.</h2>
+						<p class="mb-4" style="color: white;">Hay nueve tipos de
+							eneagramas. El Reformador, el Ayudador, el Triunfador, el
+							Individualista, el Investigador, el Leal, el Entusiasta, el
+							Desafiador y el Pacificador</p>
+						<p class="mb-4" style="color: white;">Por cada eneagrama se
+							realizaran cinco preguntas.</p>
+						<p class="mb-4" style="color: white;">Cada pregunta tiene que
+							ser evaluada con puntos del 1 al 5 segun sean verdaderas o
+							aplicables a ti.</p>
+						<p class="mb-4" style="color: white;">No se puede dejar
+							ninguna pregunta sin responder.</p>
 
 					</div>
 
 					<div
-						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 780px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
+						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 720px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
 						<h4 class="mb-4" style="color: grey;">sistema de puntos</h4>
 						<ul style="list-style-type: none; margin-left: -35px;">
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									1 ...</span>
-								<p style="color: steelblue; font-size: 12px;">nunca</p></li>
+								<p style="color: steelblue; font-size: 12px;">casi nunca</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									2 ...</span>
@@ -156,22 +126,34 @@
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									3 ...</span>
-								<p style="color: steelblue; font-size: 12px;">quizás</p></li>
+								<p style="color: steelblue; font-size: 12px;">quizas</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">
 									... 4 ...</span>
-								<p style="color: steelblue; font-size: 12px;">normalmente</p></li>
+								<p style="color: steelblue; font-size: 12px;">generalemente</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									5 ...</span>
 								<p style="color: steelblue; font-size: 12px;">siempre</p></li>
 						</ul>
+						<!-- <p style="max-width: 400px;">
+							<i>*sistema de puntos</i>
+						</p> -->
 					</div>
-				</div>
-			</div>
-		</div>
 
-		</main>
+				</div>
+				<p style="margin-left: 15px; margin-top: 15px;">
+					<a class="registro btn btn-outline-white"
+						href="GestionPreguntas?option=question">test</a>
+				</p>
+			</div>
+
+		</div>
+		<!-- .site-section --> </main>
 	</div>
+
+
+
+
 </body>
 </html>
