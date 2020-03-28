@@ -39,9 +39,81 @@
 
 </head>
 <body>
+	<div class="site-wrap">
 
-	<h1 id="inicio">El tipo de Eneagrama que eres es ${requestScope.descTipo.tipo }</h1>
-	<p>Breve descripcion del tipo: ${requestScope.descTipo.descripcion }</p>
+		<div class="site-mobile-menu site-navbar-target">
+			<div class="site-mobile-menu-header">
+				<div class="site-mobile-menu-close mt-3">
+					<span class="icofont-close js-menu-toggle"></span>
+				</div>
+			</div>
+			<div class="site-mobile-menu-body"></div>
+		</div>
+
+		<main id="viewPort"> 
+		
+		<header
+			class="site-navbar js-sticky-header site-navbar-target" role="banner">
+			<div class="container">
+				<div class="row align-items-center">
+
+					<div class="col-6 col-lg-2">
+						<h1 class="mb-0 site-logo">
+							<a href="Login?option=validar" class="mb-0">RecApp</a>
+						</h1>
+					</div>
+
+					<div class="col-12 col-md-10 d-none d-lg-block">
+						<nav class="site-navigation position-relative text-right"
+							role="navigation">
+
+							<ul
+								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
+								<li></li>
+								<li></li>
+								<li></li>
+								<li><a href="" class="nav-link">ofertas</a></li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="col-6 d-inline-block d-lg-none ml-md-0 py-3"
+						style="position: relative; top: 3px;">
+
+						<a href="#" class="burger site-menu-toggle js-menu-toggle"
+							data-toggle="collapse" data-target="#main-navbar"> <span></span>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+		<div class="site-section pb-0">
+			<div class="container">
+				<div class="row align-items-center ">
+
+					<div class="mr-auto" style="max-width: 500px; position: relative; left: 10px;">
+						<h1 class="mb-4" style="color: white;" >El tipo de Eneagrama que eres es:
+							${requestScope.descTipo.tipo }</h1>
+						<p class="mb-4" style="color: white;">Breve descripcion del tipo:
+							${requestScope.descTipo.descripcion }</p>
+					</div>
+					<div style="padding: 20px 20px 20px 20px;max-width: 450px; position: absolute; left: 680px; top:220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
+						<img src="img/undraw_svg_2.svg" alt="Image" class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		</main>
+	</div>
+
+
 
 	<!-- Spinner -->
 	<!-- <div class="contSpiner">

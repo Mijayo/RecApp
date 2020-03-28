@@ -146,11 +146,12 @@ public class GestionPreguntas extends HttpServlet {
 
 				for (Integer en : cantidadPreguntas.keySet()) {
 
-					if (cantidadPreguntas.get(en) >= 20 || cantidadPreguntas.get(en) == 25) {
+					if (cantidadPreguntas.get(en) >= 20) {
 
 						System.out.println((en - 1) + " " + cantidadPreguntas.get(en));
 
 						List<Integer> t = new ArrayList<>();
+						
 						t.add(cantidadPreguntas.get(en));
 
 						int max = 20;
@@ -160,17 +161,25 @@ public class GestionPreguntas extends HttpServlet {
 								System.out.println("Valor maximo dentro del array " + max + " id del tipo " + (en - 1));
 
 								sesionQuestion.setAttribute("descTipo", edao.findEneagrama((en - 1)));
+
 								System.out.println(sesionQuestion.getAttribute("descTipo"));
 
 								request.getRequestDispatcher("resultado.jsp").forward(request, response);
 							}
 						}
 
+					} if (cantidadPreguntas.get(en) < 20) {
+
+						
+
+						request.getRequestDispatcher("testIncorrecto.jsp").forward(request, response);
 					}
+					
+					sesionQuestion.invalidate();
 
 				}
 
-				sesionQuestion.invalidate();
+			
 
 				/*
 				 * HAY QUE MIRAR COMO LO HACEMOS PARA QUE SI DESPUES DE HACER EL TEST EL SUM NO
@@ -178,8 +187,12 @@ public class GestionPreguntas extends HttpServlet {
 				 */
 
 			} else {
+				
+				
+				
 				request.getRequestDispatcher("question.jsp").forward(request, response);
 			}
+			
 
 			break;
 
