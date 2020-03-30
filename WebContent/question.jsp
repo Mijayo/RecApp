@@ -74,7 +74,8 @@
 								<li></li>
 								<li></li>
 								<li></li>
-								<li><a href="" class="nav-link"></a></li>
+								<li><a href="Login?option=logout" class="registrarse">log
+										out</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -113,23 +114,22 @@
 									<div style="display: flex;">
 										<table>
 											<tr>
-											
+
 												<td><input
 													style="position: relative; top: -22px; border: 1px solid red;"
 													type="checkbox" name="isbn" value="${pregunta.idAux}"
 													required></td>
-												<td><p 
+												<td><p
 														style="color: white; padding: 0px 10px 0px 10px; min-width: 450px;">
 														${pregunta.pregunta }</p></td>
-												<td><select 
-													name="cantidad${pregunta.idAux }">
+												<td><select name="cantidad${pregunta.idAux }">
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
 														<option value="4">4</option>
 														<option value="5">5</option>
 												</select></td>
-									
+
 											</tr>
 										</table>
 									</div>
