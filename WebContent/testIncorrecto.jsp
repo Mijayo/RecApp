@@ -118,7 +118,7 @@
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									1 ...</span>
-								<p style="color: steelblue; font-size: 12px;">casi nunca</p></li>
+								<p style="color: steelblue; font-size: 12px;">nunca</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									2 ...</span>
@@ -130,7 +130,7 @@
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">
 									... 4 ...</span>
-								<p style="color: steelblue; font-size: 12px;">generalemente</p></li>
+								<p style="color: steelblue; font-size: 12px;">normalmente</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									5 ...</span>
@@ -142,7 +142,7 @@
 					</div>
 
 				</div>
-				<p style="margin-left: 15px; margin-top: 15px;">
+				<p style="margin-left: 10px; margin-top: 15px;">
 					<a class="registro btn btn-outline-white"
 						href="GestionPreguntas?option=question">test</a>
 				</p>
