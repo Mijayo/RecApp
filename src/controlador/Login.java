@@ -127,8 +127,7 @@ public class Login extends HttpServlet {
 
 			int eneagramaComun = 99;
 
-			usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(), 
-					request.getParameter("nombre"),
+			usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(), request.getParameter("nombre"),
 					request.getParameter("pwd"), 0, null, null);
 
 			request.getSession().setAttribute("usuario", usu);
@@ -138,9 +137,13 @@ public class Login extends HttpServlet {
 
 		case "logout":
 
-			request.getSession().getAttribute("usuario");
 			request.getSession().removeAttribute("usuario");
-
+			request.getSession().removeAttribute("idEneag");
+			request.getSession().removeAttribute("id");
+			request.getSession().removeAttribute("mapa");
+			
+			request.getSession().invalidate();
+			
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			break;
 

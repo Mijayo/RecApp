@@ -144,42 +144,57 @@ public class GestionPreguntas extends HttpServlet {
 
 				// sesionQuestion.invalidate();
 
+				boolean mayor20 = false;
+				Integer numID = null;
+
 				for (Integer en : cantidadPreguntas.keySet()) {
 
+					System.out.println("tontada: " + cantidadPreguntas.get(en));
+
 					if (cantidadPreguntas.get(en) >= 20) {
+
+						mayor20 = true;
 
 						System.out.println((en - 1) + " " + cantidadPreguntas.get(en));
 
 						List<Integer> t = new ArrayList<>();
-						
+
 						t.add(cantidadPreguntas.get(en));
 
 						int max = 20;
 						for (int i = 0; i < t.size(); i++) {
 							if (t.get(i) > max) {
+								
 								max = t.get(i);
+								
+								numID = (en - 1);
 								System.out.println("Valor maximo dentro del array " + max + " id del tipo " + (en - 1));
-
-								sesionQuestion.setAttribute("descTipo", edao.findEneagrama((en - 1)));
 
 								System.out.println(sesionQuestion.getAttribute("descTipo"));
 
-								request.getRequestDispatcher("resultado.jsp").forward(request, response);
 							}
 						}
 
-					} if (cantidadPreguntas.get(en) < 20) {
-
-						
-
-						request.getRequestDispatcher("testIncorrecto.jsp").forward(request, response);
 					}
-					
-					sesionQuestion.invalidate();
+					// sesionQuestion.invalidate();
 
 				}
+				if (mayor20) {
+					
+					System.out.println(numID);
 
-			
+					sesionQuestion.setAttribute("descTipo", edao.findEneagrama(numID));
+					request.getRequestDispatcher("resultado.jsp").forward(request, response);
+
+				} else {
+
+					// sesionQuestion.invalidate();
+					sesionQuestion.removeAttribute("idEneag");
+					sesionQuestion.removeAttribute("id");
+					sesionQuestion.removeAttribute("mapa");
+
+					request.getRequestDispatcher("testIncorrecto.jsp").forward(request, response);
+				}
 
 				/*
 				 * HAY QUE MIRAR COMO LO HACEMOS PARA QUE SI DESPUES DE HACER EL TEST EL SUM NO
@@ -187,12 +202,9 @@ public class GestionPreguntas extends HttpServlet {
 				 */
 
 			} else {
-				
-				
-				
+
 				request.getRequestDispatcher("question.jsp").forward(request, response);
 			}
-			
 
 			break;
 

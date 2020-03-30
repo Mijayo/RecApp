@@ -96,9 +96,9 @@
 
 					<div class="mr-auto" style="max-width: 500px; position: relative; left: 10px;">
 						<h1 class="mb-4" style="color: white;" >El tipo de Eneagrama que eres es:
-							${requestScope.descTipo.tipo }</h1>
+							${sessionScope.descTipo.tipo }</h1>
 						<p class="mb-4" style="color: white;">Breve descripcion del tipo:
-							${requestScope.descTipo.descripcion }</p>
+							${sessionScope.descTipo.descripcion }</p>
 					</div>
 					<div style="padding: 20px 20px 20px 20px;max-width: 450px; position: absolute; left: 680px; top:220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
 						<img src="img/undraw_svg_2.svg" alt="Image" class="img-fluid">
