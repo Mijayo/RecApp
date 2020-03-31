@@ -39,6 +39,18 @@
 
 </head>
 <body>
+
+	<!-- Spinner -->
+	<!-- <div class="contSpiner">
+		<h1 id="inicio">Calculando resultado</h1>
+		<div class="lds-ring">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div> -->
+
 	<div class="site-wrap">
 
 		<div class="site-mobile-menu site-navbar-target">
@@ -50,16 +62,14 @@
 			<div class="site-mobile-menu-body"></div>
 		</div>
 
-		<main id="viewPort"> 
-		
-		<header
+		<main id="viewPort"> <header
 			class="site-navbar js-sticky-header site-navbar-target" role="banner">
 			<div class="container">
 				<div class="row align-items-center">
 
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
-							<a href="Login?option=validar" class="mb-0">RecApp</a>
+							<a href="indexUsu.jsp" class="mb-0">RecApp</a>
 						</h1>
 					</div>
 
@@ -73,7 +83,7 @@
 								<li></li>
 								<li></li>
 								<li></li>
-								<li><a href="" class="nav-link">ofertas</a></li>
+								<li><a href="#" class="nav-link">ofertas</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -94,37 +104,23 @@
 			<div class="container">
 				<div class="row align-items-center ">
 
-					<div class="mr-auto" style="max-width: 500px; position: relative; left: 10px;">
-						<h1 class="mb-4" style="color: white;" >El tipo de Eneagrama que eres es:
-							${sessionScope.descTipo.tipo }</h1>
-						<p class="mb-4" style="color: white;">Breve descripcion del tipo:
-							${sessionScope.descTipo.descripcion }</p>
+					<div class="mr-auto"
+						style="max-width: 500px; position: relative; left: 10px;">
+						<h1 class="mb-4" style="color: white;">
+							El tipo de Eneagrama que eres es: <br>${sessionScope.descTipo.tipo }</h1>
+						<p class="mb-4" style="color: white;">
+							Breve descripcion del tipo: <br>${sessionScope.descTipo.descripcion }</p>
 					</div>
-					<div style="padding: 20px 20px 20px 20px;max-width: 450px; position: absolute; left: 680px; top:220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
+					<div
+						style="padding: 20px 20px 20px 20px; max-width: 450px; position: absolute; left: 680px; top: 220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
 						<img src="img/undraw_svg_2.svg" alt="Image" class="img-fluid">
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-
-
+		
 		</main>
 	</div>
-
-
-
-	<!-- Spinner -->
-	<!-- <div class="contSpiner">
-		<h1 id="inicio">Calculando resultado</h1>
-		<div class="lds-ring">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	</div> -->
 
 	<!-- Template Main JS File -->
 	<script src="js/main.js"></script>
