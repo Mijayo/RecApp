@@ -125,12 +125,15 @@ public class Login extends HttpServlet {
 
 			int autoIncrement = 0;
 
-			int eneagramaComun = 99;
-
 			usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(), request.getParameter("nombre"),
 					request.getParameter("pwd"), 0, null, null);
+			
+			System.out.println("Objeto usuario " + usu);
 
 			request.getSession().setAttribute("usuario", usu);
+			
+			System.out.println("obj sesion: " + request.getSession().getAttribute("usuario"));
+			
 			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 
 			break;
@@ -141,10 +144,23 @@ public class Login extends HttpServlet {
 			request.getSession().removeAttribute("idEneag");
 			request.getSession().removeAttribute("id");
 			request.getSession().removeAttribute("mapa");
-			
+
 			request.getSession().invalidate();
-			
+
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+			break;
+
+		case "cerrar-test":
+			
+			request.getSession().removeAttribute("usuario");
+			request.getSession().removeAttribute("idEneag");
+			request.getSession().removeAttribute("id");
+			request.getSession().removeAttribute("mapa");
+
+			request.getSession().invalidate();
+
+			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+			
 			break;
 
 		case "usuario":

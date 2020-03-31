@@ -11,7 +11,7 @@
 	crossorigin="anonymous"> -->
 <link rel="stylesheet" href="style.css">
 
-<title>Resultado test</title>
+<title>Test incorrecto</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
@@ -142,7 +142,7 @@
 					</div>
 
 				</div>
-				<p style="margin-left: 10px; margin-top: 15px;">
+				<p style=" margin-top: 15px;">
 					<a class="registro btn btn-outline-white"
 						href="GestionPreguntas?option=question">test</a>
 				</p>

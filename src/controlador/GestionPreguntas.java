@@ -164,23 +164,22 @@ public class GestionPreguntas extends HttpServlet {
 						int max = 20;
 						for (int i = 0; i < t.size(); i++) {
 							if (t.get(i) > max) {
-								
+
 								max = t.get(i);
-								
+
 								numID = (en - 1);
 								System.out.println("Valor maximo dentro del array " + max + " id del tipo " + (en - 1));
-
-								System.out.println(sesionQuestion.getAttribute("descTipo"));
 
 							}
 						}
 
 					}
+					
 					// sesionQuestion.invalidate();
 
 				}
 				if (mayor20) {
-					
+
 					System.out.println(numID);
 
 					sesionQuestion.setAttribute("descTipo", edao.findEneagrama(numID));
@@ -192,14 +191,11 @@ public class GestionPreguntas extends HttpServlet {
 					sesionQuestion.removeAttribute("idEneag");
 					sesionQuestion.removeAttribute("id");
 					sesionQuestion.removeAttribute("mapa");
+					sesionQuestion.removeAttribute("descTipo");
+					sesionQuestion.invalidate();
 
 					request.getRequestDispatcher("testIncorrecto.jsp").forward(request, response);
 				}
-
-				/*
-				 * HAY QUE MIRAR COMO LO HACEMOS PARA QUE SI DESPUES DE HACER EL TEST EL SUM NO
-				 * LLEGA A 20 LE DIGAMOS QUE VUELVA A HACERLO
-				 */
 
 			} else {
 

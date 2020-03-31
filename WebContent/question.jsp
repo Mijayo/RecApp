@@ -74,8 +74,8 @@
 								<li></li>
 								<li></li>
 								<li></li>
-								<li><a href="Login?option=logout" class="registrarse">log
-										out</a></li>
+								<li><a href="Login?option=cerrar-test" class="registrarse"
+									onclick="cerrarTest()">cerrar test</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -173,5 +173,9 @@
 
 		</main>
 	</div>
+	
+	<!-- Template Main JS File -->
+	<script src="js/main.js"></script>
+	
 </body>
 </html>
