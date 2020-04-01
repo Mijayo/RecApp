@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import modelo.DAOS.UsuarioDAOImpl;
+import modelo.DAOS.UsuarioDAOImpl;
 import modelo.beans.Eneagrama;
 import modelo.beans.Usuario;
 
@@ -47,8 +47,14 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 
 		Usuario usu = null;
+		UsuarioDAOImpl udao = new UsuarioDAOImpl();
+		
 		
 		request.getSession().setAttribute("usuario", usu);
+		
+		int autoIncrement = 0;
+		//Se usará en más de un caso, asi que la he sacado a global
+
 
 		switch (request.getParameter("option")) {
 
@@ -123,17 +129,42 @@ public class Login extends HttpServlet {
 			
 		case "registro":
 			
-			int autoIncrement = 0;
-
-			int eneagramaComun = 99;
-
-			usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(),
-					request.getParameter("nombre"), request.getParameter("pwd"), null, null);
 			
-			request.getSession().setAttribute("usuario", usu);
-			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+			String email = request.getParameter("email");
+			String pwd = request.getParameter("pwd");
 			
-			break;
+			
+//el login lo mantenemos a traves del mail?
+//if (udao.findById(email) != null) {
+//				
+////El usuario existe
+//				
+
+				if (udao.findLogin(email, pwd) != null) {
+					
+					//Usuario existe y contraseña es correcta
+					System.out.println("El usuario y contraseña ok!");
+					request.getSession().setAttribute("usuario", usu);
+					request.getRequestDispatcher("indexUsu.jsp").forward(request,response);
+					
+				} 
+				
+//else {						
+////Combinación de usuario y contraseña incorrecta
+//request.setAttribute("estado", "Comnbinación de usuario y contraseña incorrecta");
+//request.getRequestDispatcher("registro.jsp");				
+//}    /////////CHECK
+				
+					else {
+				
+					//No existe usuario con ese email
+					System.out.println("No existe asi que lo creamos bbb");
+					usu = new Usuario(autoIncrement, email, new Date(), request.getParameter("nombre"), pwd, null, null);
+					request.getSession().setAttribute("usuario", usu);
+					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				}
+
+				break;
 
 		case "logout":
 			
@@ -147,13 +178,14 @@ public class Login extends HttpServlet {
 			
 			
 			usu = (Usuario) request.getSession().getAttribute("usuario");
-
+			
 			if (usu == null) {
+				
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
-			} else {
+				
+					} else {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
-			
 			
 			break;
 		}
