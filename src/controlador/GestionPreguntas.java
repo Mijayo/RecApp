@@ -174,8 +174,6 @@ public class GestionPreguntas extends HttpServlet {
 						}
 
 					}
-					
-					// sesionQuestion.invalidate();
 
 				}
 				if (mayor20) {
@@ -183,11 +181,13 @@ public class GestionPreguntas extends HttpServlet {
 					System.out.println(numID);
 
 					sesionQuestion.setAttribute("descTipo", edao.findEneagrama(numID));
+					
+					System.out.println(sesionQuestion.getAttribute("descTipo"));
+					
 					request.getRequestDispatcher("resultado.jsp").forward(request, response);
 
 				} else {
 
-					// sesionQuestion.invalidate();
 					sesionQuestion.removeAttribute("idEneag");
 					sesionQuestion.removeAttribute("id");
 					sesionQuestion.removeAttribute("mapa");
