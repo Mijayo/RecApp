@@ -68,6 +68,16 @@ public class Login extends HttpServlet {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
 		break;
+		
+		case "registrar":
+
+			usu = (Usuario) request.getSession().getAttribute("usuario");
+
+			if (usu == null) {
+				request.getRequestDispatcher("registro.jsp").forward(request, response);
+			}
+
+			break;
 
 		case "registro":
 			
