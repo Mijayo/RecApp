@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the PREGUNTA database table.
+ * The persistent class for the pregunta database table.
  * 
  */
 @Entity
@@ -72,4 +72,17 @@ public class Pregunta implements Serializable {
 		this.tipoEneag = tipoEneag;
 	}
 
+	public Pregunta(int idAux, int idPregunta, int numPregunta, String pregunta, String tipoEneag) {
+		super();
+		this.idAux = idAux;
+		this.idPregunta = idPregunta;
+		this.numPregunta = numPregunta;
+		this.pregunta = pregunta;
+		this.tipoEneag = tipoEneag;
+	}
+
+	
+	
+	
+	
 }

@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the ANUNCIO database table.
+ * The persistent class for the anuncio database table.
  * 
  */
 @Entity
@@ -57,7 +57,6 @@ public class Anuncio implements Serializable {
 	public String getDetalle() {
 		return this.detalle;
 	}
-
 
 	public void setDetalle(String detalle) {
 		this.detalle = detalle;

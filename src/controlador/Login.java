@@ -38,6 +38,7 @@ public class Login extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
 	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -110,10 +111,11 @@ public class Login extends HttpServlet {
 				}else {
 				
 					//No existe usuario con ese email
-					System.out.println("No existe asi que lo creamos bbb");
-					usu = new Usuario(autoIncrement, email, new Date(), request.getParameter("nombre"), pwd, null, null);
+					System.out.println("No existe asi que lo creamos bb");
+					usu = new Usuario(autoIncrement, email, new Date(), request.getParameter("nombre"), pwd, 0, null, null);
 					request.getSession().setAttribute("usuario", usu);
 					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+					udao.insert(usu);
 				}
 
 				break;
