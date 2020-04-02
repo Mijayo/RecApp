@@ -29,6 +29,9 @@ public class Usuario implements Serializable {
 
 	private String password;
 
+	@Column(name="RESULTADO_TEST")
+	private int resultadoTest;
+
 	@Column(name="TIPO_ENEAGRAMA")
 	private String tipoEneagrama;
 
@@ -41,18 +44,21 @@ public class Usuario implements Serializable {
 	}
 	
 	
+	
 
-	public Usuario(int idUsuario, String email, Date fechaAlta, String nombre, String password, String tipoEneagrama,
-			Eneagrama eneagrama) {
+	public Usuario(int idUsuario, String email, Date fechaAlta, String nombre, String password, int resultadoTest,
+			String tipoEneagrama, Eneagrama eneagrama) {
 		super();
 		this.idUsuario = idUsuario;
 		this.email = email;
 		this.fechaAlta = fechaAlta;
 		this.nombre = nombre;
 		this.password = password;
+		this.resultadoTest = resultadoTest;
 		this.tipoEneagrama = tipoEneagrama;
 		this.eneagrama = eneagrama;
 	}
+
 
 
 
@@ -94,6 +100,14 @@ public class Usuario implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public int getResultadoTest() {
+		return this.resultadoTest;
+	}
+
+	public void setResultadoTest(int resultadoTest) {
+		this.resultadoTest = resultadoTest;
 	}
 
 	public String getTipoEneagrama() {

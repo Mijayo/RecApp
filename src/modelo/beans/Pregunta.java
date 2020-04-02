@@ -31,6 +31,19 @@ public class Pregunta implements Serializable {
 
 	public Pregunta() {
 	}
+	
+	
+
+	public Pregunta(int idAux, int idPregunta, int numPregunta, String pregunta, String tipoEneag) {
+		super();
+		this.idAux = idAux;
+		this.idPregunta = idPregunta;
+		this.numPregunta = numPregunta;
+		this.pregunta = pregunta;
+		this.tipoEneag = tipoEneag;
+	}
+
+
 
 	public int getIdAux() {
 		return this.idAux;

@@ -47,13 +47,13 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 
 		Usuario usu = null;
+
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
-		
 		
 		request.getSession().setAttribute("usuario", usu);
 		
 		int autoIncrement = 0;
-		//Se usará en más de un caso, asi que la he sacado a global
+		//Se usarï¿½ en mï¿½s de un caso, asi que la he sacado a global
 
 
 		switch (request.getParameter("option")) {
@@ -80,6 +80,7 @@ public class Login extends HttpServlet {
 			break;
 
 		case "registro":
+
 			
 			
 			String email = request.getParameter("email");
@@ -94,16 +95,16 @@ public class Login extends HttpServlet {
 
 				if (udao.findLogin(email, pwd) != null) {
 					
-					//Usuario existe y contraseña es correcta
-					System.out.println("El usuario y contraseña ok!");
+					//Usuario existe y contraseï¿½a es correcta
+					System.out.println("El usuario y contraseï¿½a ok!");
 					request.getSession().setAttribute("usuario", usu);
 					request.getRequestDispatcher("indexUsu.jsp").forward(request,response);
 					
 				} 
 				
 				else {						
-					//Combinación de usuario y contraseña incorrecta
-					request.setAttribute("estado", "Combinación de usuario y contraseña incorrecta");
+					//Combinaciï¿½n de usuario y contraseï¿½a incorrecta
+					request.setAttribute("estado", "Combinaciï¿½n de usuario y contraseï¿½a incorrecta");
 					request.getRequestDispatcher("registro.jsp").forward(request, response);				
 				}  
 				
@@ -119,16 +120,32 @@ public class Login extends HttpServlet {
 				break;
 
 		case "logout":
-			
-			request.getSession().getAttribute("usuario");
+
 			request.getSession().removeAttribute("usuario");
+			request.getSession().removeAttribute("idEneag");
+			request.getSession().removeAttribute("id");
+			request.getSession().removeAttribute("mapa");
+
+			request.getSession().invalidate();
 
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			break;
+
+		case "cerrar-test":
 			
+			request.getSession().removeAttribute("usuario");
+			request.getSession().removeAttribute("idEneag");
+			request.getSession().removeAttribute("id");
+			request.getSession().removeAttribute("mapa");
+
+			request.getSession().invalidate();
+
+			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+			
+			break;
+
 		case "usuario":
-			
-			
+
 			usu = (Usuario) request.getSession().getAttribute("usuario");
 			
 			if (usu == null) {
@@ -138,7 +155,6 @@ public class Login extends HttpServlet {
 					} else {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
-			
 			break;
 		}
 

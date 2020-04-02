@@ -42,7 +42,7 @@
 
 </head>
 
-<body onload="usuario()">
+<body >
 
 	<div class="site-wrap">
 
