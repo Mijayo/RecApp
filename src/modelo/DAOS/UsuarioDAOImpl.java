@@ -86,20 +86,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	
 	public Usuario findByEmail(String email) {
-
-		return em.find(Usuario.class, email);
 		
-//		sql = "select u from Usuario u where u.email = :email";
-//
-//		try {
-//			query = em.createQuery(sql);
-//			query.setParameter("email", email);
-//			return (Usuario) query.getSingleResult();
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//		return null;
-//
+		sql = "select u from Usuario u where u.email = :email";
+
+		try {
+			query = em.createQuery(sql);
+			query.setParameter("email", email);
+			return (Usuario) query.getSingleResult();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+
 	}
 	
 	public Usuario findLogin(String email, String pwd) {

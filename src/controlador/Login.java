@@ -134,11 +134,11 @@ public class Login extends HttpServlet {
 			String pwd = request.getParameter("pwd");
 			
 			
-//el login lo mantenemos a traves del mail?
-//if (udao.findById(email) != null) {
-//				
-////El usuario existe
-//				
+			//el login lo mantenemos a traves del mail?
+			if (udao.findByEmail(email) != null) {
+				
+				//El usuario existe
+				System.out.println("Usuario con este email exist");
 
 				if (udao.findLogin(email, pwd) != null) {
 					
@@ -149,13 +149,13 @@ public class Login extends HttpServlet {
 					
 				} 
 				
-//else {						
-////Combinación de usuario y contraseña incorrecta
-//request.setAttribute("estado", "Comnbinación de usuario y contraseña incorrecta");
-//request.getRequestDispatcher("registro.jsp");				
-//}    /////////CHECK
+				else {						
+					//Combinación de usuario y contraseña incorrecta
+					request.setAttribute("estado", "Combinación de usuario y contraseña incorrecta");
+					request.getRequestDispatcher("registro.jsp").forward(request, response);				
+				}    /////////CHECK
 				
-					else {
+				}else {
 				
 					//No existe usuario con ese email
 					System.out.println("No existe asi que lo creamos bbb");

@@ -95,13 +95,23 @@
 					<input type="password" placeholder="password" name="pwd" required>
 					<label for="psw-repeat"><b>Nombre</b></label> <input type="text"
 						placeholder="nombre" name="nombre" required>
-	
+					<div>
 					<div class="clearfix">
-						<button type="submit" class="signupbtn btn-primary">registrar</button>
+						<button type="submit" class="signupbtn btn-primary float-left">registrar</button>
+					</div>
+					<%if(request.getAttribute("estado") != null){ %>
+					<p class="text-danger float-left"><%=request.getAttribute("estado")%></p>
+					<%}%>
+					
 					</div>
 				</div>
 			</form>
 			
+			
+					
+			
+			
+					
 		</div>
 
 	</main>
