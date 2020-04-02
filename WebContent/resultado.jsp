@@ -107,9 +107,12 @@
 					<div class="mr-auto"
 						style="max-width: 500px; position: relative; left: 10px;">
 						<h1 class="mb-4" style="color: white;">
-							El tipo de Eneagrama que eres es: <br>${sessionScope.descTipo.tipo }</h1>
+							<span style="font-size: 14px;">El tipo de Eneagrama que eres es</span> <br> <b>El ${sessionScope.descTipo.tipo }</b></h1>
 						<p class="mb-4" style="color: white;">
-							Breve descripcion del tipo: <br>${sessionScope.descTipo.descripcion }</p>
+							<span style="font-size: 14px;">Breve descripcion del tipo</span> <br>${sessionScope.descTipo.descripcion }</p>
+						<p class="mb-4" style="color: white;">
+							<span style="font-size: 14px;"><i>Quote</i></span> <br>${sessionScope.descTipo.quote }</p>
+							
 					</div>
 					<div
 						style="padding: 20px 20px 20px 20px; max-width: 450px; position: absolute; left: 680px; top: 220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
