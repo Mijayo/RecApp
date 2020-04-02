@@ -58,6 +58,7 @@ public class Anuncio implements Serializable {
 		return this.detalle;
 	}
 
+
 	public void setDetalle(String detalle) {
 		this.detalle = detalle;
 	}
