@@ -51,20 +51,20 @@ public class PreguntaDAOImpl implements PreguntaDAO {
 	}
 	
 	@Override
-	public int findByID(int tipoID) {
+	public List<Pregunta>  findByID(int tipoID) {
 
 		System.out.println("Aqui tipoID " + tipoID);
 
-		sql = "select p from Pregunta p where p.idPregunta = :nid and p.id.numPregunta = '1'";
+		sql = "select p from Pregunta p where p.idPregunta = :nid and p.numPregunta = 1";
 
 		try {
 			query = em.createQuery(sql);
 			query.setParameter("nid", tipoID);
-			return (int) query.getSingleResult();
+			return  query.getResultList();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return 0;
+		return null;
 	}
 
 }

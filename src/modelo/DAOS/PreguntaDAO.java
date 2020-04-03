@@ -10,6 +10,6 @@ public interface PreguntaDAO {
 	
 	public List<Pregunta> findByTipoEneg(int tipoEneg);
 
-	public int findByID(int tipoID);
+	public List<Pregunta> findByID(int tipoID);
 
 }
