@@ -15,7 +15,9 @@ import javax.servlet.http.HttpSession;
 
 import modelo.DAOS.EneagramaDAOImpl;
 import modelo.DAOS.PreguntaDAOImpl;
+import modelo.DAOS.UsuarioDAOImpl;
 import modelo.beans.Pregunta;
+import modelo.beans.Usuario;
 
 /**
  * Servlet implementation class GestionPreguntas
@@ -51,8 +53,13 @@ public class GestionPreguntas extends HttpServlet {
 			throws ServletException, IOException {
 
 		EneagramaDAOImpl edao = new EneagramaDAOImpl();
-
 		PreguntaDAOImpl pdao = new PreguntaDAOImpl();
+		
+		Usuario usu = null;
+		UsuarioDAOImpl udao = new UsuarioDAOImpl();
+		// usu = request.getSession().getAttribute("usuario");
+		// udao.insert(usu)
+		System.out.println(request.getSession().getAttribute("usuario"));
 
 		HttpSession sesionQuestion = request.getSession();
 		Integer tipoEneagrama = (Integer) sesionQuestion.getAttribute("id");
@@ -174,8 +181,6 @@ public class GestionPreguntas extends HttpServlet {
 						}
 
 					}
-					
-					// sesionQuestion.invalidate();
 
 				}
 				if (mayor20) {
@@ -183,11 +188,13 @@ public class GestionPreguntas extends HttpServlet {
 					System.out.println(numID);
 
 					sesionQuestion.setAttribute("descTipo", edao.findEneagrama(numID));
+					
+					System.out.println(sesionQuestion.getAttribute("descTipo"));
+					
 					request.getRequestDispatcher("resultado.jsp").forward(request, response);
 
 				} else {
 
-					// sesionQuestion.invalidate();
 					sesionQuestion.removeAttribute("idEneag");
 					sesionQuestion.removeAttribute("id");
 					sesionQuestion.removeAttribute("mapa");
