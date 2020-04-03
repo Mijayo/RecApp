@@ -116,6 +116,7 @@ public class Login extends HttpServlet {
 					request.getSession().setAttribute("usuario", usu);
 					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 					udao.insert(usu);
+					//aqui esta el insert
 				}
 
 				break;
