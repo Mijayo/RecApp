@@ -105,17 +105,17 @@
 				<div class="row align-items-center ">
 
 					<div class="mr-auto"
-						style="max-width: 500px; position: relative; left: 10px;">
-						<h1 class="mb-4" style="color: white;">
+						style="max-width: 500px; position: relative; left: 10px; top:-25px;">
+						<h1 class="" style="color: white;">
 							<span style="font-size: 14px;">El tipo de Eneagrama que eres es</span> <br> <b>El ${sessionScope.descTipo.tipo }</b></h1>
-						<p class="mb-4" style="color: white;">
+						<p class="" style="color: white;">
 							<span style="font-size: 14px;">Breve descripcion del tipo</span> <br>${sessionScope.descTipo.descripcion }</p>
-						<p class="mb-4" style="color: white;">
+						<p class="" style="color: white;">
 							<span style="font-size: 14px;"><i>Quote</i></span> <br>${sessionScope.descTipo.quote }</p>
 							
 					</div>
 					<div
-						style="padding: 20px 20px 20px 20px; max-width: 450px; position: absolute; left: 680px; top: 220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
+						style="padding: 20px 20px 20px 20px; max-width: 450px; position: absolute; left: 720px; top: 220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
 						<img src="img/undraw_svg_2.svg" alt="Image" class="img-fluid">
 					</div>
 				</div>

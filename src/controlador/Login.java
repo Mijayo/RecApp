@@ -47,13 +47,12 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 
 		Usuario usu = null;
-
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
-		
-		request.getSession().setAttribute("usuario", usu);
-		
+
+
+		// request.getSession().setAttribute("usuario", usu);
+
 		int autoIncrement = 0;
-		//Se usar� en m�s de un caso, asi que la he sacado a global
 
 
 		switch (request.getParameter("option")) {
@@ -67,8 +66,10 @@ public class Login extends HttpServlet {
 			} else {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
-		break;
-		
+
+
+			break;
+        
 		case "registrar":
 
 			usu = (Usuario) request.getSession().getAttribute("usuario");
@@ -81,47 +82,48 @@ public class Login extends HttpServlet {
 
 		case "registro":
 
-			
-			
 			String email = request.getParameter("email");
 			String pwd = request.getParameter("pwd");
-			
-			
-			//el login lo mantenemos a traves del mail?
+			String nombre = request.getParameter("nombre");
+
 			if (udao.findByEmail(email) != null) {
-				
-				//El usuario existe
-				System.out.println("Usuario con este email exist");
 
 				if (udao.findLogin(email, pwd) != null) {
-					
-					//Usuario existe y contrase�a es correcta
-					System.out.println("El usuario y contrase�a ok!");
-					request.getSession().setAttribute("usuario", usu);
-					request.getRequestDispatcher("indexUsu.jsp").forward(request,response);
-					
-				} 
-				
-				else {						
-					//Combinaci�n de usuario y contrase�a incorrecta
-					request.setAttribute("estado", "Combinaci�n de usuario y contrase�a incorrecta");
-					request.getRequestDispatcher("registro.jsp").forward(request, response);				
-				}  
-				
-				}else {
-				
-					//No existe usuario con ese email
-					System.out.println("No existe asi que lo creamos bbb");
-					usu = new Usuario(autoIncrement, email, new Date(), request.getParameter("nombre"), pwd, null, null);
+
+					// Usuario existe y contrasena es correcta
+					System.out.println("El usuario y contrasena ok!");
+					usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
 					request.getSession().setAttribute("usuario", usu);
 					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+
+				} else {
+					request.getRequestDispatcher("registro.jsp").forward(request, response);
 				}
 
-				break;
+			} else {
+
+				usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
+				
+				udao.insert(usu);
+
+				System.out.println("Objeto usuario " + usu);
+
+				Usuario usuPrueba = null;
+				request.getSession().setAttribute("usuario", usu);
+				usuPrueba = (Usuario) request.getSession().getAttribute("usuario");
+				System.out.println(usuPrueba.getEmail());
+
+				System.out.println("obj sesion: " + request.getSession().getAttribute("usuario"));
+				System.out.println();
+
+				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+			}
+
+			break;
 
 		case "logout":
 
-			request.getSession().removeAttribute("usuario");
+			// request.getSession().removeAttribute("usuario");
 			request.getSession().removeAttribute("idEneag");
 			request.getSession().removeAttribute("id");
 			request.getSession().removeAttribute("mapa");
@@ -132,8 +134,8 @@ public class Login extends HttpServlet {
 			break;
 
 		case "cerrar-test":
-			
-			request.getSession().removeAttribute("usuario");
+
+			// request.getSession().removeAttribute("usuario");
 			request.getSession().removeAttribute("idEneag");
 			request.getSession().removeAttribute("id");
 			request.getSession().removeAttribute("mapa");
@@ -141,7 +143,7 @@ public class Login extends HttpServlet {
 			request.getSession().invalidate();
 
 			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			
+
 			break;
 
 		case "usuario":
