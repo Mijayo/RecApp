@@ -78,7 +78,7 @@
 										out</a></li>
 								<li><a href="contacto.jsp" class="nav-link">contacto</a></li>
 								<li><a href="sobreNosotros.jsp" class="nav-link">nosotros</a></li>
-								<li><a href="GestionOfertas?option=anuncios" class="nav-link">ofertas</a></li>
+								<li><a href="GestionAnuncios?option=anuncios" class="nav-link">ofertas</a></li>
 							</ul>
 						</nav>
 					</div>

@@ -83,7 +83,7 @@
 								<li></li>
 								<li></li>
 								<li></li>
-								<li><a href="#" class="nav-link">ofertas</a></li>
+								<li><a href="GestionAnuncios?option=anuncios" class="nav-link">ofertas</a></li>
 							</ul>
 						</nav>
 					</div>
