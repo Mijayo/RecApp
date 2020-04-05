@@ -66,7 +66,7 @@
                 <li><a href="Login?option=registrar" class="nav-link">registro</a></li>
                  <li class="active"><a href="contacto.jsp" class="nav-link">contacto</a></li>
                 <li><a href="sobreNosotros.jsp" class="nav-link">nosotros</a></li>
-                <li><a href="#" class="nav-link">login</a></li>
+                <li><a href="Login?option=registrar" class="nav-link">login</a></li>
  			</ul>
             </nav>
           </div>
@@ -105,7 +105,7 @@
               <div class="row justify-content-center">
                 <div class="col-md-7 text-center hero-text">
                   <h1 data-aos="fade-up" data-aos-delay="">Contáctanos</h1>
-                  <p class="mb-5" data-aos="fade-up"  data-aos-delay="100">Si quieres saber más sobre RecApp o si quieres preguntarnos algo estamos a tu completa disposicion</p>  
+                  <p class="mb-5" data-aos="fade-up"  data-aos-delay="100">Si quieres saber más sobre RecApp puedes contactar con nosotros</p>  
                 </div>
               </div>
             </div>
@@ -187,86 +187,17 @@
             </div>
       </div>
     </div>
-
-      <div class="site-section border-top border-bottom">
-        <div class="container">
-          <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-4">
-              <h2 class="section-heading">Otras formas de contacto</h2>
-            </div>
-          </div>
-          <div class="row justify-content-center text-center">
-            <div class="col-md-7">
-              <div class="owl-carousel testimonial-carousel">
-                <div class="review text-center">
-                  <h3>Nuestras redes sociales</h3>
-                  <blockquote>
-                    <p>
-                      Instagram
-                    </p>
-                  </blockquote>
-
-                  
-
-                  <p class="review-user">
-                    <img src="img/person_1.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-                    <span class="d-block">
-                      <span class="text-black">@RecApp</span>
-                    </span>
-                  </p>
-
-                </div>
-
-                <div class="review text-center">
-                  <h3>Nuestras redes sociales</h3>
-                  <blockquote>
-                    <p>Twitter</p>
-                  </blockquote>
-
-                  
-
-                  <p class="review-user">
-                    <img src="img/person_2.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-                    <span class="d-block">
-                      <span class="text-black">@RecAppOficial</span>
-                    </span>
-                  </p>
-
-                </div>
-
-
-                <div class="review text-center">
-                  <h3>Nuestras redes sociales</h3>
-                  <blockquote>
-                    <p>Fake Uber</p>
-                  </blockquote>
-
-                  
-
-                  <p class="review-user">
-                    <img src="img/person_3.jpg" alt="Image" class="img-fluid rounded-circle mb-3">
-                    <span class="d-block">
-                      <span class="text-black">RecApp</span>
-                    </span>
-                  </p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      
+     
 
       <div class="site-section cta-section">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6 mr-auto text-center text-md-left mb-5 mb-md-0">
-              <h2>Y si vas a contactarnos para criticar tenemos otra forma de contacto</h2>
+              <h2>RecApp está disponible en</h2>
             </div>
             <div class="col-md-5 text-center text-md-right">
-              <p><a href="#" class="btn"><span class="icofont-brand-apple mr-3"></span>Te la metes por el culo</a> <a href="#" class="btn"><span class="icofont-ui-play mr-3"></span>Y soplas</a></p>
+              <p><a href="#" class="btn"><span class="icofont-brand-apple mr-3"></span>App Store</a> <a href="#" class="btn"><span class="icofont-ui-play mr-3"></span>Google
+								play</a></p>
             </div>
           </div>
         </div>
@@ -274,68 +205,51 @@
 
 
     </main>
-    <footer class="footer" role="contentinfo">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4 mb-md-0">
-            <h3>Sobre RecApp</h3>
-            <p>Somos la aplicación número 1 de búsqueda de empleo, creada por 3 estudiantes con la intención de ofrecer una oportunidad de reubicarse a personas que no están agusto en su sector.
-            </p>
-            <p class="social">
-              <a href="#"><span class="icofont-twitter"></span></a>
-              <a href="#"><span class="icofont-facebook"></span></a>
-              <a href="#"><span class="icofont-dribbble"></span></a>
-              <a href="#"><span class="icofont-behance"></span></a>
-            </p>
-          </div>
-          <div class="col-md-7 ml-auto">
-            <div class="row site-section pt-0">
-              <div class="col-md-4 mb-4 mb-md-0">
-                <h3>Navigation</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Pricing</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Blog</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </div>
-              <div class="col-md-4 mb-4 mb-md-0">
-                <h3>Services</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Team</a></li>
-                  <li><a href="#">Collaboration</a></li>
-                  <li><a href="#">Todos</a></li>
-                  <li><a href="#">Events</a></li>
-                </ul>
-              </div>
-              <div class="col-md-4 mb-4 mb-md-0">
-                <h3>Downloads</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Get from the App Store</a></li>
-                  <li><a href="#">Get from the Play Store</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+   <footer class="footer" role="contentinfo">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 mb-4 mb-md-0">
+						<h3>Sobre RecApp</h3>
+						<p>Herramienta digital para encontrar trabajo en otra área
+							profesional para gente que quiere reinventarse y/o cambiar. Está
+							app valorara las Soft Skills personales previas importantes para
+							el nuevo puesto de trabajo.</p>
+						<p class="social">
+							<a href="#"><span class="icofont-twitter"></span></a> <a href="#"><span
+								class="icofont-facebook"></span></a>
+						</p>
+					</div>
+					<div class="col-md-7 ml-auto">
+						<div class="row site-section pt-0">
+							<div class="col-md-4 mb-4 mb-md-0">
+								<h3>Servicios</h3>
+								<ul class="list-unstyled">
+									<li><a href="#">Equipo</a></li>
+									<li><a href="#">Sinergias</a></li>
+									<li><a href="#">Todos</a></li>
+									<li><a href="#">Eventos</a></li>
+								</ul>
+							</div>
+							<div class="col-md-4 mb-4 mb-md-0">
+								<h3>Descarga RecApp</h3>
+								<ul class="list-unstyled">
+									<li><a href="#">App Store</a></li>
+									<li><a href="#">Play Store</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <div class="row justify-content-center text-center">
-          <div class="col-md-7">
-            <p class="copyright">&copy; Copyright RecApp. All Rights Reserved</p>
-            <div class="credits">
-              <!--
-                All the links in the footer should remain intact.
-                You can delete the links only if you purchased the pro version.
-                Licensing information: https://bootstrapmade.com/license/
-                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=SoftLand
-              -->
-              Designed by <a href="https://bootstrapmade.com/">Peter Pan</a>
-            </div>
-          </div>
-        </div>
+				<div class="row justify-content-center text-center">
+					<div class="col-md-7">
+					
+						<div class="credits">Designed by Diego / Oriana / Jesus</div>
+					</div>
+				</div>
 
-      </div>
-    </footer>
+			</div>
+		</footer>
   </div> <!-- .site-wrap -->
   
   <!-- Vendor JS Files -->
