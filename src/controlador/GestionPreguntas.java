@@ -187,9 +187,11 @@ public class GestionPreguntas extends HttpServlet {
 				}
 				if (mayor20) {
 
-					System.out.println(numID);
+					System.out.println("este es el primer id: " + numID);
 
 					sesionQuestion.setAttribute("descTipo", edao.findEneagrama(numID));
+					
+					System.out.println(sesionQuestion.getAttribute("descTipo"));
 
 					Eneagrama userValues = (Eneagrama) sesionQuestion.getAttribute("descTipo");
 					

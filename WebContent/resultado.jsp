@@ -40,17 +40,6 @@
 </head>
 <body>
 
-	<!-- Spinner -->
-	<!-- <div class="contSpiner">
-		<h1 id="inicio">Calculando resultado</h1>
-		<div class="lds-ring">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	</div> -->
-
 	<div class="site-wrap">
 
 		<div class="site-mobile-menu site-navbar-target">
@@ -79,11 +68,12 @@
 
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
-								<li></li>
-								<li></li>
-								<li></li>
-								<li><a href="GestionAnuncios?option=anuncios" class="nav-link">ofertas</a></li>
+								<li><a href="Login?option=logout" class="registrarse">log
+										out</a></li>
+								<li><a href="contacto.jsp" class="nav-link">contacto</a></li>
+								<li><a href="sobreNosotros.jsp" class="nav-link">nosotros</a></li>
+								<li><a href="GestionAnuncios?option=anuncios"
+									class="nav-link">ofertas</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -105,14 +95,17 @@
 				<div class="row align-items-center ">
 
 					<div class="mr-auto"
-						style="max-width: 500px; position: relative; left: 10px; top:-25px;">
+						style="max-width: 500px; position: relative; left: 10px; top: -25px;">
 						<h1 class="" style="color: white;">
-							<span style="font-size: 14px;">El tipo de Eneagrama que eres es</span> <br> <b>El ${sessionScope.descTipo.tipo }</b></h1>
+							<span style="font-size: 14px;">El tipo de Eneagrama que
+								eres es</span> <br> <b>El ${sessionScope.descTipo.tipo }</b>
+						</h1>
 						<p class="" style="color: white;">
-							<span style="font-size: 14px;">Breve descripcion del tipo</span> <br>${sessionScope.descTipo.descripcion }</p>
+							<span style="font-size: 14px;">Breve descripcion del tipo</span>
+							<br>${sessionScope.descTipo.descripcion }</p>
 						<p class="" style="color: white;">
 							<span style="font-size: 14px;"><i>Quote</i></span> <br>${sessionScope.descTipo.quote }</p>
-							
+
 					</div>
 					<div
 						style="padding: 20px 20px 20px 20px; max-width: 450px; position: absolute; left: 720px; top: 220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
@@ -121,7 +114,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		</main>
 	</div>
 

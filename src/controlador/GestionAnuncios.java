@@ -45,16 +45,13 @@ public class GestionAnuncios extends HttpServlet {
 			throws ServletException, IOException {
 
 		Usuario usu = null;
-		UsuarioDAOImpl udao = new UsuarioDAOImpl();
 		usu = (Usuario) request.getSession().getAttribute("usuario");
-		
-		Eneagrama userValues = (Eneagrama) request.getSession().getAttribute("descTipo");
-		
+		UsuarioDAOImpl udao = new UsuarioDAOImpl();		
+		Eneagrama userValues = usu.getEneagrama();
+			
 		Anuncio anuncio = null;
 		AnuncioDAOImpl anundao = new AnuncioDAOImpl();
-		
-		System.out.println(request.getSession().getAttribute("usuario"));
-		
+			
 		switch (request.getParameter("option")) {
 		
 			case "anuncios":
@@ -62,7 +59,6 @@ public class GestionAnuncios extends HttpServlet {
 				if (usu.getTipoEneagrama() == null) {
 					request.getRequestDispatcher("test.jsp").forward(request, response);
 				} else if (usu.getEneagrama() != null) {
-					
 					request.getSession().setAttribute("anuncio", anundao.findById(userValues.getIdEneagrama()));
 					request.getRequestDispatcher("anuncios.jsp").forward(request, response);
 				} else {

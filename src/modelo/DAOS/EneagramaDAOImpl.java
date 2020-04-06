@@ -26,7 +26,7 @@ public class EneagramaDAOImpl implements EneagramaDAO {
 	@Override
 	public Eneagrama findEneagrama(int id) {
 		
-		System.out.println(id);
+		System.out.println("segundo id " + id);
 
 		sql = "select e from Eneagrama e where e.idEneagrama = :usu";
 

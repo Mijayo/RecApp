@@ -70,7 +70,6 @@
 
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
 								<li></li>
 								<li></li>
 								<li></li>

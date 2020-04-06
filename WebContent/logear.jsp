@@ -9,9 +9,8 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
 
-<title>Anuncios</title>
+<title>Login</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
@@ -41,32 +40,20 @@
 <link href="style.css" rel="stylesheet">
 
 </head>
-<body>
+<body onload="registro()">
 
-
-	<div class="site-wrap">
-
-		<div class="site-mobile-menu site-navbar-target">
-			<div class="site-mobile-menu-header">
-				<div class="site-mobile-menu-close mt-3">
-					<span class="icofont-close js-menu-toggle"></span>
-				</div>
-			</div>
-			<div class="site-mobile-menu-body"></div>
-		</div>
-
-		<header class="site-navbar js-sticky-header site-navbar-target"
-			role="banner">
-
+	<main id="viewPort"> 
+	
+		<header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 			<div class="container">
 				<div class="row align-items-center">
-
+	
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
-							<a href="indexUsu.jsp" class="mb-0">RecApp</a>
+							<a href="Login?option=validar" class="mb-0">RecApp</a>
 						</h1>
 					</div>
-
+					
 					<div class="col-12 col-md-10 d-none d-lg-block">
 						<nav class="site-navigation position-relative text-right"
 							role="navigation">
@@ -74,16 +61,13 @@
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
-								<li><a href="Login?option=logout" class="registrarse">log
-										out</a></li>
-								<li><a href="contacto.jsp" class="nav-link">contacto</a></li>
-								<li><a href="sobreNosotros.jsp" class="nav-link">nosotros</a></li>
-								<li><a href="#"
-									class="nav-link">ofertas</a></li>
+								<li><a href="" class="registrarse"></a></li>
+								<li><a href="" class="nav-link"></a></li>
+								<li><a href="" class="nav-link"></a></li>
+								<li><a href="" class="nav-link"></a></li>
 							</ul>
 						</nav>
 					</div>
-
 
 					<div class="col-6 d-inline-block d-lg-none ml-md-0 py-3"
 						style="position: relative; top: 3px;">
@@ -92,43 +76,55 @@
 							data-toggle="collapse" data-target="#main-navbar"> <span></span>
 						</a>
 					</div>
-
+					
 				</div>
 			</div>
-
 		</header>
-	</div>
 	
-	<%-- <h1>Anuncios</h1>
-	<p>Cargo: ${sessionScope.anuncio.cargo }</p>
-	<p>Detalle: ${sessionScope.anuncio.detalle }</p>
-	<p>Area: ${sessionScope.anuncio.keyword }</p>
-	<p>Descripcion: ${sessionScope.anuncio.requerimientos }</p>
-	<p>Salario: ${sessionScope.anuncio.salario }</p> --%>
+	
+		<div id="id01" class="modal">
+			<span class="close" title="Close Modal"></span>
+	
+			<form class="modal-content" action="Login?option=validar"
+				method="POST">
+				<div class="container">
+					<p>Rellena los campos</p>
+	
+					<label for="email"><b>Email</b></label> <input type="text"
+						placeholder="email" name="email" required> <label for="psw"><b>Password</b></label>
+					<input type="password" placeholder="password" name="pwd" required>
+				
+					<div class="clearfix">
+						<button type="submit" class="signupbtn btn-primary">login</button>
+					</div>
+				</div>
+			</form>
+			
+		</div>
 
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">${sessionScope.anuncio.cargo }</h5>
-					<p class="card-text">${sessionScope.anuncio.requerimientos }</p>
-					<p class="card-text">${sessionScope.anuncio.detalle }</p>
-					<p class="card-text"><span>Salario</span>${sessionScope.anuncio.salario }</p>
-					<a href="https://www.indeed.es/" class="btn btn-primary" target="_blank">¿quizas a indeed por probar?</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">Special title treatment</h5>
-					<p class="card-text">With supporting text below as a natural
-						lead-in to additional content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	
+	</main>
+
+
+
+
+
+
+
+
+
+	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/jquery/jquery-migrate.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/easing/easing.min.js"></script>
+	<script src="vendor/sticky/sticky.js"></script>
+	<script src="vendor/aos/aos.js"></script>
+	<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+
+	<!-- Template Main JS File -->
+	<script src="js/main.js"></script>
+
 </body>
 </html>
