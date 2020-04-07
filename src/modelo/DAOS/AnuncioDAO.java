@@ -1,9 +1,13 @@
 package modelo.DAOS;
 
+import java.util.List;
+
 import modelo.beans.Anuncio;
+
 
 public interface AnuncioDAO {
 	
-	public Anuncio findById(int id);
-
+	public Anuncio findBy(int id);
+	
+	public List<Anuncio> findByID(int tipoID);
 }

@@ -76,9 +76,9 @@
 								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
 								<li><a href="Login?option=logout" class="registrarse">log
 										out</a></li>
-								<li><a href="contacto.jsp" class="nav-link">contacto</a></li>
-								<li><a href="sobreNosotros.jsp" class="nav-link">nosotros</a></li>
-								<li><a href="GestionAnuncios?option=anuncios" class="nav-link">ofertas</a></li>
+								<li><a href="contactoUsu.jsp" class="nav-link">contacto</a></li>
+								<li><a href="sobreNosotrosUsu.jsp" class="nav-link">nosotros</a></li>
+								<li><a href="GestionAnuncios?option=anuncios" class="nav-link">empleo</a></li>
 							</ul>
 						</nav>
 					</div>

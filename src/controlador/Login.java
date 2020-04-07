@@ -52,6 +52,7 @@ public class Login extends HttpServlet {
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
 
 		// request.getSession().setAttribute("usuario", usu);
+		usu = (Usuario) request.getSession().getAttribute("usuario");
 
 		String email = request.getParameter("email");
 		String pwd = request.getParameter("pwd");
@@ -154,8 +155,6 @@ public class Login extends HttpServlet {
 
 		case "usuario":
 
-			usu = (Usuario) request.getSession().getAttribute("usuario");
-
 			if (usu == null) {
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
 			} else {
@@ -163,6 +162,7 @@ public class Login extends HttpServlet {
 			}
 
 			break;
+			
 		}
 
 	}

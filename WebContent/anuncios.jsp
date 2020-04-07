@@ -55,8 +55,8 @@
 			<div class="site-mobile-menu-body"></div>
 		</div>
 
-		<header class="site-navbar js-sticky-header site-navbar-target"
-			role="banner">
+		<main id="viewPort"> <header
+			class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
 			<div class="container">
 				<div class="row align-items-center">
@@ -76,10 +76,9 @@
 								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
 								<li><a href="Login?option=logout" class="registrarse">log
 										out</a></li>
-								<li><a href="contacto.jsp" class="nav-link">contacto</a></li>
-								<li><a href="sobreNosotros.jsp" class="nav-link">nosotros</a></li>
-								<li><a href="#"
-									class="nav-link">ofertas</a></li>
+								<li><a href="contactoUsu.jsp" class="nav-link">contacto</a></li>
+								<li><a href="sobreNosotrosUsu.jsp" class="nav-link">nosotros</a></li>
+								<li><a href="#" class="nav-link">empleo</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -98,7 +97,7 @@
 
 		</header>
 	</div>
-	
+
 	<%-- <h1>Anuncios</h1>
 	<p>Cargo: ${sessionScope.anuncio.cargo }</p>
 	<p>Detalle: ${sessionScope.anuncio.detalle }</p>
@@ -106,29 +105,23 @@
 	<p>Descripcion: ${sessionScope.anuncio.requerimientos }</p>
 	<p>Salario: ${sessionScope.anuncio.salario }</p> --%>
 
-	<div class="row">
+	<div style="max-width: 900px; border: 1px solid white;">
 		<div class="col-sm-6">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">${sessionScope.anuncio.cargo }</h5>
-					<p class="card-text">${sessionScope.anuncio.requerimientos }</p>
-					<p class="card-text">${sessionScope.anuncio.detalle }</p>
-					<p class="card-text"><span>Salario</span>${sessionScope.anuncio.salario }</p>
-					<a href="https://www.indeed.es/" class="btn btn-primary" target="_blank">¿quizas a indeed por probar?</a>
+			<c:forEach items="${sessionScope.anuncio}" var="trabajo">
+				<div class="card" >
+					<div class="card-body" >
+						<h5 class="card-title">${trabajo.cargo }</h5>
+						<p class="card-text">${trabajo.requerimientos }</p>
+						<p class="card-text">${trabajo.detalle }</p>
+						<p class="card-text">
+							<span>Salario </span>${trabajo.salario } €</p>
+						<a href="https://www.indeed.es/" class="btn btn-primary"
+							target="_blank">¿quizas a indeed por probar?</a>
+					</div>
 				</div>
-			</div>
-		</div>
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="card-body">
-					<h5 class="card-title">Special title treatment</h5>
-					<p class="card-text">With supporting text below as a natural
-						lead-in to additional content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 	</div>
-	
+	</main>
 </body>
 </html>
