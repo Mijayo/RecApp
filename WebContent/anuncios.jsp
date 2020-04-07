@@ -4,21 +4,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="ISO-8859-1">
-
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="style.css">
 
-<title>Resultado</title>
-
+<title>Anuncios</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
 <meta content="" name="description">
 
-<!-- ICONO DE LA PESTANA DEL NAVEGADOR -->
-<link href="img/_miniLogo.png" rel="icon">
-
 <!-- Favicons -->
+<link href="img/_miniLogo.png" rel="icon">
 <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
 <!-- Google Fonts -->
@@ -37,8 +37,12 @@
 <link href="vendor/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
 
+<!-- Template Main CSS File -->
+<link href="style.css" rel="stylesheet">
+
 </head>
 <body>
+
 
 	<div class="site-wrap">
 
@@ -53,6 +57,7 @@
 
 		<main id="viewPort"> <header
 			class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
 			<div class="container">
 				<div class="row align-items-center">
 
@@ -68,15 +73,16 @@
 
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
 								<li><a href="Login?option=logout" class="registrarse">log
 										out</a></li>
 								<li><a href="contactoUsu.jsp" class="nav-link">contacto</a></li>
 								<li><a href="sobreNosotrosUsu.jsp" class="nav-link">nosotros</a></li>
-								<li><a href="GestionAnuncios?option=anuncios"
-									class="nav-link">empleo</a></li>
+								<li><a href="#" class="nav-link">empleo</a></li>
 							</ul>
 						</nav>
 					</div>
+
 
 					<div class="col-6 d-inline-block d-lg-none ml-md-0 py-3"
 						style="position: relative; top: 3px;">
@@ -88,38 +94,34 @@
 
 				</div>
 			</div>
+
 		</header>
-
-		<div class="site-section pb-0">
-			<div class="container">
-				<div class="row align-items-center ">
-
-					<div class="mr-auto"
-						style="max-width: 500px; position: relative; left: 10px; top: -25px;">
-						<h1 class="" style="color: white;">
-							<span style="font-size: 14px;">El tipo de Eneagrama que
-								eres es</span> <br> <b>El ${sessionScope.descTipo.tipo }</b>
-						</h1>
-						<p class="" style="color: white;">
-							<span style="font-size: 14px;">Breve descripcion del tipo</span>
-							<br>${sessionScope.descTipo.descripcion }</p>
-						<p class="" style="color: white;">
-							<span style="font-size: 14px;"><i>Quote</i></span> <br>${sessionScope.descTipo.quote }</p>
-
-					</div>
-					<div
-						style="padding: 20px 20px 20px 20px; max-width: 450px; position: absolute; left: 720px; top: 220px; background-color: rgba(255, 255, 255); border-radius: 20px;">
-						<img src="img/undraw_svg_2.svg" alt="Image" class="img-fluid">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		</main>
 	</div>
 
-	<!-- Template Main JS File -->
-	<script src="js/main.js"></script>
+	<%-- <h1>Anuncios</h1>
+	<p>Cargo: ${sessionScope.anuncio.cargo }</p>
+	<p>Detalle: ${sessionScope.anuncio.detalle }</p>
+	<p>Area: ${sessionScope.anuncio.keyword }</p>
+	<p>Descripcion: ${sessionScope.anuncio.requerimientos }</p>
+	<p>Salario: ${sessionScope.anuncio.salario }</p> --%>
 
+	<div style="max-width: 900px; border: 1px solid white;">
+		<div class="col-sm-6">
+			<c:forEach items="${sessionScope.anuncio}" var="trabajo">
+				<div class="card" >
+					<div class="card-body" >
+						<h5 class="card-title">${trabajo.cargo }</h5>
+						<p class="card-text">${trabajo.requerimientos }</p>
+						<p class="card-text">${trabajo.detalle }</p>
+						<p class="card-text">
+							<span>Salario </span>${trabajo.salario } €</p>
+						<a href="https://www.indeed.es/" class="btn btn-primary"
+							target="_blank">¿quizas a indeed por probar?</a>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+	</main>
 </body>
 </html>

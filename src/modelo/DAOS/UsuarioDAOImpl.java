@@ -40,10 +40,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			if (usu != null) {
 
 				tx.begin();
-				em.persist(usuario);
+				em.merge(usuario);
 				tx.commit();
 
 				return 1;
+				
 			} else if (usu == null) {
 
 				tx.begin();
