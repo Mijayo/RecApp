@@ -86,6 +86,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 
+
 	public Usuario findByEmail(String email) {
 
 		sql = "select u from Usuario u where u.email = :email";
@@ -103,6 +104,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	public Usuario findLogin(String email, String pwd) {
 
+
 		sql = "select u from Usuario u where u.email = :email and u.password = :pwd";
 
 		try {
@@ -116,5 +118,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return null;
 
 	}
+	
 
 }

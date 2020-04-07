@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 import modelo.DAOS.UsuarioDAOImpl;
-//import modelo.DAOS.UsuarioDAOImpl;
 import modelo.beans.Eneagrama;
 import modelo.beans.Usuario;
 
@@ -51,6 +50,7 @@ public class Login extends HttpServlet {
 		Usuario usu = null;
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
 
+
 		// request.getSession().setAttribute("usuario", usu);
 		usu = (Usuario) request.getSession().getAttribute("usuario");
 
@@ -59,6 +59,7 @@ public class Login extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 
 		int autoIncrement = 0;
+
 
 		switch (request.getParameter("option")) {
 
@@ -77,8 +78,9 @@ public class Login extends HttpServlet {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
 
-			break;
 
+			break;
+        
 		case "registrar":
 
 			usu = (Usuario) request.getSession().getAttribute("usuario");
@@ -156,11 +158,12 @@ public class Login extends HttpServlet {
 		case "usuario":
 
 			if (usu == null) {
+				
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
-			} else {
+				
+					} else {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
-
 			break;
 			
 		}
