@@ -1,39 +1,47 @@
 package modelo.DAOS;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import modelo.beans.Eneagrama;
-import modelo.beans.Usuario;
+import modelo.beans.Anuncio;
+import modelo.beans.Pregunta;
 
-public class EneagramaDAOImpl implements EneagramaDAO {
-
+public class AnuncioDAOImpl implements AnuncioDAO {
+	
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	private EntityTransaction tx;
 	private String sql;
 	private Query query;
-
-	public EneagramaDAOImpl() {
+	
+	public AnuncioDAOImpl() {
 		emf = Persistence.createEntityManagerFactory("RecApp");
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 	}
 
 	@Override
-	public Eneagrama findEneagrama(int id) {
+	public Anuncio findBy(int id) {
 		
-		System.out.println("segundo id " + id);
+		return em.find(Anuncio.class, id);
+	}
+	
+	@Override
+	public List<Anuncio> findByID(int tipoID) {
 
-		sql = "select e from Eneagrama e where e.idEneagrama = :usu";
+		System.out.println("Aqui tipoID " + tipoID);
+
+		sql = "select a from Anuncio a where a.eneagrama = :nid";
 
 		try {
 			query = em.createQuery(sql);
-			query.setParameter("usu", id);
-			return (Eneagrama) query.getSingleResult();
+			query.setParameter("nid", tipoID);
+			return  query.getResultList();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

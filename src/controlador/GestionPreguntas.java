@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import modelo.DAOS.EneagramaDAOImpl;
 import modelo.DAOS.PreguntaDAOImpl;
 import modelo.DAOS.UsuarioDAOImpl;
+import modelo.beans.Eneagrama;
 import modelo.beans.Pregunta;
 import modelo.beans.Usuario;
 
@@ -54,10 +55,10 @@ public class GestionPreguntas extends HttpServlet {
 
 		EneagramaDAOImpl edao = new EneagramaDAOImpl();
 		PreguntaDAOImpl pdao = new PreguntaDAOImpl();
-		
+
 		Usuario usu = null;
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
-		// usu = request.getSession().getAttribute("usuario");
+		usu = (Usuario) request.getSession().getAttribute("usuario");
 		// udao.insert(usu)
 		System.out.println(request.getSession().getAttribute("usuario"));
 
@@ -153,6 +154,7 @@ public class GestionPreguntas extends HttpServlet {
 
 				boolean mayor20 = false;
 				Integer numID = null;
+				int max = 20;
 
 				for (Integer en : cantidadPreguntas.keySet()) {
 
@@ -168,13 +170,13 @@ public class GestionPreguntas extends HttpServlet {
 
 						t.add(cantidadPreguntas.get(en));
 
-						int max = 20;
 						for (int i = 0; i < t.size(); i++) {
 							if (t.get(i) > max) {
 
 								max = t.get(i);
 
 								numID = (en - 1);
+
 								System.out.println("Valor maximo dentro del array " + max + " id del tipo " + (en - 1));
 
 							}
@@ -185,12 +187,20 @@ public class GestionPreguntas extends HttpServlet {
 				}
 				if (mayor20) {
 
-					System.out.println(numID);
+					System.out.println("este es el primer id: " + numID);
 
 					sesionQuestion.setAttribute("descTipo", edao.findEneagrama(numID));
 					
 					System.out.println(sesionQuestion.getAttribute("descTipo"));
+
+					Eneagrama userValues = (Eneagrama) sesionQuestion.getAttribute("descTipo");
 					
+					usu.setEneagrama(userValues);
+					usu.setTipoEneagrama(userValues.getTipo());
+					usu.setResultadoTest(max);
+
+					udao.insert(usu);
+
 					request.getRequestDispatcher("resultado.jsp").forward(request, response);
 
 				} else {
