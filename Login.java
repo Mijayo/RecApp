@@ -1,6 +1,8 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -154,24 +156,35 @@ public class Login extends HttpServlet {
 		case "login":
 			String email;
 			String pwd;
-
+			
 			UsuarioDAOImpl udaoimpl = new UsuarioDAOImpl();
 			email = request.getParameter("email");
 			pwd = request.getParameter("pwd");
 			Usuario usuario = udaoimpl.findEmail(email, pwd);
+			  Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+		                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+			  Matcher mather = pattern.matcher(email);
+
+		        if (mather.find() == true && pwd.lenght > 5) {
+		        	
+		        	if (usuario == null) {
+						request.getRequestDispatcher("registro.jsp").forward(request, response);
+
+					} else {
+
+						request.getSession().setAttribute("email", email);
+						request.getSession().setAttribute("pwd", pwd);
+						request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+					}
+		       
+		        } else {
+		            System.out.println("El email o contraseña no son validos.");
+		        }
 
 			// System.out.println(email);
 			// System.out.println(pwd);
 
-			if (usuario == null) {
-				request.getRequestDispatcher("registro.jsp").forward(request, response);
-
-			} else {
-
-				request.getSession().setAttribute("email", email);
-				request.getSession().setAttribute("pwd", pwd);
-				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			}
+			
 
 			break;
 		}
