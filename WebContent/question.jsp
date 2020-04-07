@@ -70,7 +70,6 @@
 
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
 								<li></li>
 								<li></li>
 								<li></li>
@@ -116,9 +115,9 @@
 											<tr>
 
 												<td><input
-													style="position: relative; top: -22px; border: 1px solid red;"
+													style="position: relative; top: -22px; border: 1px solid red; visibility: hidden;"
 													type="checkbox" name="isbn" value="${pregunta.idAux}"
-													required></td>
+													checked ></td>
 												<td><p
 														style="color: white; padding: 0px 10px 0px 10px; min-width: 450px;">
 														${pregunta.pregunta }</p></td>
@@ -135,7 +134,7 @@
 									</div>
 								</c:forEach>
 
-								<button type="submit" class="registro btn btn-outline-white">siguiente</button>
+								<button style="margin-left: 25px;" type="submit" class="registro btn btn-outline-white">siguiente</button>
 							</div>
 						</form>
 

@@ -40,16 +40,17 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			if (usu != null) {
 
 				tx.begin();
-				em.persist(usuario);
+				em.merge(usuario);
 				tx.commit();
 
 				return 1;
-			} else if (usu == null) {
 				
+			} else if (usu == null) {
+
 				tx.begin();
 				em.persist(usuario);
 				tx.commit();
-				
+
 				return 1;
 			}
 
@@ -84,9 +85,10 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	@Override
-	
+
+
 	public Usuario findByEmail(String email) {
-		
+
 		sql = "select u from Usuario u where u.email = :email";
 
 		try {
@@ -99,8 +101,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return null;
 
 	}
-	
+
 	public Usuario findLogin(String email, String pwd) {
+
 
 		sql = "select u from Usuario u where u.email = :email and u.password = :pwd";
 
