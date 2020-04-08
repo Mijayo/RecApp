@@ -50,7 +50,7 @@
 	
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
-							<a href="Login?option=validar" class="mb-0">RecApp</a>
+							<a href="index.jsp" class="mb-0">RecApp</a>
 						</h1>
 					</div>
 					
@@ -85,8 +85,7 @@
 		<div id="id01" class="modal">
 			<span class="close" title="Close Modal"></span>
 	
-			<form class="modal-content" action="Login?option=validar"
-				method="POST">
+			<form class="modal-content" action="Login?option=validar" method="POST">
 				<div class="container">
 					<p>Rellena los campos</p>
 	
