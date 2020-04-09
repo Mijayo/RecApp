@@ -2,6 +2,8 @@ package controlador;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,18 +65,27 @@ public class Login extends HttpServlet {
 		switch (request.getParameter("option")) {
 
 		case "validar":
-			
-			if (udao.findLogin(email, pwd) == null) {
-	
-				// showMessageDialog(null, "El usuario no existe. Registrate :)");
-				request.getRequestDispatcher("registro.jsp").forward(request, response);
 
-			} else {
-				System.out.println("El usuario y contrasena ok!");
-				usu = udao.findLogin(email, pwd);
-				// usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
-				request.getSession().setAttribute("usuario", usu);
-				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+			Pattern pattern = Pattern.compile(
+					"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+			Matcher mather = pattern.matcher(email);
+
+			if (mather.find() == true && pwd.length() >= 5) {
+
+				if (udao.findLogin(email, pwd) == null) {
+
+					// showMessageDialog(null, "El usuario no existe. Registrate :)");
+					request.getRequestDispatcher("registro.jsp").forward(request, response);
+
+				} else {
+					System.out.println("El usuario y contrasena ok!");
+					// showMessageDialog(null, "El usuario y contrasena ok!");
+					usu = udao.findLogin(email, pwd);
+					
+					request.getSession().setAttribute("usuario", usu);
+					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				}
+
 			}
 
 			break;
@@ -95,35 +106,42 @@ public class Login extends HttpServlet {
 
 		case "registro":
 
-			if (udao.findByEmail(email) != null) {
+			Pattern patt = Pattern.compile(
+					"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+			Matcher math = patt.matcher(email);
 
-				if (udao.findLogin(email, pwd) != null) {
+			if (math.find() == true && pwd.length() >= 5) {
 
-					// showMessageDialog(null, "El usuario ya existe. Logeate :)");
-					request.getRequestDispatcher("logear.jsp").forward(request, response);
+				if (udao.findByEmail(email) != null) {
+
+					if (udao.findLogin(email, pwd) != null) {
+
+						// showMessageDialog(null, "El usuario ya existe. Logeate :)");
+						request.getRequestDispatcher("logear.jsp").forward(request, response);
+
+					} else {
+						request.getRequestDispatcher("registro.jsp").forward(request, response);
+					}
 
 				} else {
-					request.getRequestDispatcher("registro.jsp").forward(request, response);
+
+					usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
+
+					udao.insert(usu);
+
+					System.out.println("Objeto usuario " + usu);
+
+					Usuario usuPrueba = null;
+					request.getSession().setAttribute("usuario", usu);
+					usuPrueba = (Usuario) request.getSession().getAttribute("usuario");
+					System.out.println(usuPrueba.getEmail());
+
+					System.out.println("obj sesion: " + request.getSession().getAttribute("usuario"));
+					System.out.println();
+
+					// showMessageDialog(null, "Usuario registrado :)");
+					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 				}
-
-			} else {
-
-				usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
-
-				udao.insert(usu);
-
-				System.out.println("Objeto usuario " + usu);
-
-				Usuario usuPrueba = null;
-				request.getSession().setAttribute("usuario", usu);
-				usuPrueba = (Usuario) request.getSession().getAttribute("usuario");
-				System.out.println(usuPrueba.getEmail());
-
-				System.out.println("obj sesion: " + request.getSession().getAttribute("usuario"));
-				System.out.println();
-
-				// showMessageDialog(null, "Usuario registrado :)");
-				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
 
 			break;
@@ -138,6 +156,7 @@ public class Login extends HttpServlet {
 			request.getSession().invalidate();
 
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
 			break;
 
 		case "cerrar-test":
@@ -162,7 +181,7 @@ public class Login extends HttpServlet {
 			}
 
 			break;
-			
+
 		}
 
 	}

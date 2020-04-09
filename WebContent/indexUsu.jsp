@@ -17,8 +17,10 @@
 <meta content="" name="keywords">
 <meta content="" name="description">
 
-<!-- Favicons -->
+<!-- ICONO DE LA PESTANA DEL NAVEGADOR -->
 <link href="img/_miniLogo.png" rel="icon">
+
+<!-- Favicons -->
 <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
 <!-- Google Fonts -->

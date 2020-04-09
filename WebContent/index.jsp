@@ -40,6 +40,8 @@
 <link href="vendor/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
 
+<!-- Template Main CSS File -->
+<link href="style.css" rel="stylesheet">
 
 </head>
 
@@ -74,7 +76,6 @@
 
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
 								<li><a href="Login?option=registrar" class="registrarse">registrate</a></li>
 								<li><a href="contacto.jsp" class="nav-link">contacto</a></li>
 								<li><a href="sobreNosotros.jsp" class="nav-link">nosotros</a></li>
