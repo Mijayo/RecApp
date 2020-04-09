@@ -213,7 +213,6 @@ public class GestionPreguntas extends HttpServlet {
 					sesionQuestion.removeAttribute("mapa");
 					sesionQuestion.removeAttribute("descTipo");
 //					sesionQuestion.invalidate();
-
 					usu = (Usuario) request.getSession().getAttribute("usuario");
 					
 					request.getRequestDispatcher("testIncorrecto.jsp").forward(request, response);
