@@ -114,19 +114,11 @@ public class Login extends HttpServlet {
 
 			if (udao.findByEmail(email) != null) {
 
-				if (udao.findLogin(email, pwd) != null) {
-
-					
-
 					request.setAttribute("estado", "ya estas registrado, haz login!");
 					
 					request.getRequestDispatcher("logear.jsp").forward(request, response);
 
 				} else {
-					request.getRequestDispatcher("registro.jsp").forward(request, response);
-				}
-
-			} else {
 
 				usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
 
