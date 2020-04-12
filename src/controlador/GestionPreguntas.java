@@ -2,6 +2,7 @@ package controlador;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 
 import modelo.DAOS.EneagramaDAOImpl;
 import modelo.DAOS.PreguntaDAOImpl;
@@ -73,7 +76,7 @@ public class GestionPreguntas extends HttpServlet {
 		List<Integer> arrayResultadoPreguntas = null;
 
 		HashMap<Integer, Integer> cantidadPreguntas = (HashMap<Integer, Integer>) sesionQuestion.getAttribute("mapa");
-
+		HashMap<Integer, Integer> maxPreguntas = (HashMap<Integer, Integer>) sesionQuestion.getAttribute("max");
 		if (cantidadPreguntas == null) {
 			cantidadPreguntas = new HashMap<Integer, Integer>();
 		}
@@ -157,38 +160,65 @@ public class GestionPreguntas extends HttpServlet {
 
 				boolean mayor20 = false;
 				Integer numID = null;
-				int max = 20;
+				int max = 19;
+				
+				List<Integer> t = new ArrayList<>();
+				List<Integer> z = new ArrayList<>();
 
+				
 				for (Integer en : cantidadPreguntas.keySet()) {
-
-					System.out.println("tontada: " + cantidadPreguntas.get(en));
-
-					if (cantidadPreguntas.get(en) >= 20) {
-
-						mayor20 = true;
-
-						System.out.println((en - 1) + " " + cantidadPreguntas.get(en));
-
-						List<Integer> t = new ArrayList<>();
-
-						t.add(cantidadPreguntas.get(en));
-
-						for (int i = 0; i < t.size(); i++) {
-							if (t.get(i) > max) {
-
-								max = t.get(i);
-
-								numID = (en - 1);
-
-								System.out.println("Valor maximo dentro del array " + max + " id del tipo " + (en - 1));
-
-							}
-						}
-
-					}
-
+					
+					t.add(cantidadPreguntas.get(en));
 				}
-				if (mayor20) {
+				
+					for (int i = 0; i < t.size(); i++) {
+						if (t.get(i) > max) {
+							
+							max = t.get(i);
+							numID = (i + 1);
+							mayor20 = true;
+							
+							//Como max empieza en 19, ya estas controlando que sea mayor/igual a 20
+					}
+					}
+					
+					for (int i = 0; i < t.size(); i++) {
+						if (t.get(i) == max) {
+							
+							numID = (i + 1);
+							z.add(numID);
+							
+							//volvemos a recorrer para ver si hay más de uno con esa cantidad
+					}
+						}
+					
+					if(z.size() > 1) {
+						System.out.println("Patata recontra intergaláctica maldita");
+						//Hay que decidir bien que haremos xd
+						
+						for (int i = 0 ; i < z.size(); i++) {
+						System.out.println(z.get(i));
+//						edao.findEneagrama(z.get(i));
+						
+//						
+//						Si hay mas de una opción, que haremos, 
+//						separamos? si hay dos, X, si hay 3, Y, 
+//						Si hay mas, pues Incorrecto?
+						
+//						Decidir
+						
+						
+//						
+//						Also, seguro esta logica es super resumible
+//						pero ahora mismo no lo veo, no tengo cerebro ya
+//						Mañana lo vemos
+						}
+						
+						request.getRequestDispatcher("resultaDos.jsp").forward(request, response);
+					}
+					
+
+					if (mayor20) {
 
 					System.out.println("este es el primer id: " + numID);
 
