@@ -11,7 +11,7 @@
 	crossorigin="anonymous"> -->
 <link rel="stylesheet" href="style.css">
 
-<title>Test</title>
+<title>Test incorrecto</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
@@ -57,7 +57,7 @@
 
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
-							<a href="indexUsu.jsp" class="mb-0">RecApp</a>
+							<a href="Login?option=validar" class="mb-0">RecApp</a>
 						</h1>
 					</div>
 
@@ -94,9 +94,9 @@
 				<div class="row align-items-center ">
 
 					<div class="mr-auto"
-						style="max-width: 400px; position: relative; left: 10px;">
-						<h2 class="mb-4" style="color: white;">¿Cómo realizar el
-							test?</h2>
+						style="max-width: 400px; position: relative; left: 15px;">
+						<h2 class="mb-4" style="color: white;">El resultado del test
+							no es correcto. <br>Por favor, realizalo de nuevo.</h2>
 						<p class="mb-4" style="color: white;">Hay nueve tipos de
 							eneagramas. El Reformador, el Ayudador, el Triunfador, el
 							Individualista, el Investigador, el Leal, el Entusiasta, el
@@ -108,8 +108,7 @@
 							aplicables a ti.</p>
 						<p class="mb-4" style="color: white;">No se puede dejar
 							ninguna pregunta sin responder.</p>
-						<p class="mb-4" style="color: white;">Puedes encontrar el
-							sistema de puntucaion en la tabla de la derecha.</p>
+
 					</div>
 
 					<div
@@ -137,18 +136,20 @@
 									5 ...</span>
 								<p style="color: steelblue; font-size: 12px;">siempre</p></li>
 						</ul>
-
+						<!-- <p style="max-width: 400px;">
+							<i>*sistema de puntos</i>
+						</p> -->
 					</div>
 
 				</div>
-				<p style="margin-left: -10px; margin-top: 15px;">
+				<p style=" margin-top: 15px;">
 					<a class="registro btn btn-outline-white"
 						href="GestionPreguntas?option=question">test</a>
 				</p>
 			</div>
 
 		</div>
-		</main>
+		<!-- .site-section --> </main>
 	</div>
 
 

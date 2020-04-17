@@ -8,8 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static javax.swing.JOptionPane.showMessageDialog;
 
-//import modelo.DAOS.UsuarioDAOImpl;
+import modelo.DAOS.UsuarioDAOImpl;
 import modelo.beans.Eneagrama;
 import modelo.beans.Usuario;
 
@@ -47,115 +48,138 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 
 		Usuario usu = null;
-		
-		request.getSession().setAttribute("usuario", usu);
+		UsuarioDAOImpl udao = new UsuarioDAOImpl();
+
+
+		// request.getSession().setAttribute("usuario", usu);
+		usu = (Usuario) request.getSession().getAttribute("usuario");
+
+		String email = request.getParameter("email");
+		String pwd = request.getParameter("pwd");
+		String nombre = request.getParameter("nombre");
+
+		int autoIncrement = 0;
+
 
 		switch (request.getParameter("option")) {
 
 		case "validar":
+			
 
-			usu = (Usuario) request.getSession().getAttribute("usuario");
+			if (udao.findByEmail(email) != null) {
 
-			if (usu == null) {
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-			} else {
-				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				//El usuario existe
+				System.out.println("Usuario con este email exist");
+			
+				if (udao.findLogin(email, pwd) == null) {
+					
+					//Combinaci�n de usuario y contrase�a incorrecta
+					request.setAttribute("estado", "combinaci�n de usuario y contrase�a incorrecta");
+					request.getRequestDispatcher("logear.jsp").forward(request, response);	
+				
+
+				} else {
+					usu = udao.findLogin(email, pwd);	
+					
+
+					System.out.println("El usuario y contrasena ok!");
+					
+					request.getSession().setAttribute("usuario", usu);
+					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				}
+				}
+			else {	
+
+				// showMessageDialog(null, "El usuario no existe. Registrate :)");
+				request.getRequestDispatcher("registro.jsp").forward(request, response);
+
 			}
 
-			// usu = udao.findLogin(request.getParameter("email"),
-			// request.getParameter("pwd"));
-
-			// request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 
 			break;
-
+        
 		case "registrar":
 
 			usu = (Usuario) request.getSession().getAttribute("usuario");
 
-			if (usu == null) {
-				request.getRequestDispatcher("registro.jsp").forward(request, response);
-			}
-
-			// request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-
-			/*
-			 * int autoIncrement = 0;
-			 * 
-			 * int eneagramaComun = 99;
-			 * 
-			 * usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(),
-			 * request.getParameter("nombre"), request.getParameter("pwd"), null, null);
-			 * 
-			 * 
-			 * request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			 */
-
-			/*
-			 * System.out.println(request.getParameter("email"));
-			 * System.out.println(request.getParameter("nombre"));
-			 * System.out.println(request.getParameter("pwd"));
-			 * 
-			 * int autoIncrement = 0;
-			 * 
-			 * int eneagramaComun = 99;
-			 * 
-			 * usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(),
-			 * request.getParameter("nombre"), request.getParameter("pwd"), null, null);
-			 * 
-			 * request.getSession().setAttribute("usuario", usu);
-			 * request.setAttribute("mensaje_registro", "Usuario registrado con exito");
-			 * request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			 */
-
-			/*
-			 * if (udao.insert(usu) != 0) {
-			 * 
-			 * request.getSession().setAttribute("usuario", usu);
-			 * request.setAttribute("mensaje_registro", "Usuario registrado con exito");
-			 * request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			 * 
-			 * } else { request.setAttribute("mensaje_error", "ya existe ese usuario");
-			 * request.getRequestDispatcher("index.jsp").forward(request, response); }
-			 */
-
-			break;
-			
-		case "registro":
-			
-			int autoIncrement = 0;
-
-			int eneagramaComun = 99;
-
-			usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(),
-					request.getParameter("nombre"), request.getParameter("pwd"), null, null);
-			
-			request.getSession().setAttribute("usuario", usu);
-			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			
-			break;
-
-		case "logout":
-			
-			request.getSession().getAttribute("usuario");
-			request.getSession().removeAttribute("usuario");
-
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-			break;
-			
-		case "usuario":
-			
-			
-			usu = (Usuario) request.getSession().getAttribute("usuario");
+			System.out.println(usu);
 
 			if (usu == null) {
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
 			} else {
+				request.getRequestDispatcher("logear.jsp").forward(request, response);
+			}
+
+			break;
+
+		case "registro":
+
+			if (udao.findByEmail(email) != null) {
+
+
+					request.setAttribute("estado", "ya estas registrado, haz login!");
+					
+					request.getRequestDispatcher("logear.jsp").forward(request, response);
+
+				} else {
+
+		
+				usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
+
+				udao.insert(usu);
+
+				System.out.println("Objeto usuario " + usu);
+
+				Usuario usuPrueba = null;
+				request.getSession().setAttribute("usuario", usu);
+				usuPrueba = (Usuario) request.getSession().getAttribute("usuario");
+				System.out.println(usuPrueba.getEmail());
+
+				System.out.println("obj sesion: " + request.getSession().getAttribute("usuario"));
+				System.out.println();
+
+				// showMessageDialog(null, "Usuario registrado :)");
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
-			
-			
+
 			break;
+
+		case "logout":
+
+			request.getSession().removeAttribute("usuario");
+			request.getSession().removeAttribute("idEneag");
+			request.getSession().removeAttribute("id");
+			request.getSession().removeAttribute("mapa");
+
+			request.getSession().invalidate();
+
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			break;
+
+		case "cerrar-test":
+
+			// request.getSession().removeAttribute("usuario");
+			request.getSession().removeAttribute("idEneag");
+			request.getSession().removeAttribute("id");
+			request.getSession().removeAttribute("mapa");
+
+			request.getSession().invalidate();
+
+			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+
+			break;
+
+		case "usuario":
+
+			if (usu == null) {
+				
+				request.getRequestDispatcher("registro.jsp").forward(request, response);
+				
+					} else {
+				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+			}
+			break;
+			
 		}
 
 	}

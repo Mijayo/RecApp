@@ -9,8 +9,9 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
 
-<title>Registro</title>
+<title>Anuncios</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
@@ -40,20 +41,32 @@
 <link href="style.css" rel="stylesheet">
 
 </head>
-<body onload="registro()">
+<body>
 
-	<main id="viewPort"> 
-	
-		<header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+	<div class="site-wrap">
+
+		<div class="site-mobile-menu site-navbar-target">
+			<div class="site-mobile-menu-header">
+				<div class="site-mobile-menu-close mt-3">
+					<span class="icofont-close js-menu-toggle"></span>
+				</div>
+			</div>
+			<div class="site-mobile-menu-body"></div>
+		</div>
+
+		<main id="viewPort"> <header
+			class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
 			<div class="container">
 				<div class="row align-items-center">
-	
+
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
-							<a href="index.jsp" class="mb-0">RecApp</a>
+							<a href="indexUsu.jsp" class="mb-0">RecApp</a>
 						</h1>
 					</div>
-					
+
 					<div class="col-12 col-md-10 d-none d-lg-block">
 						<nav class="site-navigation position-relative text-right"
 							role="navigation">
@@ -61,13 +74,15 @@
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
-								<li><a href="" class="registrarse"></a></li>
-								<li><a href="" class="nav-link"></a></li>
-								<li><a href="" class="nav-link"></a></li>
-								<li><a href="" class="nav-link"></a></li>
+								<li><a href="Login?option=logout" class="registrarse">log
+										out</a></li>
+								<li><a href="contactoUsu.jsp" class="nav-link">contacto</a></li>
+								<li><a href="sobreNosotrosUsu.jsp" class="nav-link">nosotros</a></li>
+								<li><a href="#" class="nav-link">empleo</a></li>
 							</ul>
 						</nav>
 					</div>
+
 
 					<div class="col-6 d-inline-block d-lg-none ml-md-0 py-3"
 						style="position: relative; top: 3px;">
@@ -76,68 +91,37 @@
 							data-toggle="collapse" data-target="#main-navbar"> <span></span>
 						</a>
 					</div>
-					
+
 				</div>
 			</div>
+
 		</header>
-	
-	
-		<div id="id01" class="modal">
-			<span class="close" title="Close Modal"></span>
-	
-			<form class="modal-content" action="Login?option=registro"
-				method="POST">
-				<div class="container">
-					<p>Rellena los campos</p>
-	
-					<label for="email"><b>Email</b></label> <input type="text"
-						placeholder="email" name="email" required> <label for="psw"><b>Password</b></label>
-					<input type="password" placeholder="password" name="pwd" required>
-					<label for="psw-repeat"><b>Nombre</b></label> <input type="text"
-						placeholder="nombre" name="nombre" required>
-					
-					<div class="clearfix">
-						<button type="submit" class="signupbtn btn-primary float-left">registrar</button>
-						
-					<%if(request.getAttribute("estado") != null){ %>
-					<p class="alert alert-danger float-right" role="alert"><%=request.getAttribute("estado")%></p>
-					<%}%>
+	</div>
+
+	<%-- <h1>Anuncios</h1>
+	<p>Cargo: ${sessionScope.anuncio.cargo }</p>
+	<p>Detalle: ${sessionScope.anuncio.detalle }</p>
+	<p>Area: ${sessionScope.anuncio.keyword }</p>
+	<p>Descripcion: ${sessionScope.anuncio.requerimientos }</p>
+	<p>Salario: ${sessionScope.anuncio.salario }</p> --%>
+
+	<div style="max-width: 900px; border: 1px solid white;">
+		<div class="col-sm-6">
+			<c:forEach items="${sessionScope.anuncio}" var="trabajo">
+				<div class="card" >
+					<div class="card-body" >
+						<h5 class="card-title">${trabajo.cargo }</h5>
+						<p class="card-text">${trabajo.requerimientos }</p>
+						<p class="card-text">${trabajo.detalle }</p>
+						<p class="card-text">
+							<span>Salario </span>${trabajo.salario } €</p>
+						<a href="https://www.indeed.es/" class="btn btn-primary"
+							target="_blank">¿quizas a indeed por probar?</a>
 					</div>
-					
-					
 				</div>
-			</form>
-			
-			
-					
-			
-			
-					
+			</c:forEach>
 		</div>
-
+	</div>
 	</main>
-
-
-
-
-
-
-
-
-
-	<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
-
-	<!-- Vendor JS Files -->
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/jquery/jquery-migrate.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-	<script src="vendor/easing/easing.min.js"></script>
-	<script src="vendor/sticky/sticky.js"></script>
-	<script src="vendor/aos/aos.js"></script>
-	<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
-
-	<!-- Template Main JS File -->
-	<script src="js/main.js"></script>
-
 </body>
 </html>

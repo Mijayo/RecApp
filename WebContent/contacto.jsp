@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>    
 
@@ -104,8 +105,8 @@
             <div class="col-12">
               <div class="row justify-content-center">
                 <div class="col-md-7 text-center hero-text">
-                  <h1 data-aos="fade-up" data-aos-delay="">Cont·ctanos</h1>
-                  <p class="mb-5" data-aos="fade-up"  data-aos-delay="100">Si quieres saber m·s sobre RecApp puedes contactar con nosotros</p>  
+                  <h1 data-aos="fade-up" data-aos-delay="">Cont√°ctanos</h1>
+                  <p class="mb-5" data-aos="fade-up"  data-aos-delay="100">Si quieres saber m√°s sobre RecApp puedes contactar con nosotros</p>  
                 </div>
               </div>
             </div>
@@ -129,8 +130,8 @@
               <div class="col-md-4 ml-auto order-2"  data-aos="fade-up">
                 <ul class="list-unstyled">
                   <li class="mb-3">
-                    <strong class="d-block mb-1">DirecciÛn</strong>
-                    <span>Juli·n Camarillo 45, 28029 Madrid EspaÒa</span>
+                    <strong class="d-block mb-1">Direcci√≥n</strong>
+                    <span>Juli√°n Camarillo 45, 28029 Madrid Espa√±a</span>
                   </li>
                   <li class="mb-3">
                     <strong class="d-block mb-1">Telefono de contacto</strong>
@@ -172,7 +173,7 @@
                     <div class="col-md-12 mb-3">
                         <div class="loading">Cargando</div>
                       <div class="error-message"></div>
-                      <div class="sent-message">°Su mensaje ha sido enviado! Gracias por contactar con RecApp</div>
+                      <div class="sent-message">¬°Su mensaje ha sido enviado! Gracias por contactar con RecApp</div>
                     </div>
     
                     <div class="col-md-6 form-group">
@@ -193,7 +194,7 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6 mr-auto text-center text-md-left mb-5 mb-md-0">
-              <h2>RecApp est· disponible en</h2>
+              <h2>RecApp est√° disponible en</h2>
             </div>
             <div class="col-md-5 text-center text-md-right">
               <p><a href="#" class="btn"><span class="icofont-brand-apple mr-3"></span>App Store</a> <a href="#" class="btn"><span class="icofont-ui-play mr-3"></span>Google
@@ -210,8 +211,8 @@
 				<div class="row">
 					<div class="col-md-4 mb-4 mb-md-0">
 						<h3>Sobre RecApp</h3>
-						<p>Herramienta digital para encontrar trabajo en otra ·rea
-							profesional para gente que quiere reinventarse y/o cambiar. Est·
+						<p>Herramienta digital para encontrar trabajo en otra √°rea
+							profesional para gente que quiere reinventarse y/o cambiar. Est√°
 							app valorara las Soft Skills personales previas importantes para
 							el nuevo puesto de trabajo.</p>
 						<p class="social">

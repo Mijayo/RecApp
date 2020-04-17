@@ -7,20 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelo.DAOS.AnuncioDAOImpl;
 import modelo.DAOS.UsuarioDAOImpl;
+import modelo.beans.Anuncio;
+import modelo.beans.Eneagrama;
 import modelo.beans.Usuario;
 
 /**
- * Servlet implementation class GestionTest
+ * Servlet implementation class GestionAnuncios
  */
-@WebServlet("/GestionTest")
-public class GestionTest extends HttpServlet {
+@WebServlet("/GestionAnuncios")
+public class GestionAnuncios extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public GestionTest() {
+	public GestionAnuncios() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -31,7 +34,6 @@ public class GestionTest extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
 	}
 
@@ -43,41 +45,30 @@ public class GestionTest extends HttpServlet {
 			throws ServletException, IOException {
 
 		Usuario usu = null;
-		UsuarioDAOImpl udao = new UsuarioDAOImpl();
-
-		System.out.println(request.getSession().getAttribute("usuario"));
-		
 		usu = (Usuario) request.getSession().getAttribute("usuario");
-		
-		System.out.println("es este null? " + usu);
-
+		UsuarioDAOImpl udao = new UsuarioDAOImpl();		
+		Eneagrama userValues = usu.getEneagrama();
+			
+		Anuncio anuncio = null;
+		AnuncioDAOImpl anundao = new AnuncioDAOImpl();
+			
 		switch (request.getParameter("option")) {
-
-		case "validar":
-
-			if (usu == null) {
-				request.getRequestDispatcher("registro.jsp").forward(request, response);
-			} else if (usu.getTipoEneagrama() == null) {
-				request.getRequestDispatcher("test.jsp").forward(request, response);
-			} else if(usu.getEneagrama() != null) {
-				request.getRequestDispatcher("anuncios.jsp").forward(request, response);
-			} else {
-				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			}
-
-			System.out.println("aqui");
-			System.out.println(usu);
-
-			/*
-			 * System.out.println(usu.getNombre());
-			 * System.out.println(usu.getTipoEneagrama());
-			 */
-
-			// request.getRequestDispatcher("index.jsp").forward(request, response);
-
+		
+			case "anuncios":
+	
+				if (usu.getTipoEneagrama() == null) {
+					request.getRequestDispatcher("test.jsp").forward(request, response);
+				} else if (usu.getEneagrama() != null) {
+					request.getSession().setAttribute("anuncio", anundao.findByID(userValues.getIdEneagrama()));
+					request.getRequestDispatcher("anuncios.jsp").forward(request, response);
+				} else {
+					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				}
+				
 			break;
 		}
 
 	}
 
 }
+

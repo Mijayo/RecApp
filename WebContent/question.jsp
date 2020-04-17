@@ -70,11 +70,11 @@
 
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-								<!-- <li><a href="#" class="nav-link">Regístrate</a></li> -->
 								<li></li>
 								<li></li>
 								<li></li>
-								<li><a href="" class="nav-link"></a></li>
+								<li><a href="Login?option=cerrar-test" class="registrarse"
+									onclick="cerrarTest()">cerrar test</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -102,47 +102,52 @@
 							<div style="position: relative;">
 
 								<h2 class="mb-4" style="color: white;">
-									<span>${sessionScope.tipoEne} -</span>
+									<span>${requestScope.tipoEne.idEneagrama } </span><span>-
+										${requestScope.tipoEne.tipo } </span>
 								</h2>
 
 							</div>
 							<div style="max-width: 450px; position: absolute; z-index: 99;">
-								<c:forEach items="${requestScope.preguntas}" var="pregunta">
+								<c:forEach items="${requestScope.preguntas}" var="pregunta"
+									begin="0" end="4">
 									<div style="display: flex;">
 										<table>
 											<tr>
-												<td><input class="mgLibro" type="checkbox" name="isbn"
-													value="${pregunta.idPregunta}">
-													<p class="mb-4" style="color: white;">${pregunta }</p>
-												</td>
-												<!-- <input class="inputS" type="text" name="valor" required ></input> -->
-												<td><select required
-													name="cantidad${pregunta.idPregunta }">
+
+												<td><input
+													style="position: relative; top: -22px; border: 1px solid red; visibility: hidden;"
+													type="checkbox" name="isbn" value="${pregunta.idAux}"
+													checked ></td>
+												<td><p
+														style="color: white; padding: 0px 10px 0px 10px; min-width: 450px;">
+														${pregunta.pregunta }</p></td>
+												<td><select name="cantidad${pregunta.idAux }">
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
 														<option value="4">4</option>
-														<option value="4">5</option>
+														<option value="5">5</option>
 												</select></td>
+
 											</tr>
 										</table>
 									</div>
 								</c:forEach>
 
-								<button type="submit" class="registro btn btn-outline-white">siguiente</button>
+								<button style="margin-left: 25px;" type="submit" class="registro btn btn-outline-white">siguiente</button>
 							</div>
 						</form>
 
 					</div>
 
 					<div
-						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 820px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
+						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 780px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
 						<h4 class="mb-4" style="color: grey;">sistema de puntos</h4>
 						<ul style="list-style-type: none; margin-left: -35px;">
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									1 ...</span>
-								<p style="color: steelblue; font-size: 12px;">casi nunca</p></li>
+								<p style="color: steelblue; font-size: 12px;">nunca</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									2 ...</span>
@@ -150,11 +155,11 @@
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									3 ...</span>
-								<p style="color: steelblue; font-size: 12px;">quizas</p></li>
+								<p style="color: steelblue; font-size: 12px;">quizás</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">
 									... 4 ...</span>
-								<p style="color: steelblue; font-size: 12px;">generalemente</p></li>
+								<p style="color: steelblue; font-size: 12px;">normalmente</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									5 ...</span>
@@ -167,22 +172,9 @@
 
 		</main>
 	</div>
+	
+	<!-- Template Main JS File -->
+	<script src="js/main.js"></script>
+	
 </body>
-<script>
-	var x = 0;
-
-	function cambioTitulo() {
-
-		var numero = document.getElementById('idNumero').value;
-		var titulo = document.getElementById('idPregunta').value;
-
-		if (x == 0) {
-			x += 1;
-		} else {
-			x += 1;
-		}
-		alert(x);
-
-	}
-</script>
 </html>

@@ -12,11 +12,13 @@ public interface UsuarioDAO {
 
 	public int delete(String idUsuario);
 
-	public Usuario findById(String idUsuario);
+	public Usuario findById(String email);
 
 	public List<Usuario> findAll();
 	
 	// Esto se hace con JPQL
-	public Usuario findLogin(String idUsuario, String pwd);
+	public Usuario findLogin(String email, String pwd);
+
+	public Usuario findByEmail(String email);
 	
 }

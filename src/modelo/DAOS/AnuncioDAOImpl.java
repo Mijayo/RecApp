@@ -8,54 +8,35 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import modelo.beans.Anuncio;
 import modelo.beans.Pregunta;
 
-public class PreguntaDAOImpl implements PreguntaDAO {
-
-	Pregunta p = new Pregunta();
+public class AnuncioDAOImpl implements AnuncioDAO {
+	
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	private EntityTransaction tx;
 	private String sql;
 	private Query query;
-
-	public PreguntaDAOImpl() {
+	
+	public AnuncioDAOImpl() {
 		emf = Persistence.createEntityManagerFactory("RecApp");
 		em = emf.createEntityManager();
 		tx = em.getTransaction();
 	}
 
 	@Override
-	public List<Pregunta> findAll() {
-
-		query = em.createNamedQuery("Pregunta.findAll");
-
-		return query.getResultList();
-	}
-
-	@Override
-	public List<Pregunta> findByTipoEneg(int tipoEneg) {
-
-		System.out.println("Aqui tipoEneag " + tipoEneg);
-
-		sql = "select p from Pregunta p where p.idPregunta = :num";
-
-		try {
-			query = em.createQuery(sql);
-			query.setParameter("num", tipoEneg);
-			return query.getResultList();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		return null;
+	public Anuncio findBy(int id) {
+		
+		return em.find(Anuncio.class, id);
 	}
 	
 	@Override
-	public List<Pregunta>  findByID(int tipoID) {
+	public List<Anuncio> findByID(int tipoID) {
 
 		System.out.println("Aqui tipoID " + tipoID);
 
-		sql = "select p from Pregunta p where p.idPregunta = :nid and p.numPregunta = 1";
+		sql = "select a from Anuncio a where a.eneagrama = :nid";
 
 		try {
 			query = em.createQuery(sql);

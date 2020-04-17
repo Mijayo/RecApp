@@ -10,7 +10,7 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 
-<title>Registro</title>
+<title>Login</title>
 
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="" name="keywords">
@@ -50,7 +50,9 @@
 	
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
+
 							<a href="index.jsp" class="mb-0">RecApp</a>
+
 						</h1>
 					</div>
 					
@@ -84,35 +86,30 @@
 	
 		<div id="id01" class="modal">
 			<span class="close" title="Close Modal"></span>
-	
-			<form class="modal-content" action="Login?option=registro"
-				method="POST">
+
+			<form class="modal-content" action="Login?option=validar" method="POST">
+
 				<div class="container">
 					<p>Rellena los campos</p>
 	
 					<label for="email"><b>Email</b></label> <input type="text"
 						placeholder="email" name="email" required> <label for="psw"><b>Password</b></label>
 					<input type="password" placeholder="password" name="pwd" required>
-					<label for="psw-repeat"><b>Nombre</b></label> <input type="text"
-						placeholder="nombre" name="nombre" required>
-					
+				
 					<div class="clearfix">
-						<button type="submit" class="signupbtn btn-primary float-left">registrar</button>
+
+						<button type="submit" class="signupbtn p-3 btn-primary">login</button>
 						
 					<%if(request.getAttribute("estado") != null){ %>
-					<p class="alert alert-danger float-right" role="alert"><%=request.getAttribute("estado")%></p>
+					<p class= "mt-2 p-3 text-danger text-white float-left"><%=request.getAttribute("estado")%></p>
 					<%}%>
+</div>
+						
+
 					</div>
-					
-					
 				</div>
 			</form>
 			
-			
-					
-			
-			
-					
 		</div>
 
 	</main>

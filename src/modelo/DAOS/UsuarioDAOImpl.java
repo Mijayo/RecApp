@@ -40,16 +40,17 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			if (usu != null) {
 
 				tx.begin();
-				em.persist(usuario);
+				em.merge(usuario);
 				tx.commit();
 
 				return 1;
-			} else if (usu == null) {
 				
+			} else if (usu == null) {
+
 				tx.begin();
 				em.persist(usuario);
 				tx.commit();
-				
+
 				return 1;
 			}
 
@@ -74,7 +75,6 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public Usuario findById(String idUsuario) {
-		// TODO Auto-generated method stub
 		return em.find(Usuario.class, idUsuario);
 	}
 
@@ -85,13 +85,31 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	@Override
-	public Usuario findLogin(String idUsuario, String pwd) {
 
-		sql = "select u from Usuario u where u.idUsuario = :usu and u.password = :pwd";
+
+	public Usuario findByEmail(String email) {
+
+		sql = "select u from Usuario u where u.email = :email";
 
 		try {
 			query = em.createQuery(sql);
-			query.setParameter("usu", idUsuario);
+			query.setParameter("email", email);
+			return (Usuario) query.getSingleResult();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return null;
+
+	}
+
+	public Usuario findLogin(String email, String pwd) {
+
+
+		sql = "select u from Usuario u where u.email = :email and u.password = :pwd";
+
+		try {
+			query = em.createQuery(sql);
+			query.setParameter("email", email);
 			query.setParameter("pwd", pwd);
 			return (Usuario) query.getSingleResult();
 		} catch (Exception e) {
@@ -100,5 +118,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return null;
 
 	}
+	
+	
+	
 
 }

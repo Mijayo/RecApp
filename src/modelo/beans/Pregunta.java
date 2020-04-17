@@ -31,6 +31,19 @@ public class Pregunta implements Serializable {
 
 	public Pregunta() {
 	}
+	
+	
+
+	public Pregunta(int idAux, int idPregunta, int numPregunta, String pregunta, String tipoEneag) {
+		super();
+		this.idAux = idAux;
+		this.idPregunta = idPregunta;
+		this.numPregunta = numPregunta;
+		this.pregunta = pregunta;
+		this.tipoEneag = tipoEneag;
+	}
+
+
 
 	public int getIdAux() {
 		return this.idAux;
@@ -72,4 +85,61 @@ public class Pregunta implements Serializable {
 		this.tipoEneag = tipoEneag;
 	}
 
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idAux;
+		result = prime * result + idPregunta;
+		result = prime * result + numPregunta;
+		result = prime * result + ((pregunta == null) ? 0 : pregunta.hashCode());
+		result = prime * result + ((tipoEneag == null) ? 0 : tipoEneag.hashCode());
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pregunta other = (Pregunta) obj;
+		if (idAux != other.idAux)
+			return false;
+		if (idPregunta != other.idPregunta)
+			return false;
+		if (numPregunta != other.numPregunta)
+			return false;
+		if (pregunta == null) {
+			if (other.pregunta != null)
+				return false;
+		} else if (!pregunta.equals(other.pregunta))
+			return false;
+		if (tipoEneag == null) {
+			if (other.tipoEneag != null)
+				return false;
+		} else if (!tipoEneag.equals(other.tipoEneag))
+			return false;
+		return true;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Pregunta [idAux=" + idAux + ", idPregunta=" + idPregunta + ", numPregunta=" + numPregunta
+				+ ", pregunta=" + pregunta + ", tipoEneag=" + tipoEneag + "]";
+	}
+
+	
+	
+	
+	
+	
 }
