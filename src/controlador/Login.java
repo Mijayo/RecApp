@@ -65,17 +65,34 @@ public class Login extends HttpServlet {
 
 		case "validar":
 			
-			if (udao.findLogin(email, pwd) == null) {
-	
+
+			if (udao.findByEmail(email) != null) {
+
+				//El usuario existe
+				System.out.println("Usuario con este email exist");
+			
+				if (udao.findLogin(email, pwd) == null) {
+					
+					//Combinaci�n de usuario y contrase�a incorrecta
+					request.setAttribute("estado", "combinaci�n de usuario y contrase�a incorrecta");
+					request.getRequestDispatcher("logear.jsp").forward(request, response);	
+				
+
+				} else {
+					usu = udao.findLogin(email, pwd);	
+					
+
+					System.out.println("El usuario y contrasena ok!");
+					
+					request.getSession().setAttribute("usuario", usu);
+					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				}
+				}
+			else {	
+
 				// showMessageDialog(null, "El usuario no existe. Registrate :)");
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
 
-			} else {
-				System.out.println("El usuario y contrasena ok!");
-				usu = udao.findLogin(email, pwd);
-				// usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
-				request.getSession().setAttribute("usuario", usu);
-				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
 
 
@@ -99,17 +116,14 @@ public class Login extends HttpServlet {
 
 			if (udao.findByEmail(email) != null) {
 
-				if (udao.findLogin(email, pwd) != null) {
 
-					// showMessageDialog(null, "El usuario ya existe. Logeate :)");
+					request.setAttribute("estado", "ya estas registrado, haz login!");
+					
 					request.getRequestDispatcher("logear.jsp").forward(request, response);
 
 				} else {
-					request.getRequestDispatcher("registro.jsp").forward(request, response);
-				}
 
-			} else {
-
+		
 				usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
 
 				udao.insert(usu);
