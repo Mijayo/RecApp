@@ -58,11 +58,13 @@ public class GestionPreguntas extends HttpServlet {
 
 		Usuario usu = null;
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
+
 		
 		usu = (Usuario) request.getSession().getAttribute("usuario");
 		
 		// udao.insert(usu)
 		
+
 		System.out.println(request.getSession().getAttribute("usuario"));
 
 		HttpSession sesionQuestion = request.getSession();
@@ -212,9 +214,11 @@ public class GestionPreguntas extends HttpServlet {
 					sesionQuestion.removeAttribute("id");
 					sesionQuestion.removeAttribute("mapa");
 					sesionQuestion.removeAttribute("descTipo");
+
 //					sesionQuestion.invalidate();
 					usu = (Usuario) request.getSession().getAttribute("usuario");
 					
+
 					request.getRequestDispatcher("testIncorrecto.jsp").forward(request, response);
 				}
 

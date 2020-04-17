@@ -65,6 +65,7 @@ public class Login extends HttpServlet {
 
 		case "validar":
 			
+
 			if (udao.findByEmail(email) != null) {
 
 				//El usuario existe
@@ -72,8 +73,8 @@ public class Login extends HttpServlet {
 			
 				if (udao.findLogin(email, pwd) == null) {
 					
-					//Combinación de usuario y contraseña incorrecta
-					request.setAttribute("estado", "combinación de usuario y contraseña incorrecta");
+					//Combinaciï¿½n de usuario y contraseï¿½a incorrecta
+					request.setAttribute("estado", "combinaciï¿½n de usuario y contraseï¿½a incorrecta");
 					request.getRequestDispatcher("logear.jsp").forward(request, response);	
 				
 
@@ -93,6 +94,7 @@ public class Login extends HttpServlet {
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
 
 			}
+
 
 			break;
         
@@ -114,12 +116,14 @@ public class Login extends HttpServlet {
 
 			if (udao.findByEmail(email) != null) {
 
+
 					request.setAttribute("estado", "ya estas registrado, haz login!");
 					
 					request.getRequestDispatcher("logear.jsp").forward(request, response);
 
 				} else {
 
+		
 				usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
 
 				udao.insert(usu);

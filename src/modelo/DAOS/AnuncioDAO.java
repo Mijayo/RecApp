@@ -10,4 +10,6 @@ public interface AnuncioDAO {
 	public Anuncio findBy(int id);
 	
 	public List<Anuncio> findByID(int tipoID);
+
 }
+

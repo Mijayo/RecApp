@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -115,9 +116,9 @@
 					<div class="col-12">
 						<div class="row justify-content-center">
 							<div class="col-md-7 text-center hero-text">
-								<h1 data-aos="fade-up" data-aos-delay="">Contáctanos</h1>
+								<h1 data-aos="fade-up" data-aos-delay="">ContÃ¡ctanos</h1>
 								<p class="mb-5" data-aos="fade-up" data-aos-delay="100">
-									Si quieres saber más sobre RecApp, o si quieres preguntarnos
+									Si quieres saber mÃ¡s sobre RecApp, o si quieres preguntarnos
 									algo, <br>estamos a tu completa disposicion
 								</p>
 							</div>
@@ -143,8 +144,8 @@
 				<div class="row">
 					<div class="col-md-4 ml-auto order-2" data-aos="fade-up">
 						<ul class="list-unstyled">
-							<li class="mb-3"><strong class="d-block mb-1">Dirección</strong>
-								<span>Julián Camarillo 45, 28029 Madrid España</span></li>
+							<li class="mb-3"><strong class="d-block mb-1">DirecciÃ³n</strong>
+								<span>JuliÃ¡n Camarillo 45, 28029 Madrid EspaÃ±a</span></li>
 							<li class="mb-3"><strong class="d-block mb-1">Telefono
 									de contacto</strong> <span>654577850</span></li>
 							<li class="mb-3"><strong class="d-block mb-1">Nuesto
@@ -188,7 +189,7 @@
 								<div class="col-md-12 mb-3">
 									<div class="loading">Cargando</div>
 									<div class="error-message"></div>
-									<div class="sent-message">¡Su mensaje ha sido enviado!
+									<div class="sent-message">Â¡Su mensaje ha sido enviado!
 										Gracias por contactar con RecApp</div>
 								</div>
 
@@ -301,9 +302,9 @@
 				<div class="row">
 					<div class="col-md-4 mb-4 mb-md-0">
 						<h3>Sobre RecApp</h3>
-						<p>Somos la aplicación número 1 de búsqueda de empleo, creada
-							por 3 estudiantes con la intención de ofrecer una oportunidad de
-							reubicarse a personas que no están agusto en su sector.</p>
+						<p>Somos la aplicaciÃ³n nÃºmero 1 de bÃºsqueda de empleo, creada
+							por 3 estudiantes con la intenciÃ³n de ofrecer una oportunidad de
+							reubicarse a personas que no estÃ¡n agusto en su sector.</p>
 						<p class="social">
 							<a href="#"><span class="icofont-twitter"></span></a> <a href="#"><span
 								class="icofont-facebook"></span></a> <a href="#"><span
@@ -377,4 +378,5 @@
 	<script src="js/main.js"></script>
 
 </body>
+
 </html>

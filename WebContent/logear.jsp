@@ -50,7 +50,9 @@
 	
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
+
 							<a href="index.jsp" class="mb-0">RecApp</a>
+
 						</h1>
 					</div>
 					
@@ -84,8 +86,9 @@
 	
 		<div id="id01" class="modal">
 			<span class="close" title="Close Modal"></span>
-	
+
 			<form class="modal-content" action="Login?option=validar" method="POST">
+
 				<div class="container">
 					<p>Rellena los campos</p>
 	
@@ -94,6 +97,7 @@
 					<input type="password" placeholder="password" name="pwd" required>
 				
 					<div class="clearfix">
+
 						<button type="submit" class="signupbtn p-3 btn-primary">login</button>
 						
 					<%if(request.getAttribute("estado") != null){ %>
@@ -101,6 +105,7 @@
 					<%}%>
 </div>
 						
+
 					</div>
 				</div>
 			</form>

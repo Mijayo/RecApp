@@ -50,18 +50,17 @@
 			<div class="site-mobile-menu-body"></div>
 		</div>
 
-		<main id="viewPort"> 
-		
-		<header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+		<main id="viewPort"> <header
+			class="site-navbar js-sticky-header site-navbar-target" role="banner">
 			<div class="container">
 				<div class="row align-items-center">
-	
+
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
-							<a href="Login?option=validar" class="mb-0">RecApp</a>
+							<a href="indexUsu.jsp" class="mb-0">RecApp</a>
 						</h1>
 					</div>
-					
+
 					<div class="col-12 col-md-10 d-none d-lg-block">
 						<nav class="site-navigation position-relative text-right"
 							role="navigation">
@@ -84,7 +83,7 @@
 							data-toggle="collapse" data-target="#main-navbar"> <span></span>
 						</a>
 					</div>
-					
+
 				</div>
 			</div>
 		</header>
@@ -94,7 +93,8 @@
 			<div class="container">
 				<div class="row align-items-center ">
 
-					<div class="mr-auto" style="max-width: 400px;">
+					<div class="mr-auto"
+						style="max-width: 400px; position: relative; left: 10px;">
 						<h2 class="mb-4" style="color: white;">¿Cómo realizar el
 							test?</h2>
 						<p class="mb-4" style="color: white;">Hay nueve tipos de
@@ -113,13 +113,13 @@
 					</div>
 
 					<div
-						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 650px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
+						style="padding: 40px 80px 40px 80px; max-width: 400px; position: absolute; left: 720px; bottom: 75px; background-color: rgba(255, 255, 255); border-radius: 20px; box-shadow: 10px -2px 22px -4px rgba(0, 0, 0, 0.2);">
 						<h4 class="mb-4" style="color: grey;">sistema de puntos</h4>
 						<ul style="list-style-type: none; margin-left: -35px;">
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									1 ...</span>
-								<p style="color: steelblue; font-size: 12px;">casi nunca</p></li>
+								<p style="color: steelblue; font-size: 12px;">nunca</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									2 ...</span>
@@ -131,26 +131,24 @@
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">
 									... 4 ...</span>
-								<p style="color: steelblue; font-size: 12px;">generalemente</p></li>
+								<p style="color: steelblue; font-size: 12px;">normalmente</p></li>
 							<li style="text-align: center;"><span
 								style="color: steelblue; font-size: 25px; font-weight: 500;">...
 									5 ...</span>
 								<p style="color: steelblue; font-size: 12px;">siempre</p></li>
 						</ul>
-						<!-- <p style="max-width: 400px;">
-							<i>*sistema de puntos</i>
-						</p> -->
+
 					</div>
 
 				</div>
-				<p style="margin-left: -15px; margin-top: 15px;">
+				<p style="margin-left: -10px; margin-top: 15px;">
 					<a class="registro btn btn-outline-white"
 						href="GestionPreguntas?option=question">test</a>
 				</p>
 			</div>
 
 		</div>
-		<!-- .site-section --> </main>
+		</main>
 	</div>
 
 
