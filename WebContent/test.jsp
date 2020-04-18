@@ -5,10 +5,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<!-- <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous"> -->
+
 <link rel="stylesheet" href="style.css">
 
 <title>Test</title>
@@ -36,6 +33,17 @@
 <link href="vendor/aos/aos.css" rel="stylesheet">
 <link href="vendor/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
+
+<script type="text/javascript">
+	function preback() {
+		window.history.forward();
+	}
+	setTimeout("preback()", 0);
+	window.onunload = function() {
+		null;
+	}
+</script>
+
 
 </head>
 <body>

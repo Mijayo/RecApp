@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 import modelo.DAOS.UsuarioDAOImpl;
-//import modelo.DAOS.UsuarioDAOImpl;
 import modelo.beans.Eneagrama;
 import modelo.beans.Usuario;
 
@@ -70,16 +69,18 @@ public class Login extends HttpServlet {
 					"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 			Matcher mather = pattern.matcher(email);
 
+if (udao.findByEmail(email) != null) {
+
 			if (mather.find() == true && pwd.length() >= 5) {
 
 				if (udao.findLogin(email, pwd) == null) {
 
-					// showMessageDialog(null, "El usuario no existe. Registrate :)");
-					request.getRequestDispatcher("registro.jsp").forward(request, response);
-
+					request.setAttribute("estado", "combinaciï¿½n de usuario y contraseï¿½a incorrecta");
+					request.getRequestDispatcher("logear.jsp").forward(request, response);	
+				
+					
 				} else {
-					System.out.println("El usuario y contrasena ok!");
-					// showMessageDialog(null, "El usuario y contrasena ok!");
+					
 					usu = udao.findLogin(email, pwd);
 					
 					request.getSession().setAttribute("usuario", usu);
@@ -87,6 +88,10 @@ public class Login extends HttpServlet {
 				}
 
 			}
+} else {
+				request.getRequestDispatcher("registro.jsp").forward(request, response);
+
+}
 
 			break;
 
@@ -116,7 +121,8 @@ public class Login extends HttpServlet {
 
 					if (udao.findLogin(email, pwd) != null) {
 
-						// showMessageDialog(null, "El usuario ya existe. Logeate :)");
+						request.setAttribute("estado", "ya estas registrado, haz login!");
+
 						request.getRequestDispatcher("logear.jsp").forward(request, response);
 
 					} else {
@@ -142,6 +148,11 @@ public class Login extends HttpServlet {
 					// showMessageDialog(null, "Usuario registrado :)");
 					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 				}
+			} else {
+				
+				request.setAttribute("estado", "El email es invalido o la contraseña muy corta");
+				request.getRequestDispatcher("registro.jsp").forward(request, response);
+
 			}
 
 			break;
@@ -161,12 +172,11 @@ public class Login extends HttpServlet {
 
 		case "cerrar-test":
 
-			// request.getSession().removeAttribute("usuario");
 			request.getSession().removeAttribute("idEneag");
 			request.getSession().removeAttribute("id");
 			request.getSession().removeAttribute("mapa");
 
-			request.getSession().invalidate();
+
 
 			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 

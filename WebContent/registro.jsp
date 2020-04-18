@@ -98,6 +98,11 @@
 	
 					<div class="clearfix">
 						<button type="submit" class="signupbtn btn-primary">registrar</button>
+					
+						<%if(request.getAttribute("estado") != null){ %>
+					<p class="alert alert-danger float-right" role="alert"><%=request.getAttribute("estado")%></p>
+					<%}%>
+					
 					</div>
 				</div>
 			</form>

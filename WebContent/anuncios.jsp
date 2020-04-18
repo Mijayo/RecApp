@@ -107,9 +107,9 @@
 								<p class="card-text">${trabajo.requerimientos }</p>
 								<p class="card-text">${trabajo.detalle }</p>
 								<p class="card-text">
-									<span>Salario </span>${trabajo.salario } €
+									<span>Salario </span>${trabajo.salario} €
 								</p>
-								<a href="https://www.indeed.es/" class="btn btn-primary"
+								<a href="https://www.indeed.es/ofertas?q=${trabajo.keyword}" class="btn btn-primary"
 									target="_blank">¿quizas a indeed por probar?</a>
 							</div>
 						</div>

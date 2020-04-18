@@ -115,9 +115,9 @@
 					<div class="col-12">
 						<div class="row justify-content-center">
 							<div class="col-md-7 text-center hero-text">
-								<h1 data-aos="fade-up" data-aos-delay="">Contáctanos</h1>
+								<h1 data-aos="fade-up" data-aos-delay="">Contï¿½ctanos</h1>
 								<p class="mb-5" data-aos="fade-up" data-aos-delay="100">
-									Si quieres saber más sobre RecApp, o si quieres preguntarnos
+									Si quieres saber mï¿½s sobre RecApp, o si quieres preguntarnos
 									algo, <br>estamos a tu completa disposicion
 								</p>
 							</div>
@@ -143,12 +143,12 @@
 				<div class="row">
 					<div class="col-md-4 ml-auto order-2" data-aos="fade-up">
 						<ul class="list-unstyled">
-							<li class="mb-3"><strong class="d-block mb-1">Dirección</strong>
-								<span>Julián Camarillo 45, 28029 Madrid España</span></li>
+							<li class="mb-3"><strong class="d-block mb-1">Direcciï¿½n</strong>
+								<span>Juliï¿½n Camarillo 45, 28029 Madrid Espaï¿½a</span></li>
 							<li class="mb-3"><strong class="d-block mb-1">Telefono
 									de contacto</strong> <span>654577850</span></li>
 							<li class="mb-3"><strong class="d-block mb-1">Nuesto
-									email</strong> <span>recapp@gmail.com</span></li>
+									email</strong> <span>recappjs@gmail.com</span></li>
 						</ul>
 					</div>
 
@@ -188,7 +188,7 @@
 								<div class="col-md-12 mb-3">
 									<div class="loading">Cargando</div>
 									<div class="error-message"></div>
-									<div class="sent-message">¡Su mensaje ha sido enviado!
+									<div class="sent-message">ï¿½Su mensaje ha sido enviado!
 										Gracias por contactar con RecApp</div>
 								</div>
 
@@ -301,9 +301,9 @@
 				<div class="row">
 					<div class="col-md-4 mb-4 mb-md-0">
 						<h3>Sobre RecApp</h3>
-						<p>Somos la aplicación número 1 de búsqueda de empleo, creada
-							por 3 estudiantes con la intención de ofrecer una oportunidad de
-							reubicarse a personas que no están agusto en su sector.</p>
+						<p>Somos la aplicaciï¿½n nï¿½mero 1 de bï¿½squeda de empleo, creada
+							por 3 estudiantes con la intenciï¿½n de ofrecer una oportunidad de
+							reubicarse a personas que no estï¿½n agusto en su sector.</p>
 						<p class="social">
 							<a href="#"><span class="icofont-twitter"></span></a> <a href="#"><span
 								class="icofont-facebook"></span></a> <a href="#"><span

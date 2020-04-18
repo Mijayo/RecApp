@@ -3,7 +3,6 @@ function cerrarTest() {
 	confirm("Si sale sin hacer el test no podra acceder a las ofertas y debera hacer el test de nuevo");
 }
 
-
 // spinner();
 var spin = setInterval(spinner, 1000);
 

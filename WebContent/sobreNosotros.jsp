@@ -164,7 +164,7 @@
 							reinventarse y dar un giro a su carrera profesional. Para ello,
 							creemos que enfocar tus "soft-skills" y aptitudes personales
 							ayudares a enfocar que campos se adaptan a lo que quieres y
-							donde esta¡s mas comodo</p>
+							donde estas mas comodo</p>
 
 					</div>
 					<div class="col-md-6" data-aos="fade-right">
