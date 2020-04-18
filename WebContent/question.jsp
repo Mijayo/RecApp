@@ -5,10 +5,7 @@
 <html lang="es">
 <head>
 <meta charset="ISO-8859-1">
-<!-- <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous"> -->
+
 <link rel="stylesheet" href="style.css">
 
 <title>Preguntas</title>
@@ -37,6 +34,16 @@
 <link href="vendor/aos/aos.css" rel="stylesheet">
 <link href="vendor/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet">
+
+<script type="text/javascript">
+	function preback() {
+		window.history.forward();
+	}
+	setTimeout("preback()", 0);
+	window.onunload = function() {
+		null;
+	}
+</script>
 
 </head>
 <body>
@@ -117,7 +124,7 @@
 												<td><input
 													style="position: relative; top: -22px; border: 1px solid red; visibility: hidden;"
 													type="checkbox" name="isbn" value="${pregunta.idAux}"
-													checked ></td>
+													checked></td>
 												<td><p
 														style="color: white; padding: 0px 10px 0px 10px; min-width: 450px;">
 														${pregunta.pregunta }</p></td>
@@ -134,7 +141,8 @@
 									</div>
 								</c:forEach>
 
-								<button style="margin-left: 25px;" type="submit" class="registro btn btn-outline-white">siguiente</button>
+								<button style="margin-left: 25px;" type="submit"
+									class="registro btn btn-outline-white">siguiente</button>
 							</div>
 						</form>
 
@@ -172,9 +180,6 @@
 
 		</main>
 	</div>
-	
-	<!-- Template Main JS File -->
-	<script src="js/main.js"></script>
-	
+
 </body>
 </html>

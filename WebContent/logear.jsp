@@ -98,13 +98,11 @@
 				
 					<div class="clearfix">
 
-						<button type="submit" class="signupbtn p-3 btn-primary">login</button>
-						
+					
+						<button type="submit" class="signupbtn btn-primary">login</button>
 					<%if(request.getAttribute("estado") != null){ %>
 					<p class= "mt-2 p-3 text-danger text-white float-left"><%=request.getAttribute("estado")%></p>
 					<%}%>
-</div>
-						
 
 					</div>
 				</div>

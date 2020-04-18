@@ -84,9 +84,7 @@ public class Pregunta implements Serializable {
 	public void setTipoEneag(String tipoEneag) {
 		this.tipoEneag = tipoEneag;
 	}
-
-
-
+  
 	@Override
 	public int hashCode() {
 		final int prime = 31;

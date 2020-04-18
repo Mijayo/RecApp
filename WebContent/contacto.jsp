@@ -1,41 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>    
 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<link rel="stylesheet"
-		href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-		crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
-	
-	<title>RECAPP</title>
-	
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="" name="keywords">
-	<meta content="" name="description">
-	
-	<!-- Favicons -->
-	<link href="img/favicon.png" rel="icon">
-	<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-	
-	<!-- Google Fonts -->
-	<link
-		href="https://fonts.googleapis.com/css?family=Poppins:300,400,700|Roboto:300,400,700&display=swap"
-		rel="stylesheet">
-	
-	<!-- Bootstrap CSS File -->
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	
-	<!-- Vendor CSS Files -->
-	<link href="vendor/icofont/icofont.min.css" rel="stylesheet">
-	<link href="vendor/line-awesome/css/line-awesome.min.css"
-		rel="stylesheet">
-	<link href="vendor/aos/aos.css" rel="stylesheet">
-	<link href="vendor/owlcarousel/assets/owl.carousel.min.css"
-		rel="stylesheet">
+<meta charset="utf-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+<title>RECAPP</title>
+
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
+
+<!-- Favicons -->
+<link href="img/_miniLogo.png" rel="icon">
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,700|Roboto:300,400,700&display=swap"
+	rel="stylesheet">
+
+<!-- Bootstrap CSS File -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Vendor CSS Files -->
+<link href="vendor/icofont/icofont.min.css" rel="stylesheet">
+<link href="vendor/line-awesome/css/line-awesome.min.css"
+	rel="stylesheet">
+<link href="vendor/aos/aos.css" rel="stylesheet">
+<link href="vendor/owlcarousel/assets/owl.carousel.min.css"
+	rel="stylesheet">
 
 <body>
   
@@ -104,8 +104,8 @@
             <div class="col-12">
               <div class="row justify-content-center">
                 <div class="col-md-7 text-center hero-text">
-                  <h1 data-aos="fade-up" data-aos-delay="">Cont�ctanos</h1>
-                  <p class="mb-5" data-aos="fade-up"  data-aos-delay="100">Si quieres saber m�s sobre RecApp o si quieres preguntarnos algo estamos a tu completa disposicion</p>  
+                  <h1 data-aos="fade-up" data-aos-delay="">Contï¿½ctanos</h1>
+                  <p class="mb-5" data-aos="fade-up"  data-aos-delay="100">Si quieres saber mï¿½s sobre RecApp, o si quieres preguntarnos algo, <br>estamos a tu completa disposicion</p>  
                 </div>
               </div>
             </div>
@@ -129,8 +129,8 @@
               <div class="col-md-4 ml-auto order-2"  data-aos="fade-up">
                 <ul class="list-unstyled">
                   <li class="mb-3">
-                    <strong class="d-block mb-1">Direcci�n</strong>
-                    <span>Juli�n Camarillo 45, 28029 Madrid Espa�a</span>
+                    <strong class="d-block mb-1">Direcciï¿½n</strong>
+                    <span>Juliï¿½n Camarillo 45, 28029 Madrid Espaï¿½a</span>
                   </li>
                   <li class="mb-3">
                     <strong class="d-block mb-1">Telefono de contacto</strong>
@@ -144,17 +144,17 @@
               </div>
 
               <div class="col-md-6 mb-5 mb-md-0"  data-aos="fade-up">
-                <form action="EmailSender?validar=send" method="post" role="form" class="php-email-form">
+                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               
                   <div class="row">
                     <div class="col-md-6 form-group">
                       <label for="name">Nombre</label>
-                      <input type="text"  required name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Por favor introduzca al menos 4 caracteres"/>
+                      <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Por favor introduzca al menos 4 caracteres" />
                       <div class="validate"></div>
                     </div>
                     <div class="col-md-6 form-group">
                       <label for="name">Email</label>
-                      <input type="email" required class="form-control" name="email" id="email" data-rule="email" data-msg="Por favor introduzca un email valido" />
+                      <input type="email" class="form-control" name="email" id="email" data-rule="email" data-msg="Por favor introduzca un email valido" />
                       <div class="validate"></div>
                     </div>
                     <div class="col-md-12 form-group">
@@ -164,7 +164,7 @@
                     </div>
                     <div class="col-md-12 form-group">
                       <label for="name">Mensaje</label>
-                      <textarea class="form-control"  required name="message" cols="30" rows="10" data-rule="required" data-msg="Por favor escriba su mensaje"></textarea>
+                      <textarea class="form-control" name="message" cols="30" rows="10" data-rule="required" data-msg="Por favor escriba su mensaje"></textarea>
                       <div class="validate"></div>
                     </div>
     
@@ -172,21 +172,21 @@
                     <div class="col-md-12 mb-3">
                         <div class="loading">Cargando</div>
                       <div class="error-message"></div>
-                      <div class="sent-message">�Su mensaje ha sido enviado! Gracias por contactar con RecApp</div>
+                      <div class="sent-message">ï¿½Su mensaje ha sido enviado! Gracias por contactar con RecApp</div>
                     </div>
     
                     <div class="col-md-6 form-group">
-                      <input type="submit" class="btn btn-primary d-block w-100" value="Enviar Mensaje" onclick="itWorks()">
+                      <input type="submit" class="btn btn-primary d-block w-100" value="Enviar Mensaje">
                     </div>
                   </div>
     
                 </form>
-
               </div>
           
             </div>
       </div>
     </div>
+
 
       <div class="site-section border-top border-bottom">
         <div class="container">
@@ -279,7 +279,7 @@
         <div class="row">
           <div class="col-md-4 mb-4 mb-md-0">
             <h3>Sobre RecApp</h3>
-            <p>Somos la aplicaci�n n�mero 1 de b�squeda de empleo, creada por 3 estudiantes con la intenci�n de ofrecer una oportunidad de reubicarse a personas que no est�n agusto en su sector.
+            <p>Somos la aplicaciï¿½n nï¿½mero 1 de bï¿½squeda de empleo, creada por 3 estudiantes con la intenciï¿½n de ofrecer una oportunidad de reubicarse a personas que no estï¿½n agusto en su sector.
             </p>
             <p class="social">
               <a href="#"><span class="icofont-twitter"></span></a>
@@ -347,17 +347,10 @@
   <script src="vendor/sticky/sticky.js"></script>
   <script src="vendor/aos/aos.js"></script>
   <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
-  <script>
-	function  itWorks(){
-	  alert("Enviado");
-	  console.log("No se porque queriamos esto");
-  }
-  </script>
 
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
-  
-  
 
 </body>
+
 </html>

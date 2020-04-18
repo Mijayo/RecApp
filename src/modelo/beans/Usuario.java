@@ -43,24 +43,6 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-
-	
-
-	public Usuario(int idUsuario, String email, Date fechaAlta, String nombre, String password, int resultadoTest,
-			String tipoEneagrama, Eneagrama eneagrama) {
-		super();
-		this.idUsuario = idUsuario;
-		this.email = email;
-		this.fechaAlta = fechaAlta;
-		this.nombre = nombre;
-		this.password = password;
-		this.resultadoTest = resultadoTest;
-		this.tipoEneagrama = tipoEneagrama;
-		this.eneagrama = eneagrama;
-	}
-
-
-
 	public int getIdUsuario() {
 		return this.idUsuario;
 	}

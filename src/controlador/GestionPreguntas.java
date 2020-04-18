@@ -56,17 +56,12 @@ public class GestionPreguntas extends HttpServlet {
 		EneagramaDAOImpl edao = new EneagramaDAOImpl();
 		PreguntaDAOImpl pdao = new PreguntaDAOImpl();
 
-		Usuario usu = null;
+		Usuario usu;
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
 
 		
 		usu = (Usuario) request.getSession().getAttribute("usuario");
 		
-		// udao.insert(usu)
-		
-
-		System.out.println(request.getSession().getAttribute("usuario"));
-
 		HttpSession sesionQuestion = request.getSession();
 		Integer tipoEneagrama = (Integer) sesionQuestion.getAttribute("id");
 
@@ -84,7 +79,7 @@ public class GestionPreguntas extends HttpServlet {
 
 		case "question":
 
-			System.out.println(tipoEneagrama);
+			System.out.println("tipo de eneagrama: " + tipoEneagrama);
 
 			if (tipoEneagrama == null || idEneagrama == null) {
 
@@ -159,13 +154,13 @@ public class GestionPreguntas extends HttpServlet {
 
 				boolean mayor20 = false;
 				Integer numID = null;
-				int max = 20;
+				int max = 19;
 
 				for (Integer en : cantidadPreguntas.keySet()) {
 
-					System.out.println("tontada: " + cantidadPreguntas.get(en));
+					System.out.println("valor dentro del mapa " + cantidadPreguntas.get(en));
 
-					if (cantidadPreguntas.get(en) >= 20) {
+					if (cantidadPreguntas.get(en) > 19) {
 
 						mayor20 = true;
 
@@ -176,11 +171,12 @@ public class GestionPreguntas extends HttpServlet {
 						t.add(cantidadPreguntas.get(en));
 
 						for (int i = 0; i < t.size(); i++) {
+							
 							if (t.get(i) > max) {
 
 								max = t.get(i);
 
-								numID = (en - 1);
+								numID = Math.max((en - 1), (en -1));
 
 								System.out.println("Valor maximo dentro del array " + max + " id del tipo " + (en - 1));
 
@@ -192,14 +188,18 @@ public class GestionPreguntas extends HttpServlet {
 				}
 				if (mayor20) {
 
+					System.out.println(usu);
+
 					System.out.println("este es el primer id: " + numID);
 
 					sesionQuestion.setAttribute("descTipo", edao.findEneagrama(numID));
-					
+
 					System.out.println(sesionQuestion.getAttribute("descTipo"));
 
 					Eneagrama userValues = (Eneagrama) sesionQuestion.getAttribute("descTipo");
-					
+
+					System.out.println("valores del usuario " + userValues.getTipo());
+
 					usu.setEneagrama(userValues);
 					usu.setTipoEneagrama(userValues.getTipo());
 					usu.setResultadoTest(max);
@@ -215,9 +215,9 @@ public class GestionPreguntas extends HttpServlet {
 					sesionQuestion.removeAttribute("mapa");
 					sesionQuestion.removeAttribute("descTipo");
 
-//					sesionQuestion.invalidate();
-					usu = (Usuario) request.getSession().getAttribute("usuario");
+		
 					
+					usu = (Usuario) request.getSession().getAttribute("usuario");
 
 					request.getRequestDispatcher("testIncorrecto.jsp").forward(request, response);
 				}
