@@ -40,6 +40,7 @@
 </head>
 <body>
 
+
 	<div class="site-wrap">
 
 		<div class="site-mobile-menu site-navbar-target">
@@ -68,12 +69,14 @@
 
 							<ul
 								class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+
 								<li><a href="Login?option=logout" class="registrarse">log
 										out</a></li>
 								<li><a href="contactoUsu.jsp" class="nav-link">contacto</a></li>
 								<li><a href="sobreNosotrosUsu.jsp" class="nav-link">nosotros</a></li>
 								<li><a href="GestionAnuncios?option=anuncios"
 									class="nav-link">empleo</a></li>
+
 							</ul>
 						</nav>
 					</div>
@@ -95,6 +98,7 @@
 				<div class="row align-items-center ">
 
 					<div class="mr-auto"
+
 						style="max-width: 500px; position: relative; left: 10px; top: -25px;">
 						<h1 class="" style="color: white;">
 							<span style="font-size: 14px;">El tipo de Eneagrama que

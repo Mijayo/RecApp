@@ -6,7 +6,7 @@ import java.util.Date;
 
 
 /**
- * The persistent class for the USUARIO database table.
+ * The persistent class for the usuario database table.
  * 
  */
 @Entity
@@ -42,7 +42,6 @@ public class Usuario implements Serializable {
 
 	public Usuario() {
 	}
-	
 
 	public int getIdUsuario() {
 		return this.idUsuario;

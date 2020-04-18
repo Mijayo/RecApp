@@ -6,4 +6,5 @@ public interface EneagramaDAO {
 	
 	public Eneagrama findEneagrama(int id);
 
+
 }

@@ -50,7 +50,7 @@
 	
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
-							<a href="Login?option=validar" class="mb-0">RecApp</a>
+							<a href="index.jsp" class="mb-0">RecApp</a>
 						</h1>
 					</div>
 					
@@ -95,18 +95,27 @@
 					<input type="password" placeholder="password" name="pwd" required>
 					<label for="psw-repeat"><b>Nombre</b></label> <input type="text"
 						placeholder="nombre" name="nombre" required>
-	
+					
 					<div class="clearfix">
+
 						<button type="submit" class="signupbtn btn-primary">registrar</button>
 					
 						<%if(request.getAttribute("estado") != null){ %>
 					<p class="alert alert-danger float-right" role="alert"><%=request.getAttribute("estado")%></p>
 					<%}%>
 					
+
 					</div>
+					
+					
 				</div>
 			</form>
 			
+			
+					
+			
+			
+					
 		</div>
 
 	</main>
