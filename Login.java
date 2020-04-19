@@ -1,21 +1,18 @@
 package controlador;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static javax.swing.JOptionPane.showMessageDialog;
 
-import jdk.internal.reflect.ReflectionFactory.GetReflectionFactoryAction;
 import modelo.DAOS.UsuarioDAOImpl;
-//import modelo.DAOS.UsuarioDAOImpl;
 import modelo.beans.Eneagrama;
 import modelo.beans.Usuario;
 
@@ -52,142 +49,176 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// UsuarioDAOImpl udao = new UsuarioDAOImpl();
-
 		Usuario usu = null;
-		// Eneagrama ene = new Eneagrama();
-		// Eneagrama ene2 = new Eneagrama();
+		UsuarioDAOImpl udao = new UsuarioDAOImpl();
 
-		request.getSession().setAttribute("usuario", usu);
+
+		// request.getSession().setAttribute("usuario", usu);
+		usu = (Usuario) request.getSession().getAttribute("usuario");
+
+		String email = request.getParameter("email");
+		String pwd = request.getParameter("pwd");
+		String nombre = request.getParameter("nombre");
+
+		int autoIncrement = 0;
+
 
 		switch (request.getParameter("option")) {
 
 		case "validar":
 
-			usu = (Usuario) request.getSession().getAttribute("usuario");
 
-			if (usu != null) {
-				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			} else {
-				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+			Pattern pattern = Pattern.compile(
+					"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+			Matcher mather = pattern.matcher(email);
+
+if (udao.findByEmail(email) != null) {
+
+			if (mather.find() == true && pwd.length() >= 5) {
+
+				if (udao.findLogin(email, pwd) == null) {
+
+					request.setAttribute("estado", "combinaciï¿½n de usuario y contraseï¿½a incorrecta");
+					request.getRequestDispatcher("logear.jsp").forward(request, response);	
+				
+					
+				} else {
+					
+					usu = udao.findLogin(email, pwd);
+					
+					request.getSession().setAttribute("usuario", usu);
+					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				}
+
+
 			}
+} else {
+				request.getRequestDispatcher("registro.jsp").forward(request, response);
 
-			// usu = udao.findLogin(request.getParameter("email"),
-			// request.getParameter("pwd"));
+}
 
-			// request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 
 			break;
-
+        
 		case "registrar":
 
 			usu = (Usuario) request.getSession().getAttribute("usuario");
 
+			System.out.println(usu);
+
 			if (usu == null) {
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("logear.jsp").forward(request, response);
 			}
-
-			// request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-
-			/*
-			 * int autoIncrement = 0;
-			 * 
-			 * int eneagramaComun = 99;
-			 * 
-			 * usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(),
-			 * request.getParameter("nombre"), request.getParameter("pwd"), null, null);
-			 * 
-			 * 
-			 * request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			 */
-
-			/*
-			 * System.out.println(request.getParameter("email"));
-			 * System.out.println(request.getParameter("nombre"));
-			 * System.out.println(request.getParameter("pwd"));
-			 * 
-			 * int autoIncrement = 0;
-			 * 
-			 * int eneagramaComun = 99;
-			 * 
-			 * usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(),
-			 * request.getParameter("nombre"), request.getParameter("pwd"), null, null);
-			 * 
-			 * request.getSession().setAttribute("usuario", usu);
-			 * request.setAttribute("mensaje_registro", "Usuario registrado con exito");
-			 * request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			 */
-
-			/*
-			 * if (udao.insert(usu) != 0) {
-			 * 
-			 * request.getSession().setAttribute("usuario", usu);
-			 * request.setAttribute("mensaje_registro", "Usuario registrado con exito");
-			 * request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-			 * 
-			 * } else { request.setAttribute("mensaje_error", "ya existe ese usuario");
-			 * request.getRequestDispatcher("index.jsp").forward(request, response); }
-			 */
 
 			break;
 
 		case "registro":
 
-			int autoIncrement = 0;
+			Pattern patt = Pattern.compile(
+					"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+			Matcher math = patt.matcher(email);
 
-			int eneagramaComun = 99;
+			if (math.find() == true && pwd.length() >= 5) {
 
-			usu = new Usuario(autoIncrement, request.getParameter("email"), new Date(), request.getParameter("nombre"),
-					request.getParameter("pwd"), null, null);
 
-			request.getSession().setAttribute("usuario", usu);
-			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				if (udao.findByEmail(email) != null) {
+
+					if (udao.findLogin(email, pwd) != null) {
+
+						request.setAttribute("estado", "ya estas registrado, haz login!");
+
+						request.getRequestDispatcher("logear.jsp").forward(request, response);
+
+					} else {
+						request.getRequestDispatcher("registro.jsp").forward(request, response);
+					}
+
+				} else {
+
+					usu = new Usuario(autoIncrement, email, new Date(), nombre, pwd, 0, null, null);
+
+					udao.insert(usu);
+
+
+					System.out.println("Objeto usuario " + usu);
+
+					Usuario usuPrueba = null;
+					request.getSession().setAttribute("usuario", usu);
+					usuPrueba = (Usuario) request.getSession().getAttribute("usuario");
+					System.out.println(usuPrueba.getEmail());
+
+					System.out.println("obj sesion: " + request.getSession().getAttribute("usuario"));
+					System.out.println();
+
+					// showMessageDialog(null, "Usuario registrado :)");
+					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+				}
+			} else {
+				
+				request.setAttribute("estado", "El email es invalido o la contraseï¿½a muy corta");
+				request.getRequestDispatcher("registro.jsp").forward(request, response);
+
+			}
 
 			break;
 
 		case "logout":
 
-			request.getSession().getAttribute("usuario");
 			request.getSession().removeAttribute("usuario");
+			request.getSession().removeAttribute("idEneag");
+			request.getSession().removeAttribute("id");
+			request.getSession().removeAttribute("mapa");
+
+			request.getSession().invalidate();
 
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
 			break;
 
-		case "login":
-			String email;
-			String pwd;
-			
-			UsuarioDAOImpl udaoimpl = new UsuarioDAOImpl();
-			email = request.getParameter("email");
-			pwd = request.getParameter("pwd");
-			Usuario usuario = udaoimpl.findEmail(email, pwd);
-			  Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-		                        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-			  Matcher mather = pattern.matcher(email);
+		case "cerrar-test":
 
-		        if (mather.find() == true && pwd.lenght > 5) {
-		        	
-		        	if (usuario == null) {
-						request.getRequestDispatcher("registro.jsp").forward(request, response);
+			request.getSession().removeAttribute("idEneag");
+			request.getSession().removeAttribute("id");
+			request.getSession().removeAttribute("mapa");
 
+
+
+			request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+
+			break;
+
+		case "usuario":
+
+			if (usu == null) {
+				
+				request.getRequestDispatcher("registro.jsp").forward(request, response);
+				
 					} else {
-
-						request.getSession().setAttribute("email", email);
-						request.getSession().setAttribute("pwd", pwd);
-						request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
-					}
-		       
-		        } else {
-		            System.out.println("El email o contraseña no son validos.");
-		        }
-
-			// System.out.println(email);
-			// System.out.println(pwd);
-
-			
-
+				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
+			}
 			break;
+			
+		case "borrarUsuario":
+			
+			request.getSession().invalidate();
+			
+			udao.deleteUser(email);
+			
+			request.getRequestDispatcher("index.jsp").forward(request,response);
+			break;
+
+		case "actualizarPasssword":
+			
+			
+			
+			
+			break;
+			
+			
 		}
+		
 
 	}
 
