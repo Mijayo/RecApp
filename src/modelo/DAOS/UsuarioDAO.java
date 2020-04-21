@@ -19,6 +19,6 @@ public interface UsuarioDAO {
 	// Esto se hace con JPQL
 	public Usuario findLogin(String email, String pwd);
 
-	Usuario findByEmail(String email);
+	public Usuario findByEmail(String email);
 	
 }

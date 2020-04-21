@@ -27,6 +27,19 @@ public class Eneagrama implements Serializable {
 
 	public Eneagrama() {
 	}
+	
+	
+
+	public Eneagrama(int idEneagrama, String descripcion, String quote, int sum, String tipo) {
+		super();
+		this.idEneagrama = idEneagrama;
+		this.descripcion = descripcion;
+		this.quote = quote;
+		this.sum = sum;
+		this.tipo = tipo;
+	}
+
+
 
 	public int getIdEneagrama() {
 		return this.idEneagrama;
