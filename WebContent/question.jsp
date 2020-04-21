@@ -36,17 +36,17 @@
 	rel="stylesheet">
 
 <script type="text/javascript">
-	function preback() {
-		window.history.forward();
-	}
-	setTimeout("preback()", 0);
-	window.onunload = function() {
-		null;
+	
+	function noBackButton(){
+		window.location.hash="no-back-button";
+		window.location.hash="Again-No-back-button" //for chrome
+
+		window.onhashchange=function(){window.location.hash="no-back-button";}
 	}
 </script>
 
 </head>
-<body>
+<body onload="noBackButton();">
 
 
 	<div class="site-wrap">
