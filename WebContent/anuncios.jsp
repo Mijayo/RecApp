@@ -96,12 +96,13 @@
 				</div>
 	
 			</header>
-			<div style="max-width: 100%; min-height: 100vh; border: 1px solid red;">
-				<div style="border: 1px solid yellow; width: 86%; height: 570px; display: flex; 
+			<div style="max-width: 100%; min-height: 100vh; border: 1px solid;">
+				<div class="d-flex flex-wrap justify-content-around" style="border: 1px solid hidden; width: 86%; height: 84vh; 
 				 margin: 100px 0px 0px 80px; ">
+			
 					<c:forEach items="${sessionScope.anuncio}" var="trabajo">
-						<div class="card" style="min-width: 400px; 
-						max-height: 280px; margin: 0px 20px 0px 0px;">
+						<div class="card" style="width: 40%; 
+						height: 40vh; margin: 0px 20px 0px 20px;">
 							<div class="card-body">
 								<h5 class="card-title">${trabajo.cargo }</h5>
 								<p class="card-text">${trabajo.requerimientos }</p>
