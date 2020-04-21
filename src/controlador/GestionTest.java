@@ -49,8 +49,6 @@ public class GestionTest extends HttpServlet {
 		
 		usu = (Usuario) request.getSession().getAttribute("usuario");
 		
-		System.out.println("es este null? " + usu);
-
 		switch (request.getParameter("option")) {
 
 		case "validar":
@@ -64,17 +62,7 @@ public class GestionTest extends HttpServlet {
 			} else {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
-
-			System.out.println("aqui");
-			System.out.println(usu);
-
-			/*
-			 * System.out.println(usu.getNombre());
-			 * System.out.println(usu.getTipoEneagrama());
-			 */
-
-			// request.getRequestDispatcher("index.jsp").forward(request, response);
-
+			
 			break;
 		}
 
