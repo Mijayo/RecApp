@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 /**
- * The persistent class for the ENEAGRAMA database table.
+ * The persistent class for the eneagrama database table.
  * 
  */
 @Entity
@@ -70,6 +70,7 @@ public class Eneagrama implements Serializable {
 	}
 
 public Eneagrama(int idEneagrama, String descripcion, String quote, int sum, String tipo) {
+
 		super();
 		this.idEneagrama = idEneagrama;
 		this.descripcion = descripcion;
@@ -127,9 +128,4 @@ public Eneagrama(int idEneagrama, String descripcion, String quote, int sum, Str
 		return true;
 	}
 	
-	
-	
-	
-
-
 }

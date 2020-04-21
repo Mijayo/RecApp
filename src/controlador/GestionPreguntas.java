@@ -58,6 +58,8 @@ public class GestionPreguntas extends HttpServlet {
 
 		Usuario usu;
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
+
+		
 		usu = (Usuario) request.getSession().getAttribute("usuario");
 		
 		HttpSession sesionQuestion = request.getSession();
@@ -212,7 +214,8 @@ public class GestionPreguntas extends HttpServlet {
 					sesionQuestion.removeAttribute("id");
 					sesionQuestion.removeAttribute("mapa");
 					sesionQuestion.removeAttribute("descTipo");
-					// sesionQuestion.invalidate();
+
+		
 					
 					usu = (Usuario) request.getSession().getAttribute("usuario");
 

@@ -50,7 +50,13 @@
 	
 					<div class="col-6 col-lg-2">
 						<h1 class="mb-0 site-logo">
+<<<<<<< HEAD
 							<a href="index.jsp" class="mb-0">RecApp</a>
+=======
+
+							<a href="index.jsp" class="mb-0">RecApp</a>
+
+>>>>>>> branch '_testUpdated' of https://github.com/Mijayo/RecApp.git
 						</h1>
 					</div>
 					
@@ -84,9 +90,9 @@
 	
 		<div id="id01" class="modal">
 			<span class="close" title="Close Modal"></span>
-	
-			<form class="modal-content" action="Login?option=validar"
-				method="POST">
+
+			<form class="modal-content" action="Login?option=validar" method="POST">
+
 				<div class="container">
 					<p>Rellena los campos</p>
 	
@@ -95,11 +101,13 @@
 					<input type="password" placeholder="password" name="pwd" required>
 				
 					<div class="clearfix">
+
 					
 						<button type="submit" class="signupbtn btn-primary">login</button>
 					<%if(request.getAttribute("estado") != null){ %>
 					<p class= "mt-2 p-3 text-danger text-white float-left"><%=request.getAttribute("estado")%></p>
 					<%}%>
+
 					</div>
 				</div>
 			</form>

@@ -102,7 +102,7 @@
 			
 					<c:forEach items="${sessionScope.anuncio}" var="trabajo">
 						<div class="card" style="width: 40%; 
-						height: 40vh; margin: 0px 20px 0px 20px;">
+						height: 40vh; margin: 0px 0px 0px 20px;">
 							<div class="card-body">
 								<h5 class="card-title">${trabajo.cargo }</h5>
 								<p class="card-text">${trabajo.requerimientos }</p>

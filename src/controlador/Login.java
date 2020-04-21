@@ -52,6 +52,7 @@ public class Login extends HttpServlet {
 		Usuario usu = null;
 		UsuarioDAOImpl udao = new UsuarioDAOImpl();
 
+
 		// request.getSession().setAttribute("usuario", usu);
 		usu = (Usuario) request.getSession().getAttribute("usuario");
 
@@ -61,9 +62,11 @@ public class Login extends HttpServlet {
 
 		int autoIncrement = 0;
 
+
 		switch (request.getParameter("option")) {
 
 		case "validar":
+
 
 			Pattern pattern = Pattern.compile(
 					"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
@@ -87,14 +90,16 @@ if (udao.findByEmail(email) != null) {
 					request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 				}
 
+
 			}
 } else {
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
 
 }
 
-			break;
 
+			break;
+        
 		case "registrar":
 
 			usu = (Usuario) request.getSession().getAttribute("usuario");
@@ -117,6 +122,7 @@ if (udao.findByEmail(email) != null) {
 
 			if (math.find() == true && pwd.length() >= 5) {
 
+
 				if (udao.findByEmail(email) != null) {
 
 					if (udao.findLogin(email, pwd) != null) {
@@ -135,6 +141,7 @@ if (udao.findByEmail(email) != null) {
 
 					udao.insert(usu);
 
+
 					System.out.println("Objeto usuario " + usu);
 
 					Usuario usuPrueba = null;
@@ -150,7 +157,7 @@ if (udao.findByEmail(email) != null) {
 				}
 			} else {
 				
-				request.setAttribute("estado", "El email es invalido o la contraseña muy corta");
+				request.setAttribute("estado", "El email es invalido o la contraseï¿½a muy corta");
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
 
 			}
@@ -185,11 +192,12 @@ if (udao.findByEmail(email) != null) {
 		case "usuario":
 
 			if (usu == null) {
+				
 				request.getRequestDispatcher("registro.jsp").forward(request, response);
-			} else {
+				
+					} else {
 				request.getRequestDispatcher("indexUsu.jsp").forward(request, response);
 			}
-
 			break;
 
 		}
